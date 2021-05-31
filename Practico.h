@@ -1,6 +1,6 @@
-#ifndef PRACTICO
-#define PRACTICO
-#include "clase.h"
+#ifndef PRACTICO_H
+#define PRACTICO_H
+#include "Clase.h"
 
 class Practico : public Clase{
     public:

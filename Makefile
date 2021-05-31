@@ -1,17 +1,17 @@
-main: main.o perfil.o estudiante.o docente.o DtTimeStamp.o DtFecha.o DtLog.o rol.o Participacion.o Practico.o clase.o Asignatura.o AsisteEnVivo.o
-	g++ main.o perfil.o estudiante.o docente.o DtTimeStamp.o DtFecha.o DtLog.o rol.o Participacion.o Practico.o clase.o Asignatura.o AsisteEnVivo.o -g -o sistema
+main: main.o Perfil.o Estudiante.o Docente.o DtTimeStamp.o DtFecha.o DtLog.o Rol.o Participacion.o Practico.o Teorico.o Monitoreo.o Clase.o Asignatura.o AsisteEnVivo.o AsisteDiferido.o 
+	g++ main.o Perfil.o Estudiante.o Docente.o DtTimeStamp.o DtFecha.o DtLog.o Rol.o Participacion.o Practico.o Teorico.o Monitoreo.o Clase.o Asignatura.o AsisteEnVivo.o AsisteDiferido.o -g -o sistema
 	
 main.o: main.cpp
 	g++ -g -c main.cpp
 
-perfil.o: perfil.cpp
-	g++ -g -c perfil.cpp
+Perfil.o: Perfil.cpp
+	g++ -g -c Perfil.cpp
 
-estudiante.o: estudiante.cpp
-	g++ -g -c estudiante.cpp
+Estudiante.o: Estudiante.cpp
+	g++ -g -c Estudiante.cpp
 
-docente.o: docente.cpp
-	g++ -g -c docente.cpp
+Docente.o: Docente.cpp
+	g++ -g -c Docente.cpp
 
 DtTimeStamp.o: DtTimeStamp.cpp
 	g++ -g -c DtTimeStamp.cpp
@@ -22,8 +22,8 @@ DtFecha.o: DtFecha.cpp
 DtLog.o: DtLog.cpp
 	g++ -g -c DtLog.cpp
 
-rol.o: rol.cpp
-	g++ -g -c rol.cpp
+Rol.o: Rol.cpp
+	g++ -g -c Rol.cpp
 
 Participacion.o: Participacion.cpp
 	g++ -g -c Participacion.cpp
@@ -31,14 +31,23 @@ Participacion.o: Participacion.cpp
 Practico.o: Practico.cpp
 	g++ -g -c Practico.cpp
 
-clase.o: clase.cpp
-	g++ -g -c clase.cpp
+Teorico.o: Teorico.cpp
+	g++ -g -c Teorico.cpp
+
+Monitoreo.o: Monitoreo.cpp
+	g++ -g -c Monitoreo.cpp
+
+Clase.o: Clase.cpp
+	g++ -g -c Clase.cpp
 
 Asignatura.o: Asignatura.cpp
 	g++ -g -c Asignatura.cpp
 
 AsisteEnVivo.o: AsisteEnVivo.cpp
 	g++ -g -c AsisteEnVivo.cpp
+
+AsisteDiferido.o: AsisteDiferido.cpp
+	g++ -g -c AsisteDiferido.cpp
 
 clean:
 	rm -rf *.o sistema

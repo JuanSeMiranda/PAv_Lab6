@@ -1,16 +1,20 @@
 #ifndef ASISTEDIFERIDO
 #define ASISTEDIFERIDO
-#define MAX_LOGS 100
-#include "estudiante.h"
+#include "Estudiante.h"
 #include "DtLog.h"
 
+class Estudiante;
+
 class AsisteDiferido{
-	public:
-		DtLog* logs[MAX_LOGS];
-		Estudiante* estudiante;
 	private:
+		list<DtLog*> acceso;
+		Estudiante* estudiante;
+	public:
 		AsisteDiferido();
-		AsisteDiferido(Estudiante* estudiante);	
+		AsisteDiferido(Estudiante*);
+		void setEstudiante(Estudiante*);
+		Estudiante* getEstudiante();
+
 		~AsisteDiferido();
 };
 

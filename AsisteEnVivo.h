@@ -1,9 +1,10 @@
 #ifndef ASISTEENVIVO
 #define ASISTEENVIVO
 
-#include"estudiante.h"
+#include"Estudiante.h"
 #include "DtTimeStamp.h"
 
+class Estudiante;
 
 class AsisteEnVivo{
     private:

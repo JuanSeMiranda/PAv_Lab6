@@ -2,22 +2,23 @@
 #define ASIGNATURA
 #include <string>
 #include <map>
+#include "Clase.h"
 using namespace std;
+
+class Clase;
 
 class Asignatura{
     private:
         string codigo;
         string nombre;
-        map <int, Asignatura> clases; //ni puta idea que hicieron
+        map<int, Clase*> clases;
     public:
         Asignatura();
-        Asignatura(string, string, map<int,Asignatura>);
+        Asignatura(string, string);
         void setCodigo(string);
         void setNombre(string);
-        void setClases(map<int,Asignatura>);//no en cpp
         string getCodigo();
         string getNombre();
-        map<int,Asignatura> getClases();
 
         ~Asignatura();
 };
