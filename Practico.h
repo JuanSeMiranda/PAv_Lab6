@@ -5,7 +5,7 @@
 class Practico : public Clase{
     public:
         Practico();
-        Practico(int, string, DtTimeStamp, DtTimeStamp, string);
+        Practico(int, string, DtTimeStamp, DtTimeStamp, string, Docente*);
         ~Practico();
 };
 

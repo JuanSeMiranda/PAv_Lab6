@@ -1,5 +1,5 @@
-#ifndef ESTUDIANTE
-#define ESTUDIANTE
+#ifndef ESTUDIANTE_H
+#define ESTUDIANTE_H
 #include"Perfil.h"
 #include "Asignatura.h"
 #include <map>

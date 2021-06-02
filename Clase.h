@@ -27,7 +27,7 @@ class Clase{
         list<AsisteDiferido*> asistentesDiferido;
     public:
         Clase();
-        Clase(int, string, DtTimeStamp, DtTimeStamp, string);
+        Clase(int, string, DtTimeStamp, DtTimeStamp, string, Docente*);
         void setId(int);
         int getId();
 
