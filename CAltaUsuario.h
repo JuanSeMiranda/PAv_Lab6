@@ -5,9 +5,17 @@
 
 class CAltaUsuario{
     private:
-        DtPerfil* perfil;
-        TipoPerfil tipo;
-
+        DtPerfil* datosUsuario;
+        TipoPerfil tipoPerfil;
+        string doc;
+        string inst;
+    public:
+        CAltaUsuario();
+        void ingresarDatosPerfil(DtPerfil*);
+        void ingresarEstudiante(string);
+        void ingresarDocente(string);
+        void altaUsuario();
+        ~CAltaUsuario();
 };
 
 #endif
