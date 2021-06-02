@@ -1,7 +1,8 @@
 #OBJS seria una especie de contenedor donde se van a escribir por unica vez todos los archivos objeto
 OBJS = main.o Perfil.o Estudiante.o Docente.o DtTimeStamp.o DtFecha.o DtLog.o \
        Rol.o Participacion.o Practico.o Teorico.o Monitoreo.o Clase.o Asignatura.o \
-	   AsisteEnVivo.o AsisteDiferido.o
+	   AsisteEnVivo.o AsisteDiferido.o CAltaUsuario.o CInicioClase.o \
+	   DtPerfil.o ManejadorPerfil.o
 
 main: $(OBJS)
 	g++ $(OBJS) -g -o sistema

@@ -1,5 +1,5 @@
-#ifndef DTDtPerfil
-#define DTDtPerfil
+#ifndef DTPERFIL
+#define DTPERFIL
 #include <iostream>
 #include <string>
 

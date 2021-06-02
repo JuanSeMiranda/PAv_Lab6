@@ -10,6 +10,7 @@ class ManejadorPerfil{
         map<string, Perfil*> perfiles;
     public:
         void add(Perfil*);
+        Perfil* find(string);
         static ManejadorPerfil* getInstancia();
         //IControlador* getIControlador();
 
