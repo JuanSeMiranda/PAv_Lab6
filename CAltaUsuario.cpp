@@ -1,4 +1,5 @@
 #include "CAltaUsuario.h"
+#include "ManejadorPerfil.h"
 
 CAltaUsuario::CAltaUsuario(){}
 
@@ -28,7 +29,7 @@ void CAltaUsuario::altaUsuario(){
        Docente* d=new Docente(datosUsuario->getNombre(), datosUsuario->getImagen_url(),
                               datosUsuario->getEmail(), datosUsuario->getPassword(), inst);
        mP->add(d);
-   }  
+   }
 }
 
 CAltaUsuario::~CAltaUsuario(){}

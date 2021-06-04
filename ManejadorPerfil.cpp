@@ -1,5 +1,7 @@
 #include "ManejadorPerfil.h"
 
+ManejadorPerfil::ManejadorPerfil(){}
+
 ManejadorPerfil* ManejadorPerfil::instancia = NULL;
 
 void ManejadorPerfil::add(Perfil* perfil){
@@ -14,7 +16,7 @@ Perfil* ManejadorPerfil::find(string email){
 
 ManejadorPerfil* ManejadorPerfil::getInstancia(){
     if(instancia == NULL){
-        instancia = new ManejadorPerfil;
+        instancia = new ManejadorPerfil();
     }
     return instancia;
 }
