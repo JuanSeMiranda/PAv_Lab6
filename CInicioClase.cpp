@@ -1,5 +1,10 @@
 #include "CInicioClase.h"
+#include "ManejadorPerfil.h"
 
-/*implementar la funcion que pide el lab
-    ManejadorPerfil* mP= ManejadorPerfil::getInstancia();
-    Perfil* doc=mP->find(email);*/
+CInicioClase::CInicioClase(){}
+
+CInicioClase::~CInicioClase(){}
+
+/*
+ManejadorPerfil* mP= ManejadorPerfil::getInstancia();
+Perfil* doc=mP->find(email);*/
