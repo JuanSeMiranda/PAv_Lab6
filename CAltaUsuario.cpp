@@ -33,3 +33,12 @@ void CAltaUsuario::altaUsuario(){
 }
 
 CAltaUsuario::~CAltaUsuario(){}
+
+bool CAltaUsuario::existeUsuario(string email){
+    ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
+    return mP->existePerfil(email);
+}
+
+void CAltaUsuario::cancelar(){
+    delete datosUsuario;//si no la gana la empata - chancla
+}

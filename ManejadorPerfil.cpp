@@ -21,4 +21,9 @@ ManejadorPerfil* ManejadorPerfil::getInstancia(){
     return instancia;
 }
 
+bool ManejadorPerfil :: existePerfil(string email){
+    map<string, Perfil*>::iterator it;
+    return this->perfiles.find(email) != this->perfiles.end();
+}
+
 ManejadorPerfil::~ManejadorPerfil(){}

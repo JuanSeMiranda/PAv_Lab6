@@ -12,6 +12,7 @@ class ManejadorPerfil{
         void add(Perfil*);
         Perfil* find(string);
         static ManejadorPerfil* getInstancia();
+        bool existePerfil(string);
         //IControlador* getIControlador();
 
         ~ManejadorPerfil();

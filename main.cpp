@@ -44,12 +44,21 @@ void menuAltaUsuario(){
 	while(seguirIngresandoUsuario){
 		cout << "Ingrese su nombre: ";
 		cin >> nombre;
+
 		cout << "Ingrese el URL de su imagen: ";
 		cin >> imagen_url;
+
 		cout << "Ingrese su email: ";
 		cin >> email;
+
+		while(icaltausuario->existeUsuario(email)){
+			cout << "Email ya ingresado, coloque otro email: ";
+			cin >> email;
+		}
+		
 		cout << "Ingrese su password: ";
 		cin >> password;
+		
 		DtPerfil* datosperfil = new DtPerfil(nombre, imagen_url, email, password);
 		icaltausuario->ingresarDatosPerfil(datosperfil);
 
@@ -58,16 +67,17 @@ void menuAltaUsuario(){
 		bool terminarTipoPerfil = false;
 		
 		while(!terminarTipoPerfil){
+			cin >> opcionTipoPerfil;
             switch(opcionTipoPerfil){
 				case 0: tipoPerfil = ESTUDIANTE;
 						terminarTipoPerfil = true;
-						cout << "Ingrese su documento:";
+						cout << "Ingrese su documento: ";
 						cin >> doc;
 						icaltausuario->ingresarEstudiante(doc);
 						break;
 				case 1: tipoPerfil = DOCENTE;
 						terminarTipoPerfil = true;
-						cout << "Ingrese su instituto:";
+						cout << "Ingrese su instituto: ";
 						cin >> inst;
 						icaltausuario->ingresarDocente(inst);
 						break;
@@ -81,23 +91,19 @@ void menuAltaUsuario(){
 		
 		if(opcionUsuario==0){
 		    icaltausuario->altaUsuario();
-            cout << "Usuario creado con exito." << endl; // <-- Tan re cocos. - ahora ya no crotolamo@dalto.com, uxiono, permatrago
+            cout << "Usuario creado con exito." << endl;
         } else {
-			
+			icaltausuario->cancelar();
 		}
 
-		cout << "Desea seguir agregando usuarios?" << endl;
+		cout << "Desea seguir agregando usuarios? (0 para seguir agregando, cualquier otro numero para cancelar)" << endl;
 		int opcionSeguirAgregando;
 		cin >> opcionSeguirAgregando;
-		if(opcionSeguirAgregando == 0){
-			
-		} else if (opcionSeguirAgregando == 1){
+
+		if(opcionSeguirAgregando != 0){
 			seguirIngresandoUsuario = false;
 		}
-
-
 	}
-    		
 }
 
 

@@ -22,6 +22,9 @@ class CAltaUsuario : public ICAltaUsuario{
         void ingresarDocente(string);
         void altaUsuario();
         ~CAltaUsuario();
+
+        bool existeUsuario(string);
+        void cancelar();
 };
 
 #endif

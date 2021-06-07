@@ -8,6 +8,9 @@ class ICAltaUsuario{
         virtual void ingresarDocente(string)=0;
         virtual void ingresarEstudiante(string)=0;
         virtual void altaUsuario()=0;
+        virtual bool existeUsuario(string)=0;
+
+        virtual void cancelar()=0;
 };
 
 #endif
