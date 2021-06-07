@@ -29,7 +29,7 @@ void menu(){
     cout << "8. Listado de Clases" << endl;
     cout << "9. Salir" << endl;
 }
-
+// 1 ALTA USUARIO
 void menuAltaUsuario(){
 	bool seguirIngresandoUsuario = true;
 

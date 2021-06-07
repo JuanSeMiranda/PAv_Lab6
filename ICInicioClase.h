@@ -1,14 +1,15 @@
 #ifndef ICALTAUSUARIO
 #define ICALTAUSUARIO
-#include "DtPerfil.h"
+#include "Perfil.h" // lo necesita?
 
 class ICInicioClase{
     public:
-        virtual void ingresarDatosPerfil(DtPerfil*)=0;
-        virtual void ingresarEstudiante(string)=0;
-        virtual void ingresarDocente(string)=0;
-        virtual void altaUsuario()=0;
-        virtual void cancelar()=0;
+        virtual string* asignaturasAsignadas()=0;
+        virtual bool selectAsignatura(DtIniciarClase*)=0;
+        virtual string* inscriptosAsignaturas()=0;
+        virtual void habilitar(string)=0;
+        virtual DtIniciarClaseFull datosIngresados()=0;
+        virtual void iniciarClase()=0;
 };
 
 #endif

@@ -3,6 +3,7 @@
 #include <string>
 #include "DtIniciarClaseFull.h"
 #include "ICInicioClase.h"
+#include "ManejadorClase.h"
 
 using namespace std;
 
