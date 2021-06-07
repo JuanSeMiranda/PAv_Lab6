@@ -1,6 +1,6 @@
 #include "Fabrica.h"
 
-CAltaUsuario* Fabrica::getCAltaUsuario(){
+ICAltaUsuario* Fabrica::getCAltaUsuario(){
     CAltaUsuario* cau = new CAltaUsuario();
     return cau;
 }

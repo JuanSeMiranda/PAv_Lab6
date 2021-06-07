@@ -4,7 +4,7 @@
 
 class Fabrica{
     public:
-        CAltaUsuario* getCAltaUsuario();
+        ICAltaUsuario* getCAltaUsuario();
 };
 
 #endif
