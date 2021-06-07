@@ -31,13 +31,17 @@ void menu(){
 }
 
 void menuAltaUsuario(){
-	bool seguirIngreasandoUsuario = true;
+	bool seguirIngresandoUsuario = true;
+
 	string nombre;
 	string imagen_url;
 	string email;
 	string password;
+	TipoPerfil tipoPerfil;
+	string doc;
+	string inst;
 
-	while(seguirIngreasandoUsuario){
+	while(seguirIngresandoUsuario){
 		cout << "Ingrese su nombre: ";
 		cin >> nombre;
 		cout << "Ingrese el URL de su imagen: ";
@@ -48,13 +52,54 @@ void menuAltaUsuario(){
 		cin >> password;
 		DtPerfil* datosperfil = new DtPerfil(nombre, imagen_url, email, password);
 		icaltausuario->ingresarDatosPerfil(datosperfil);
+
+		cout << "Usted es un estudiante o docente? (0 es estudiante, 1 es docente)" << endl;
+		int opcionTipoPerfil;
+		bool terminarTipoPerfil = false;
 		
+		while(!terminarTipoPerfil){
+            switch(opcionTipoPerfil){
+				case 0: tipoPerfil = ESTUDIANTE;
+						terminarTipoPerfil = true;
+						cout << "Ingrese su documento:";
+						cin >> doc;
+						icaltausuario->ingresarEstudiante(doc);
+						break;
+				case 1: tipoPerfil = DOCENTE;
+						terminarTipoPerfil = true;
+						cout << "Ingrese su instituto:";
+						cin >> inst;
+						icaltausuario->ingresarDocente(inst);
+						break;
+				default: cout << "Opcion invalida." << endl;
+						break;
+			}
+		}
+		cout << "Desea confirmar el ingreso? (0 para confirmar, 1 para cancelar)" << endl;
+		int opcionUsuario;
+		cin >> opcionUsuario;
+		
+		if(opcionUsuario==0){
+		    icaltausuario->altaUsuario();
+            cout << "Usuario creado con exito." << endl; // <-- Tan re cocos. - ahora ya no crotolamo@dalto.com, uxiono, permatrago
+        } else {
+			
+		}
 
-    	cout << "holi" << endl;// <-- Tan re cocos.
+		cout << "Desea seguir agregando usuarios?" << endl;
+		int opcionSeguirAgregando;
+		cin >> opcionSeguirAgregando;
+		if(opcionSeguirAgregando == 0){
+			
+		} else if (opcionSeguirAgregando == 1){
+			seguirIngresandoUsuario = false;
+		}
+
+
 	}
-
-	
+    		
 }
+
 
 int main(){
 
