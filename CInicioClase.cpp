@@ -1,5 +1,6 @@
 #include "CInicioClase.h"
 #include "ManejadorPerfil.h"
+#include "ManejadorClase.h"
 
 CInicioClase::CInicioClase(){}
 

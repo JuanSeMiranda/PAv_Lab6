@@ -22,5 +22,4 @@ class CInicioClase : public ICInicioClase{
         ~CInicioClase();
 };
 
-
 #endif

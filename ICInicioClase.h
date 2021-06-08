@@ -1,6 +1,6 @@
-#ifndef ICALTAUSUARIO
-#define ICALTAUSUARIO
-#include "Perfil.h" // lo necesita?
+#ifndef ICINICIOCLASE
+#define ICINICIOCLASE
+#include "DtPerfil.h" // lo necesita?
 
 class ICInicioClase{
     public:

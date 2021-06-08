@@ -8,9 +8,8 @@ void ManejadorClase::add(Clase* clase){
     // ITERAR CON LISTAS
 }
 
-Clase* ManejadorClase::find(string clase){
-
-}//PODER: CHANCLETAZO
+Clase* ManejadorClase::find(string clase){}
+//PODER: CHANCLETAZO
 //Nivel: 9999999
 
 ManejadorClase* ManejadorClase::getInstancia(){
@@ -20,8 +19,6 @@ ManejadorClase* ManejadorClase::getInstancia(){
     return instancia;
 }
 
-bool ManejadorClase::existeClase(string clase){
-
-}
+bool ManejadorClase::existeClase(string clase){}
 
 ManejadorClase::~ManejadorClase(){}
