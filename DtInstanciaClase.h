@@ -1,6 +1,10 @@
 #ifndef INSTANCIACLSE
 #define INSTANCIACLSE
 
+#include <iostream>
+
+using namespace std;
+
 class DtInstanciaClase{
     private:
         bool teorico;
@@ -13,6 +17,8 @@ class DtInstanciaClase{
         bool getPractico();
         bool getMonitoreo();
         ~DtInstanciaClase();
+
+        friend ostream& operator << (iostream&, DtInstanciaClase&);
 
 };
 

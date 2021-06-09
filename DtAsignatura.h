@@ -2,20 +2,24 @@
 #define DTASIGNATURA
 #include "DtInstanciaClase.h"
 #include <string>
+#include <iostream>
 
 using namespace std;
 
 class DtAsignatura{
-    public:
+    private:
         string nombre;
         string codigo;
-        DtInstanciaClase tipoClases;
-    private:
+        DtInstanciaClase* tipoClases;
+    public:
         DtAsignatura();
-        DtAsignatura(string, string, DtInstanciaClase);
+        DtAsignatura(string, string, DtInstanciaClase*);
         string getNombre();
         string getCodigo();
-        DtInstanciaClase getTipoClases();
+        DtInstanciaClase* getTipoClases();
         ~DtAsignatura();
+
+        friend ostream& operator << (iostream&, const DtAsignatura*&);
+
 };
 #endif

@@ -19,3 +19,25 @@ bool DtInstanciaClase:: getMonitoreo(){
 }
 
 DtInstanciaClase::~DtInstanciaClase(){}
+
+ostream& operator << (iostream& salida, DtInstanciaClase& instanciaClase){
+    if(instanciaClase.teorico){
+        cout << "Teorico: Habilitado" << endl;
+    } else{
+        cout << "Teorico: No Habilitado" << endl;
+    }
+    
+    if(instanciaClase.practico){
+        cout << "Practico: Habilitado" << endl;
+    } else{
+        cout << "Practico: No Habilitado" << endl;
+    }
+
+    if(instanciaClase.monitoreo){
+        cout << "Monitoreo: Habilitado" << endl;
+    } else{
+        cout << "Monitoreo: No Habilitado" << endl;
+    }
+
+    return salida;
+}

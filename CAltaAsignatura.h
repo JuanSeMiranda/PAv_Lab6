@@ -5,11 +5,16 @@
 
 class CAltaAsignatura : public ICAltaAsignatura{
     private:
-    DtAsignatura* datosAsignatura;
+        DtAsignatura* datosAsignatura;
     public:
-        void ingresar();
+        CAltaAsignatura();
+        DtAsignatura* ingresar(DtAsignatura*);
         void altaAsignatura();
         void cancelar();
+
+        bool existeAsignatura(string);
+        
+        ~CAltaAsignatura();
 };
 
 #endif
