@@ -3,6 +3,7 @@
 
 //Interfaces
 #include "ICAltaUsuario.h"
+#include "ICAltaAsignatura.h"
 
 // DT's
 #include "DtPerfil.h"
@@ -12,6 +13,7 @@
 
 Fabrica* fab;
 ICAltaUsuario* icaltausuario;
+ICAltaAsignatura* icalta_asignatura;
 
 
 
