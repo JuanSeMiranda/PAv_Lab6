@@ -4,7 +4,11 @@
 
 CInicioClase::CInicioClase(){}
 
-string* CInicioClase::asignaturasAsignadas(){}
+string* CInicioClase::asignaturasAsignadas(){
+    Sesion* sesion = Sesion::getInstancia();
+    Perfil* docnt = sesion->getPerfil();
+    //aiuuuda
+}
 
 bool CInicioClase::selectAsignatura(DtIniciarClase*){}
 

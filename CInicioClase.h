@@ -4,6 +4,7 @@
 #include "DtIniciarClaseFull.h"
 #include "ICInicioClase.h"
 #include "ManejadorClase.h"
+#include "Sesion.h"
 
 using namespace std;
 

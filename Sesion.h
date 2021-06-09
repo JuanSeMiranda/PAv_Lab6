@@ -9,6 +9,8 @@ class Sesion{ // creo que le faltan cosas
         Perfil* perfil;
     public:
         static Sesion* getInstancia();
+        Perfil* getPerfil();
+        void setPerfil(Perfil*);
         ~Sesion();
 };
 

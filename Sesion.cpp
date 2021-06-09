@@ -11,4 +11,15 @@ Sesion* Sesion::getInstancia(){
     return instancia;
 }
 
+Perfil* Sesion::getPerfil(){
+    return this->perfil;
+}
+
+void Sesion::setPerfil(Perfil* perfil){
+    if(this->perfil == NULL)
+        this->perfil = perfil;
+    else
+        cout << "ya existe un perfil asociado" << endl;
+}
+
 Sesion::~Sesion(){}
