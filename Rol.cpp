@@ -22,4 +22,8 @@ void Rol::setAsignatura(Asignatura* asignatura){
     this->asignatura = asignatura;
 }
 
+string Rol::getCodigoAsignatura(){
+    return this->asignatura->getCodigo();
+}
+
 Rol::~Rol(){}

@@ -17,6 +17,8 @@ class Rol{
         Asignatura* getAsignatura();
         void setAsignatura(Asignatura* asignatura);
 
+        string getCodigoAsignatura();
+
         ~Rol();
 };
 

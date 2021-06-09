@@ -16,6 +16,8 @@ class Docente : public Perfil{
         void setInstituto(string);
         string getInstituto();
 
+        list<string> asignaturas();
+
         ~Docente();
 };
 

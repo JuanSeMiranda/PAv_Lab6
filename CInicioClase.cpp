@@ -1,27 +1,19 @@
 #include "CInicioClase.h"
 #include "ManejadorPerfil.h"
-#include "ManejadorClase.h"
 
 CInicioClase::CInicioClase(){}
 
-string* CInicioClase::asignaturasAsignadas(){
-    Sesion* sesion = Sesion::getInstancia();
-    Perfil* docnt = sesion->getPerfil();
-    //aiuuuda
+list<string> CInicioClase::asignaturasAsignadas(string email){
+    ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
+    Perfil* p = mP->find(email);
+    Docente* d = dynamic_cast<Docente*>(p);
+    list<string> asign = d->asignaturas();
+    return asign;
 }
-
-bool CInicioClase::selectAsignatura(DtIniciarClase*){}
-
+bool CInicioClase::selectAsignatura(DtIniciarClase* ic){}
 string* CInicioClase::inscriptosAsignaturas(){}
-
-void CInicioClase::habilitar(string){}
-
+void CInicioClase::habilitar(string algo){}
 DtIniciarClaseFull CInicioClase::datosIngresados(){}
-
 void CInicioClase::iniciarClase(){}
-
 CInicioClase::~CInicioClase(){}
 
-/*
-ManejadorPerfil* mP= ManejadorPerfil::getInstancia();
-Perfil* doc=mP->find(email);*/

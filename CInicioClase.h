@@ -4,7 +4,6 @@
 #include "DtIniciarClaseFull.h"
 #include "ICInicioClase.h"
 #include "ManejadorClase.h"
-#include "Sesion.h"
 
 using namespace std;
 
@@ -14,7 +13,7 @@ class CInicioClase : public ICInicioClase{
         string email;
     public:
         CInicioClase();
-        string* asignaturasAsignadas();
+        list<string> asignaturasAsignadas(string);
         bool selectAsignatura(DtIniciarClase*);
         string* inscriptosAsignaturas();
         void habilitar(string);
