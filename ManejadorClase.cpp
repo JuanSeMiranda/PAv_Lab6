@@ -5,12 +5,14 @@ ManejadorClase* ManejadorClase::instancia = NULL;
 ManejadorClase::ManejadorClase(){}
 
 void ManejadorClase::add(Clase* clase){
-    // ITERAR CON LISTAS
+    clases.insert(std::pair<int, Clase*>(clase->getId(), clase));
 }
 
-Clase* ManejadorClase::find(string clase){}
-//PODER: CHANCLETAZO
-//Nivel: 9999999
+Clase* ManejadorClase::find(int id){ // cambie el argumento que era un string por un int, ya que al usar map las clases se identifican por la id
+    map<int, Clase*>::iterator it;
+    it = clases.find(id);
+    return it->second;
+}
 
 ManejadorClase* ManejadorClase::getInstancia(){
     if(instancia == NULL){
@@ -19,6 +21,9 @@ ManejadorClase* ManejadorClase::getInstancia(){
     return instancia;
 }
 
-bool ManejadorClase::existeClase(string clase){}
+bool ManejadorClase::existeClase(int id){ // cambie el argumento que era un string por un int, ya que al usar map las clases se identifican por la id
+    map<int, Clase*>::iterator it;
+    return this->clases.find(id) != this->clases.end();
+}
 
 ManejadorClase::~ManejadorClase(){}

@@ -2,17 +2,19 @@
 #define MANEJADORCLASE
 #include "Clase.h"
 #include <list>
+#include <map>
 
 class ManejadorClase{
     private:
         static ManejadorClase* instancia;
         ManejadorClase();
-        list <Clase*> clases;
+        //list <Clase*> clases; // cual hay que usar aca, list o map?
+        map<int, Clase*> clases;
     public:
         void add(Clase*);
-        Clase* find(string);
+        Clase* find(int);// cambie el argumento que era un string por un int
         static ManejadorClase* getInstancia();
-        bool existeClase(string);
+        bool existeClase(int);// cambie el argumento que era un string por un int
         //IControlador* getIControlador();
 
         ~ManejadorClase();
