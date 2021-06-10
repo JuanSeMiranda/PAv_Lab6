@@ -5,18 +5,12 @@ CInicioClase::CInicioClase(){}
 
 string* CInicioClase::asignaturasAsignadas(){}
 
-bool CInicioClase::selectAsignatura(DtIniciarClase*){}
+bool CInicioClase::selectAsignatura(DtIniciarClase* ic){}
 
 string* CInicioClase::inscriptosAsignaturas(){}
 
-void CInicioClase::habilitar(string){}
+void CInicioClase::habilitar(string algo){}
 
 DtIniciarClaseFull CInicioClase::datosIngresados(){}
 
 void CInicioClase::iniciarClase(){}
-
-CInicioClase::~CInicioClase(){}
-
-/*
-ManejadorPerfil* mP= ManejadorPerfil::getInstancia();
-Perfil* doc=mP->find(email);*/
