@@ -1,5 +1,6 @@
 #define RESET   "\033[0m"
 #define GREEN   "\033[32m"      /* Green */
+#define RED     "\033[31m"      /* Red */
 
 //Fabrica
 #include "Fabrica.h"
@@ -28,7 +29,7 @@ void menu(){
 	cout <<GREEN<< "2 ➢ Alta de asignatura"<<RESET << endl;
     cout << "3 ➢ Asignacion de docentes a una asignatura:" << endl;
     cout << "4 ➢ Inscripcion a las asignaturas" << endl;
-    cout << "5 ➢Inicio de clase" << endl;
+    cout << "5 ➢ Inicio de clase" << endl;
     cout << "6 ➢ Asistencia a clase en vivo" << endl;
     cout << "7 ➢ Envio de mensaje" << endl;
     cout << "8 ➢ Eliminacion de asignatura" << endl;
@@ -173,7 +174,7 @@ void menuAltaAsignatura(){
 	DtAsignatura* dta = new DtAsignatura(nombre, codigo, dtic);
 	icalta_asignatura->ingresar(dta);
 
-	cout << dta << endl;
+	cout << *dta << endl;
 	int opcionAsignatura;
 
 	cout << "Desea dar de alta la Asignatura ingresada? (1 para si, cualquier otro numero para no)" << endl;
