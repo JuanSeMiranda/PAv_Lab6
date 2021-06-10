@@ -14,4 +14,8 @@ int Teorico::getCantAsistentes(){
     return this->cantAsistentes;
 }
 
+void Teorico::create(Clase* clase){
+    
+}
+
 Teorico::~Teorico(){}

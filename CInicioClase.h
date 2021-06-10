@@ -4,6 +4,7 @@
 #include "DtIniciarClaseFull.h"
 #include "ICInicioClase.h"
 #include "ManejadorClase.h"
+#include "ManejadorPerfil.h"
 
 using namespace std;
 

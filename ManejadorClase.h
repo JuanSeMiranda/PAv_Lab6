@@ -8,13 +8,12 @@ class ManejadorClase{
     private:
         static ManejadorClase* instancia;
         ManejadorClase();
-        //list <Clase*> clases; // cual hay que usar aca, list o map?
         map<int, Clase*> clases;
     public:
         void add(Clase*);
-        Clase* find(int);// cambie el argumento que era un string por un int
+        Clase* find(int);
         static ManejadorClase* getInstancia();
-        bool existeClase(int);// cambie el argumento que era un string por un int
+        bool existeClase(int);
         //IControlador* getIControlador();
 
         ~ManejadorClase();

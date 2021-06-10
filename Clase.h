@@ -43,6 +43,8 @@ class Clase{
         void setRutaVideo(string);
         string getRutaVideo();
 
+        void create();
+
         virtual ~Clase();
 };
 
