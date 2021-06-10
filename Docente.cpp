@@ -24,4 +24,17 @@ list<string> Docente::asignaturas(){
     return retorno;
 }
 
+bool Docente::tieneMonitoreo(string codigo){
+    bool retorno = false;
+    list<Rol*>:: iterator it;
+    for(it= this->roles.begin(); it!=this->roles.end(); it++){
+        string cod = (*it)->getCodigoAsignatura();
+        if(cod == codigo){
+            if((*it)->getTipo() == MONITOREO)
+                retorno = true;
+        }
+    }
+    return retorno;
+}
+
 Docente::~Docente(){}

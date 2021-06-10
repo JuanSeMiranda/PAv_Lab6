@@ -6,11 +6,11 @@ Rol::Rol(TipoRol tipo){
     this->tipo = tipo;
 }
 
-TipoRol Rol::getRol(){
+TipoRol Rol::getTipo(){
     return this->tipo;
 }
 
-void Rol::setRol(TipoRol tipo){
+void Rol::setTipo(TipoRol tipo){
     this->tipo = tipo;
 }
 

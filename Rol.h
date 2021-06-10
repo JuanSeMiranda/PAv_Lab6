@@ -12,8 +12,8 @@ class Rol{
     public:
         Rol();
         Rol(TipoRol);
-        TipoRol getRol();
-        void setRol(TipoRol);
+        TipoRol getTipo();
+        void setTipo(TipoRol);
         Asignatura* getAsignatura();
         void setAsignatura(Asignatura* asignatura);
 

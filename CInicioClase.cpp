@@ -10,7 +10,15 @@ list<string> CInicioClase::asignaturasAsignadas(string email){
     list<string> asign = d->asignaturas();
     return asign;
 }
-bool CInicioClase::selectAsignatura(DtIniciarClase* ic){}
+
+bool CInicioClase::selectAsignatura(DtIniciarClase* ic, string email){
+    ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
+    Perfil* p = mP->find(email);
+    Docente* d = dynamic_cast<Docente*>(p);
+
+    return d->tieneMonitoreo(ic->getCodigo());
+}
+
 string* CInicioClase::inscriptosAsignaturas(){}
 void CInicioClase::habilitar(string algo){}
 DtIniciarClaseFull CInicioClase::datosIngresados(){}
