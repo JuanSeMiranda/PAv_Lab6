@@ -26,9 +26,10 @@ bool ManejadorAsignatura::existeAsignatura(string codigo){
 }
 
 list<string> ManejadorAsignatura::listarAsignatura(){
-    //Crear una lista
-    //Iterar en el map y agregar los cod en la lista
-    //Retornar la lista.
+    list<string> aux;
+    for(map<string,Asignatura*>::iterator it = this->asignaturas.begin(); it != this->asignaturas.end(); it++)
+        aux.push_back(it->first);
+    return aux;
 }
 
 ManejadorAsignatura::~ManejadorAsignatura(){}
