@@ -31,7 +31,7 @@ map<string, Perfil*> ManejadorPerfil::listarPerfiles(){
     map<string, Perfil*> retorno;
 
     for(it= this->perfiles.begin(); it!=this->perfiles.end(); it++){
-        //como hago para insetar los perfiles en retorno?
+        retorno.insert(std::pair<string, Perfil*>(it->first, it->second));
     }
     return retorno;
 }

@@ -11,6 +11,7 @@ list<string> CInicioClase::asignaturasAsignadas(string email){
 }
 
 bool CInicioClase::selectAsignatura(DtIniciarClase* ic, string email){
+    this->inicioClase = ic;
     ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
     Perfil* p = mP->find(email);
     Docente* d = dynamic_cast<Docente*>(p);
@@ -21,15 +22,19 @@ bool CInicioClase::selectAsignatura(DtIniciarClase* ic, string email){
 list<string> CInicioClase::inscriptosAsignaturas(){
     ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
     map<string, Perfil*>:: iterator it;
+    map<string, Perfil*> listaP = mP->listarPerfiles();
     list<string> retorno;
 
+    for(it = listaP.begin(); it != listaP.end(); it++){
+        if(Estudiante* estudiante = dynamic_cast<Estudiante*>(it->second)){
+            if(estudiante->estaInscripto(this->inicioClase->getCodigo())){
+                this->email = estudiante->getEmail();
+            }
+        }
+        retorno.push_back(it->first);
+    }
+
     
-    /*map<string, Perfil*> listaP = mP->listarPerfiles();
-    
-    for(it= listaP.begin(); it!=listaP.end(); it++){
-        //como hago para acceder al perfil actual en el loop?
-        if(dynamic_cast(it))
-    }*/
     return retorno;
 }
 

@@ -20,7 +20,7 @@ class Estudiante : public Perfil{
         void setDocumento(string);
         string getDocumento();
         list<string> getAsignaturas();
-        bool estaInscripto(string codigo)
+        bool estaInscripto(string);
 
         ~Estudiante();
 };
