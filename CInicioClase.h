@@ -16,7 +16,7 @@ class CInicioClase : public ICInicioClase{
         CInicioClase();
         list<string> asignaturasAsignadas(string);
         bool selectAsignatura(DtIniciarClase*, string);
-        string* inscriptosAsignaturas();
+        list<string> inscriptosAsignaturas();
         void habilitar(string);
         DtIniciarClaseFull datosIngresados();
         void iniciarClase();

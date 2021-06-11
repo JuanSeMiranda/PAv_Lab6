@@ -18,14 +18,19 @@ bool CInicioClase::selectAsignatura(DtIniciarClase* ic, string email){
     return d->tieneMonitoreo(ic->getCodigo());
 }
 
-string* CInicioClase::inscriptosAsignaturas(){
+list<string> CInicioClase::inscriptosAsignaturas(){
     ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
     map<string, Perfil*>:: iterator it;
-    map<string, Perfil*> listaP = mP->listarPerfiles();
+    list<string> retorno;
+
+    
+    /*map<string, Perfil*> listaP = mP->listarPerfiles();
     
     for(it= listaP.begin(); it!=listaP.end(); it++){
         //como hago para acceder al perfil actual en el loop?
-    }
+        if(dynamic_cast(it))
+    }*/
+    return retorno;
 }
 
 void CInicioClase::habilitar(string email){
