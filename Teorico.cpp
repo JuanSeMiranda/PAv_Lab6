@@ -14,8 +14,6 @@ int Teorico::getCantAsistentes(){
     return this->cantAsistentes;
 }
 
-void Teorico::create(Clase* clase){
-    
-}
+void Teorico::create(int id, string nombre, DtTimeStamp fechaHora, Docente* docente, string codigo){}
 
 Teorico::~Teorico(){}

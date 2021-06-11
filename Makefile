@@ -3,7 +3,7 @@ OBJS = main.o Perfil.o Estudiante.o Docente.o DtTimeStamp.o DtFecha.o DtLog.o \
        Rol.o Participacion.o Practico.o Teorico.o Monitoreo.o Clase.o Asignatura.o \
 	   AsisteEnVivo.o AsisteDiferido.o CAltaUsuario.o CInicioClase.o \
 	   DtPerfil.o ManejadorPerfil.o ManejadorClase.o Fabrica.o DtIniciarClase.o \
-	   DtIniciarClaseFull.o DtIniciarMonitoreo.o
+	   DtIniciarClaseFull.o DtIniciarMonitoreo.o CInscripcionAsignatura.o ManejadorAsignatura.o
 
 main: $(OBJS)
 	g++ $(OBJS) -g -o sistema

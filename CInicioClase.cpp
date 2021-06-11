@@ -19,11 +19,13 @@ bool CInicioClase::selectAsignatura(DtIniciarClase* ic, string email){
 }
 
 string* CInicioClase::inscriptosAsignaturas(){
-    /*ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
+    ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
     map<string, Perfil*>:: iterator it;
-    for(it= mP->perfiles.begin(); it!=mP->perfiles.end(); it++){
-
-    }*/
+    map<string, Perfil*> listaP = mP->listarPerfiles();
+    
+    for(it= listaP.begin(); it!=listaP.end(); it++){
+        //como hago para acceder al perfil actual en el loop?
+    }
 }
 
 void CInicioClase::habilitar(string email){
@@ -34,12 +36,11 @@ void CInicioClase::habilitar(string email){
 
 DtIniciarClaseFull CInicioClase::datosIngresados(){
     //como accedo a el int id de DtIniciarClaseFull?
-    
 }
 
 void CInicioClase::iniciarClase(){
     ManejadorClase* mC = ManejadorClase::getInstancia();
-    //creo la clase c 
+    //creo la clase c , como hay que hacer?
     //agrego la clase con mC->add(c)
     //hago un mC->find(DtIniciarClaseFull->getCodigo())
     //implemento la funcion agregarClase(Clase*) en Asignatura.h en le paso como parametro a c

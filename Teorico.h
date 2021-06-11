@@ -10,7 +10,7 @@ class Teorico : public Clase{
         Teorico(int, int, string, DtTimeStamp, DtTimeStamp, string, Docente*);
         void setCantAsistentes(int);
         int getCantAsistentes();
-        void create(Clase*);
+        void create(int, string, DtTimeStamp, Docente* , string);
 
         ~Teorico();
 };

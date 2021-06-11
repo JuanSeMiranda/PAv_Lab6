@@ -26,6 +26,14 @@ bool ManejadorPerfil::existePerfil(string email){
     return this->perfiles.find(email) != this->perfiles.end();
 }
 
-map<string, Perfil*> ManejadorPerfil::listarPerfiles(){}
+map<string, Perfil*> ManejadorPerfil::listarPerfiles(){
+    map<string, Perfil*>:: iterator it;
+    map<string, Perfil*> retorno;
+
+    for(it= this->perfiles.begin(); it!=this->perfiles.end(); it++){
+        //como hago para insetar los perfiles en retorno?
+    }
+    return retorno;
+}
 
 ManejadorPerfil::~ManejadorPerfil(){}

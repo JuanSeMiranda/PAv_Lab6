@@ -12,4 +12,14 @@ string Estudiante:: getDocumento(){
     return this->documento;
 }
 
+list<string> Estudiante::getAsignaturas(){
+    list<Asignatura*>:: iterator it;
+    list<string> retorno;
+    for(it= this->asignaturas.begin(); it!=this->asignaturas.end(); it++){
+        string cod = (*it)->getCodigo();
+        retorno.push_back(cod);
+    }
+    return retorno;
+}
+
 Estudiante::~Estudiante(){}

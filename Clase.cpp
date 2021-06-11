@@ -50,8 +50,4 @@ string Clase::getRutaVideo(){
     return this->rutaVideo;
 }
 
-void create(){
-    
-}
-
 Clase::~Clase(){}
