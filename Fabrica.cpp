@@ -10,3 +10,8 @@ ICAltaAsignatura* Fabrica::getCAltaAsignatura(){
     return caa;
 }
 
+ICEnvioDeMensaje* Fabrica:: getCEnvioDeMensaje(){
+    CEnvioDeMensaje* cem = new CEnvioDeMensaje();
+    return cem;
+}
+

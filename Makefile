@@ -4,6 +4,7 @@ OBJS = main.o Perfil.o Estudiante.o Docente.o DtTimeStamp.o DtFecha.o DtLog.o \
 	   AsisteEnVivo.o AsisteDiferido.o CAltaUsuario.o CInicioClase.o \
 	   DtPerfil.o ManejadorPerfil.o Fabrica.o DtIniciarClase.o DtIniciarClaseFull.o \
 	   DtAsignatura.o DtInstanciaClase.o ManejadorAsignatura.o CAltaAsignatura.o \
+	   DtParticipacion.o CEnvioDeMensaje.o
 
 main: $(OBJS)
 	g++ $(OBJS) -g -o sistema

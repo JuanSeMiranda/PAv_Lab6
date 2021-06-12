@@ -8,17 +8,19 @@
 //Interfaces
 #include "ICAltaUsuario.h"
 #include "ICAltaAsignatura.h"
+#include "ICEnvioDeMensaje.h"
 
 // DT's
 #include "DtPerfil.h"
 #include "DtAsignatura.h"
+#include "DtParticipacion.h"
 
 #include <iostream>
 
 Fabrica* fab;
 ICAltaUsuario* icaltausuario;
 ICAltaAsignatura* icalta_asignatura;
-
+ICEnvioDeMensaje* icenviodemensaje;
 
 
 using namespace std;
@@ -194,6 +196,7 @@ int main(){
 
 	icaltausuario = fab->getCAltaUsuario();
 	icalta_asignatura = fab->getCAltaAsignatura();
+	icenviodemensaje = fab->getCEnvioDeMensaje();
 
     int opcion;
     menu();
