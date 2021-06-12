@@ -26,4 +26,13 @@ bool ManejadorAsignatura::existeAsignatura(string codigo){
     return this->asignaturas.find(codigo) != this->asignaturas.end();
 }
 
+map<string, Asignatura*> ManejadorAsignatura::getAsignaturas(){
+    map<string, Asignatura*> retorno;
+    map<string, Asignatura*>::iterator it;
+    for(it = asignaturas.begin(); it != asignaturas.end(); it++){
+        retorno.insert(std::pair<string, Asignatura*>(it->first, it->second));
+    }
+    return retorno;
+}
+
 ManejadorAsignatura::~ManejadorAsignatura(){}

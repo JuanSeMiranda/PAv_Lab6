@@ -13,6 +13,7 @@ class ManejadorAsignatura{
         Asignatura* find(string);
         static ManejadorAsignatura* getInstancia();
         bool existeAsignatura(string);
+        map<string, Asignatura*> getAsignaturas();
         //IControlador* getIControlador();
 
         ~ManejadorAsignatura();

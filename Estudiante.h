@@ -3,7 +3,6 @@
 #include"Perfil.h"
 #include "Asignatura.h"
 #include <map>
-#include <list>
 #include <string>
 
 using namespace std;
@@ -19,7 +18,7 @@ class Estudiante : public Perfil{
         Estudiante(string,string,string,string,string);
         void setDocumento(string);
         string getDocumento();
-        list<string> getAsignaturas();
+        map<string, Asignatura*> getAsignaturas();
         bool estaInscripto(string);
         void agregarAsignatura(Asignatura*);
 

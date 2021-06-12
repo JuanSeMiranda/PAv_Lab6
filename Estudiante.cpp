@@ -13,11 +13,11 @@ string Estudiante:: getDocumento(){
     return this->documento;
 }
 
-list<string> Estudiante::getAsignaturas(){
+map<string, Asignatura*> Estudiante::getAsignaturas(){
     map<string, Asignatura*>:: iterator it;
-    list<string> retorno;
+    map<string, Asignatura*> retorno;
     for(it= this->asignaturas.begin(); it!=this->asignaturas.end(); it++){
-        retorno.push_back(it->first);
+        retorno.insert(std::pair<string, Asignatura*>(it->first, it->second));
     }
     return retorno;
 }
