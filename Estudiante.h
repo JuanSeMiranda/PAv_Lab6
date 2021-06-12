@@ -21,6 +21,7 @@ class Estudiante : public Perfil{
         string getDocumento();
         list<string> getAsignaturas();
         bool estaInscripto(string);
+        void agregarAsignatura(Asignatura*);
 
         ~Estudiante();
 };

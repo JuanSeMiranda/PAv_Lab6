@@ -27,4 +27,8 @@ bool Estudiante::estaInscripto(string codigo){
     return this->asignaturas.find(codigo) != this->asignaturas.end();
 }
 
+void Estudiante::agregarAsignatura(Asignatura* asignatura){
+    this->asignaturas.insert(std::pair<string, Asignatura*>(asignatura->getCodigo(), asignatura));
+}
+
 Estudiante::~Estudiante(){}

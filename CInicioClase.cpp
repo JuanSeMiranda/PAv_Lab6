@@ -28,20 +28,15 @@ list<string> CInicioClase::inscriptosAsignaturas(){
     for(it = listaP.begin(); it != listaP.end(); it++){
         if(Estudiante* estudiante = dynamic_cast<Estudiante*>(it->second)){
             if(estudiante->estaInscripto(this->inicioClase->getCodigo())){
-                this->email = estudiante->getEmail();
+                retorno.push_back(it->first);
             }
         }
-        retorno.push_back(it->first);
     }
-
-    
     return retorno;
 }
 
 void CInicioClase::habilitar(string email){
-    ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
-    Perfil* p = mP->find(email);
-    Estudiante* e = dynamic_cast<Estudiante*>(p);
+    //hacer
 }
 
 DtIniciarClaseFull CInicioClase::datosIngresados(){

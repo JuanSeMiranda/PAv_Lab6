@@ -2,11 +2,9 @@
 
 DtIniciarMonitoreo::DtIniciarMonitoreo(){}
 
-DtIniciarMonitoreo::DtIniciarMonitoreo(string codigo, string nombre, DtTimeStamp fechaHora, int id, string* habilitados):DtIniciarClaseFull(codigo, nombre, fechaHora, id){
-    this->habilitados = habilitados;
-}
+DtIniciarMonitoreo::DtIniciarMonitoreo(string codigo, string nombre, DtTimeStamp fechaHora, int id):DtIniciarClaseFull(codigo, nombre, fechaHora, id){}
 
-string* DtIniciarMonitoreo::getHabilitados(){
+list<string> DtIniciarMonitoreo::getHabilitados(){
     return this->habilitados;
 }
 
