@@ -8,7 +8,7 @@ int Clase:: getIdAutogenerado(){
     return idAutogenerado;
 }
 
-Clase::Clase(int id, string nombre, DtTimeStamp inicio, DtTimeStamp fin, string rutaVideo, Docente* docente){
+Clase::Clase(int id, string nombre, DtTimeStamp* inicio, DtTimeStamp* fin, string rutaVideo, Docente* docente){
     this->id = idAutogenerado;
     idAutogenerado++;
     this->nombre = nombre;
@@ -34,19 +34,19 @@ string Clase::getNombre(){
     return this->nombre;
 }
 
-void Clase::setInicio(DtTimeStamp inicio){
+void Clase::setInicio(DtTimeStamp* inicio){
     this->inicio = inicio;
 }
 
-DtTimeStamp Clase::getInicio(){
+DtTimeStamp* Clase::getInicio(){
     return this->inicio;
 }
 
-void Clase::setFin(DtTimeStamp fin){
+void Clase::setFin(DtTimeStamp* fin){
     this->fin = fin;
 }
 
-DtTimeStamp Clase::getFin(){
+DtTimeStamp* Clase::getFin(){
     return this->fin;
 }
 

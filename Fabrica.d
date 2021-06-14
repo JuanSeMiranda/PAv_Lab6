@@ -148,4 +148,5 @@ Fabrica.o: Fabrica.cpp /usr/include/stdc-predef.h Fabrica.h \
  Rol.h TipoRol.h DtIniciarClase.h Participacion.h AsisteEnVivo.h \
  AsisteDiferido.h DtLog.h ICAltaUsuario.h CInscripcionAsignatura.h \
  ICInscripcionAsignatura.h ManejadorAsignatura.h CInicioClase.h \
- DtIniciarClaseFull.h ICInicioClase.h ManejadorClase.h
+ DtIniciarClaseFull.h ICInicioClase.h ManejadorClase.h Teorico.h \
+ Practico.h Monitoreo.h

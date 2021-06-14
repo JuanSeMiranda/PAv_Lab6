@@ -150,4 +150,5 @@ CInicioClase.o: CInicioClase.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
  /usr/include/c++/9/bits/erase_if.h Docente.h Perfil.h Rol.h TipoRol.h \
  Asignatura.h Participacion.h AsisteEnVivo.h Estudiante.h \
- AsisteDiferido.h DtLog.h ManejadorPerfil.h
+ AsisteDiferido.h DtLog.h ManejadorPerfil.h Teorico.h Practico.h \
+ Monitoreo.h

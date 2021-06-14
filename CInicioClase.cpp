@@ -54,7 +54,7 @@ void CInicioClase::iniciarClase(string email){
     Docente* d = dynamic_cast<Docente*>(p);
     TipoRol tipo = d->decimeTuRol(this->inicioClase->getCodigo());
     if(tipo==TEORICO){
-        
+        Teorico* t = new Teorico(this->data->getId(), this->inicioClase->getNombre(), this->inicioClase->getFechaHora(), NULL, "ruta de video", d, 1);
     }else if(tipo==PRACTICO){
 
     }else if(tipo==MONITOREO){

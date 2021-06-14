@@ -5,6 +5,9 @@
 #include "ICInicioClase.h"
 #include "ManejadorClase.h"
 #include "ManejadorPerfil.h"
+#include "Teorico.h"
+#include "Practico.h"
+#include "Monitoreo.h"
 
 using namespace std;
 

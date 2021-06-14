@@ -18,8 +18,8 @@ class Clase{
     private:
         int id;
         string nombre;
-        DtTimeStamp inicio;
-        DtTimeStamp fin;
+        DtTimeStamp* inicio;
+        DtTimeStamp* fin;
         string rutaVideo;
         static int idAutogenerado;
         map<string, Docente*> docentes;
@@ -28,18 +28,18 @@ class Clase{
         list<AsisteDiferido*> asistentesDiferido;
     public:
         Clase();
-        Clase(int, string, DtTimeStamp, DtTimeStamp, string, Docente*);
+        Clase(int, string, DtTimeStamp*, DtTimeStamp*, string, Docente*);
         void setId(int);
         int getId();
 
         void setNombre(string);
         string getNombre();
 
-        void setInicio(DtTimeStamp);
-        DtTimeStamp getInicio();
+        void setInicio(DtTimeStamp*);
+        DtTimeStamp* getInicio();
 
-        void setFin(DtTimeStamp);
-        DtTimeStamp getFin();
+        void setFin(DtTimeStamp*);
+        DtTimeStamp* getFin();
 
         void setRutaVideo(string);
         string getRutaVideo();

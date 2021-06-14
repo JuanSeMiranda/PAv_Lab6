@@ -148,5 +148,5 @@ main.o: main.cpp /usr/include/stdc-predef.h Fabrica.h CAltaUsuario.h \
  Rol.h TipoRol.h DtIniciarClase.h Participacion.h AsisteEnVivo.h \
  AsisteDiferido.h DtLog.h ICAltaUsuario.h CInscripcionAsignatura.h \
  ICInscripcionAsignatura.h ManejadorAsignatura.h CInicioClase.h \
- DtIniciarClaseFull.h ICInicioClase.h ManejadorClase.h \
- DtIniciarMonitoreo.h
+ DtIniciarClaseFull.h ICInicioClase.h ManejadorClase.h Teorico.h \
+ Practico.h Monitoreo.h DtIniciarMonitoreo.h
