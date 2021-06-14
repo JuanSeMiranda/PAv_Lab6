@@ -20,7 +20,7 @@ class CInicioClase : public ICInicioClase{
         list<string> inscriptosAsignaturas();
         void habilitar(string);
         DtIniciarClaseFull* datosIngresados();
-        void iniciarClase();
+        void iniciarClase(string);
         void cancelar();
         ~CInicioClase();
 };

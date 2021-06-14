@@ -2,8 +2,8 @@
 
 DtIniciarClaseFull::DtIniciarClaseFull(){}
 
-DtIniciarClaseFull::DtIniciarClaseFull(string codigo, string nombre, DtTimeStamp* fechaHora):DtIniciarClase(codigo, nombre, fechaHora){
-    //this->id = rand(); como hacer si en algun momento rand da un numero repetido
+DtIniciarClaseFull::DtIniciarClaseFull(string codigo, string nombre, DtTimeStamp* fechaHora, int id):DtIniciarClase(codigo, nombre, fechaHora){
+    this->id = id;
 }
 
 int DtIniciarClaseFull::getId(){

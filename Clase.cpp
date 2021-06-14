@@ -2,7 +2,15 @@
 
 Clase::Clase(){}
 
+int Clase:: idAutogenerado = 1;
+
+int Clase:: getIdAutogenerado(){
+    return idAutogenerado;
+}
+
 Clase::Clase(int id, string nombre, DtTimeStamp inicio, DtTimeStamp fin, string rutaVideo, Docente* docente){
+    this->id = idAutogenerado;
+    idAutogenerado++;
     this->nombre = nombre;
     this-> inicio = inicio;
     this->fin = fin;

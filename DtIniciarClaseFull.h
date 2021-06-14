@@ -7,7 +7,7 @@ class DtIniciarClaseFull : public DtIniciarClase{
         int id;
     public:
         DtIniciarClaseFull();
-        DtIniciarClaseFull(string, string, DtTimeStamp*);
+        DtIniciarClaseFull(string, string, DtTimeStamp*, int);
         int getId();
         virtual ~DtIniciarClaseFull();
 };

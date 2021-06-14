@@ -18,6 +18,7 @@ class Docente : public Perfil{
         string getInstituto();
         list<string> asignaturas();
         bool tieneMonitoreo(string);
+        TipoRol decimeTuRol(string);
 
         ~Docente();
 };

@@ -43,9 +43,5 @@ void CInscripcionAsignatura::inscribir(string email){
     
     e->agregarAsignatura(a);
 }
-
-void CInscripcionAsignatura::cancelar(){
-    //no hace nada porque la clase no reserva memoria dinamica en niguno de sus atributos
-}
         
 CInscripcionAsignatura::~CInscripcionAsignatura(){}

@@ -11,7 +11,6 @@ class ICInscripcionAsignatura{
         virtual list<string> asignaturasNoInscripto(string)=0;
         virtual void selectAsignatura(string)=0;
         virtual void inscribir(string)=0;
-        virtual void cancelar()=0;
 };
 
 #endif

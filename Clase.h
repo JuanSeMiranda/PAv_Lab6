@@ -21,6 +21,7 @@ class Clase{
         DtTimeStamp inicio;
         DtTimeStamp fin;
         string rutaVideo;
+        static int idAutogenerado;
         map<string, Docente*> docentes;
         map<int, Participacion*> participaciones;
         list<AsisteEnVivo*> asistentesEnVivo; 
@@ -42,6 +43,8 @@ class Clase{
 
         void setRutaVideo(string);
         string getRutaVideo();
+
+        static int getIdAutogenerado();
 
         virtual ~Clase();
 };

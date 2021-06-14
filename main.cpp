@@ -209,7 +209,7 @@ void menuInicioClase(){
 	cout << "Desea confirmar el inicio de esta clase(0 para confirmar, cualquier otro numero para cancelar)" << endl;
 	cin >> opcion;
 	if(opcion == 0)
-		icinicioclase->iniciarClase();
+		icinicioclase->iniciarClase("email del docente de la sesion");
 	else
 		icinicioclase->cancelar();
 }

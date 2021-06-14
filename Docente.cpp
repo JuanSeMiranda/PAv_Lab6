@@ -37,4 +37,18 @@ bool Docente::tieneMonitoreo(string codigo){
     return retorno;
 }
 
+TipoRol Docente::decimeTuRol(string cod){
+    list<Rol*>::iterator it=roles.begin();
+    bool encontre=false;
+    TipoRol retorno;
+    while(it!=roles.end() && !encontre){
+        if((*it)->getCodigoAsignatura()==cod){
+            retorno=(*it)->getTipo();
+            encontre=true;
+        }
+        it++;
+    }
+    return retorno;
+}
+
 Docente::~Docente(){}

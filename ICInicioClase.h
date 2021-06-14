@@ -10,7 +10,7 @@ class ICInicioClase{
         virtual list<string> inscriptosAsignaturas()=0;
         virtual void habilitar(string)=0;
         virtual DtIniciarClaseFull* datosIngresados()=0;
-        virtual void iniciarClase()=0;
+        virtual void iniciarClase(string)=0;
         virtual void cancelar()=0;
 };
 

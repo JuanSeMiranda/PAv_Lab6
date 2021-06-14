@@ -14,7 +14,6 @@ class CInscripcionAsignatura : public ICInscripcionAsignatura{
         list<string> asignaturasNoInscripto(string);
         void selectAsignatura(string);
         void inscribir(string);
-        void cancelar();
 
         ~CInscripcionAsignatura();
 };

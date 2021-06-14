@@ -38,17 +38,28 @@ list<string> CInicioClase::inscriptosAsignaturas(){
 void CInicioClase::habilitar(string email){
     //si la cantidad de habilitados es menor que 15
     this->habilitados.push_back(email);
+    //habilitados.size()
 }
 
 DtIniciarClaseFull* CInicioClase::datosIngresados(){
-    DtIniciarClaseFull* retorno = dynamic_cast<DtIniciarClaseFull*>(inicioClase);
+    DtIniciarClaseFull* retorno = new DtIniciarClaseFull(inicioClase->getCodigo(), inicioClase->getNombre(), inicioClase->getFechaHora(), Clase::getIdAutogenerado()); //id es autogenerado
     this->data = retorno;
     return retorno;
 }
 
-void CInicioClase::iniciarClase(){
+void CInicioClase::iniciarClase(string email){
     ManejadorClase* mC = ManejadorClase::getInstancia();
-    //creo la clase c , como creo la clase?// preguntar en clase
+    ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
+    Perfil* p = mP->find(email);
+    Docente* d = dynamic_cast<Docente*>(p);
+    TipoRol tipo = d->decimeTuRol(this->inicioClase->getCodigo());
+    if(tipo==TEORICO){
+        
+    }else if(tipo==PRACTICO){
+
+    }else if(tipo==MONITOREO){
+
+    }
     //agrego la clase con mC->add(c)
     //hago un mC->find(DtIniciarClaseFull->getCodigo())
     //implemento la funcion agregarClase(Clase*) en Asignatura.h en le paso como parametro a c
