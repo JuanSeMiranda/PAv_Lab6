@@ -36,19 +36,27 @@ list<string> CInicioClase::inscriptosAsignaturas(){
 }
 
 void CInicioClase::habilitar(string email){
-    //hacer
+    //si la cantidad de habilitados es menor que 15
+    this->habilitados.push_back(email);
 }
 
-DtIniciarClaseFull CInicioClase::datosIngresados(){
-    //como accedo a el int id de DtIniciarClaseFull?
+DtIniciarClaseFull* CInicioClase::datosIngresados(){
+    DtIniciarClaseFull* retorno = dynamic_cast<DtIniciarClaseFull*>(inicioClase);
+    this->data = retorno;
+    return retorno;
 }
 
 void CInicioClase::iniciarClase(){
     ManejadorClase* mC = ManejadorClase::getInstancia();
-    //creo la clase c , como hay que hacer?
+    //creo la clase c , como creo la clase?// preguntar en clase
     //agrego la clase con mC->add(c)
     //hago un mC->find(DtIniciarClaseFull->getCodigo())
     //implemento la funcion agregarClase(Clase*) en Asignatura.h en le paso como parametro a c
+}
+
+void CInicioClase::cancelar(){
+    delete inicioClase;
+    delete data;
 }
 
 CInicioClase::~CInicioClase(){}

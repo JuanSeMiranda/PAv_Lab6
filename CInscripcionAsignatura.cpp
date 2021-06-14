@@ -45,7 +45,7 @@ void CInscripcionAsignatura::inscribir(string email){
 }
 
 void CInscripcionAsignatura::cancelar(){
-    //delete de que? no hay Dts, solo se sabe que el sistema recuerda a codigo
+    //no hace nada porque la clase no reserva memoria dinamica en niguno de sus atributos
 }
         
 CInscripcionAsignatura::~CInscripcionAsignatura(){}

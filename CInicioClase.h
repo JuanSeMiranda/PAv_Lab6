@@ -11,15 +11,17 @@ using namespace std;
 class CInicioClase : public ICInicioClase{
     private:
         DtIniciarClase* inicioClase;
-        string email;
+        DtIniciarClaseFull* data;
+        list<string> habilitados;
     public:
         CInicioClase();
         list<string> asignaturasAsignadas(string);
         bool selectAsignatura(DtIniciarClase*, string);
         list<string> inscriptosAsignaturas();
         void habilitar(string);
-        DtIniciarClaseFull datosIngresados();
+        DtIniciarClaseFull* datosIngresados();
         void iniciarClase();
+        void cancelar();
         ~CInicioClase();
 };
 

@@ -11,7 +11,7 @@ class DtIniciarMonitoreo : public DtIniciarClaseFull{
         list<string> habilitados;
     public:
         DtIniciarMonitoreo();
-        DtIniciarMonitoreo(string, string, DtTimeStamp, int);
+        DtIniciarMonitoreo(string, string, DtTimeStamp*, int);
         list<string> getHabilitados();
         ~DtIniciarMonitoreo();
 };

@@ -3,19 +3,22 @@
 
 //Interfaces
 #include "ICAltaUsuario.h"
+#include "ICInscripcionAsignatura.h"
+#include "ICInicioClase.h"
 
 // DT's
 #include "DtPerfil.h"
+#include "DtIniciarMonitoreo.h"
 
 
 #include <iostream>
 
+using namespace std;
+
 Fabrica* fab;
 ICAltaUsuario* icaltausuario;
-
-
-
-using namespace std;
+ICInscripcionAsignatura* icinscripcionasignatura;
+ICInicioClase* icinicioclase;
 
 void menu(){
     cout << "Seleccione una opcion:" << endl;
@@ -104,6 +107,111 @@ void menuAltaUsuario(){
 			seguirIngresandoUsuario = false;
 		}
 	}
+}
+
+//4 INSCRIPCION A UNA ASIGNATURA
+
+void menuInscripcionAsignatura(){
+	int quiereInscribirse = 0;
+	int confirmar;
+	string asignaturaElegida;
+
+	while(quiereInscribirse == 0){
+		list<string> asignaturas = icinscripcionasignatura->asignaturasNoInscripto("email del estudiante de la sesion");
+		list<string>::iterator it;
+		for(it = asignaturas.begin(); it != asignaturas.end(); it++){
+			cout << *it << endl;
+		}
+		cout << "Elija una de las asignaturas listadas escribiendo su codigo" << endl;
+		cin >> asignaturaElegida;
+		icinscripcionasignatura->selectAsignatura(asignaturaElegida);
+		cout << "Quiere confirmar su eleccion?(0 para confirmar, cualquier otro numero para cancelar)" << endl;
+		cin >> confirmar;
+		if(confirmar == 0)
+			icinscripcionasignatura->inscribir("email del estudiante de la sesion");
+
+		cout << "Desea seguir inscribiendose(0 para confirmar, cualquier otro numero para cancelar)" << endl;
+		cin >> quiereInscribirse;
+	}
+}
+
+//5 INICIO CLASE
+
+void menuInicioClase(){
+	string codigo;
+	string nombre;
+	DtTimeStamp* fechaHora;
+	DtFecha* fecha;
+	int dia;
+	int mes;
+	int anio;
+	int hora;
+	int minuto;
+	int segundo;
+
+	cout << "Ingrese el codigo" << endl;
+	cin >> codigo;
+
+	cout << "Ingrese el nombre" << endl;
+	cin >> nombre;
+
+	cout << "Ingrese la fecha" << endl;
+	cout << "Dia: ";
+	cin >> dia;
+	cout << "Mes: ";
+	cin >> mes;
+	cout << "Anio: ";
+	cin >> anio; 
+	fecha = new DtFecha(dia, mes, anio);
+
+	cout << "Ingrese la hora" << endl;
+	cout << "Hora: ";
+	cin >> hora;
+	cout << "Minuto: ";
+	cin >> minuto;
+	cout << "segundo: ";
+	cin >> segundo; 
+	fechaHora = new DtTimeStamp(fecha, hora, minuto, segundo);
+
+	int idGenerado = 1; //rand()?
+	DtIniciarMonitoreo* inicioClase = new DtIniciarMonitoreo(codigo, nombre, fechaHora, idGenerado); 
+
+	list<string> asignaturas = icinicioclase->asignaturasAsignadas("email del docente de la sesion");
+	list<string>::iterator it;
+	for(it = asignaturas.begin(); it != asignaturas.end(); it++){
+		cout << *it << endl;
+	}
+	bool deMonitoreo = icinicioclase->selectAsignatura(dynamic_cast<DtIniciarClase*>(inicioClase), "email del docente de la sesion");
+	if(deMonitoreo){
+		list<string> estudiantesInscriptos = icinicioclase->inscriptosAsignaturas();
+		for(it = estudiantesInscriptos.begin(); it != estudiantesInscriptos.end(); it++){
+			cout << *it << endl;
+		}
+		int quiereHabilitar = 0;
+		while(quiereHabilitar == 0){
+			string estudianteElegido;
+			cout << "Habilite un estudiante ingresando el email" << endl;
+			cin >> estudianteElegido;
+			icinicioclase->habilitar(estudianteElegido);
+			
+			cout << "Quiere seguir habilitando estudiantes?(0 para confirmar, cualqueir otro numero para cancelar" << endl;
+			cin >> quiereHabilitar;
+		}
+	}
+
+	DtIniciarClaseFull* inicioClaseFull = icinicioclase->datosIngresados();
+	cout << inicioClaseFull->getCodigo() << endl;
+	cout << inicioClaseFull->getNombre() << endl;
+	cout << inicioClaseFull->getFechaHora() << endl;
+	cout << inicioClaseFull->getId() << endl;
+
+	int opcion;
+	cout << "Desea confirmar el inicio de esta clase(0 para confirmar, cualquier otro numero para cancelar)" << endl;
+	cin >> opcion;
+	if(opcion == 0)
+		icinicioclase->iniciarClase();
+	else
+		icinicioclase->cancelar();
 }
 
 
