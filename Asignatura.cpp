@@ -23,4 +23,8 @@ string Asignatura::getNombre(){
     return this->nombre;
 }
 
+void Asignatura::agregarClase(Clase* clase){
+    this->clases.insert(std::pair<int, Clase*>(clase->getId(), clase));
+}
+
 Asignatura::~Asignatura(){}

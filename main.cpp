@@ -173,7 +173,7 @@ void menuInicioClase(){
 	cin >> segundo; 
 	fechaHora = new DtTimeStamp(fecha, hora, minuto, segundo);
 
-	int idGenerado = 1; //rand()?
+	int idGenerado = 1;
 	DtIniciarMonitoreo* inicioClase = new DtIniciarMonitoreo(codigo, nombre, fechaHora, idGenerado); 
 
 	list<string> asignaturas = icinicioclase->asignaturasAsignadas("email del docente de la sesion");
@@ -218,6 +218,8 @@ void menuInicioClase(){
 int main(){
 
 	icaltausuario = fab->getCAltaUsuario();
+	icinscripcionasignatura = fab->getCInscripcionAsignatura();
+	icinicioclase = fab->getCInicioClase();
 
     int opcion;
     menu();
@@ -232,8 +234,10 @@ int main(){
             case 3:
                     break;
             case 4:
+					menuInscripcionAsignatura();
                     break;
             case 5:
+					menuInicioClase();
                     break;
             case 6:
                     break;

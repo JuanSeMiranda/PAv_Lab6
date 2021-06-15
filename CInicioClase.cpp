@@ -1,4 +1,7 @@
 #include "CInicioClase.h"
+#include "ManejadorClase.h"
+#include "ManejadorPerfil.h"
+#include "ManejadorAsignatura.h"
 
 CInicioClase::CInicioClase(){}
 
@@ -36,9 +39,12 @@ list<string> CInicioClase::inscriptosAsignaturas(){
 }
 
 void CInicioClase::habilitar(string email){
-    //si la cantidad de habilitados es menor que 15
-    this->habilitados.push_back(email);
-    //habilitados.size()
+    if(this->habilitados.size() < 15){
+        this->habilitados.push_back(email);
+        cout << "Estudiante habilitado con exito" << endl;
+    }else{
+        cout << "No pueden haber mas de 15 habilitados" << endl;
+    }
 }
 
 DtIniciarClaseFull* CInicioClase::datosIngresados(){
@@ -53,16 +59,21 @@ void CInicioClase::iniciarClase(string email){
     Perfil* p = mP->find(email);
     Docente* d = dynamic_cast<Docente*>(p);
     TipoRol tipo = d->decimeTuRol(this->inicioClase->getCodigo());
+    ManejadorAsignatura* mA = ManejadorAsignatura::getInstancia();
+    Asignatura* a = mA->find(inicioClase->getCodigo());
     if(tipo==TEORICO){
-        Teorico* t = new Teorico(this->data->getId(), this->inicioClase->getNombre(), this->inicioClase->getFechaHora(), NULL, "ruta de video", d, 1);
+        Teorico* t = new Teorico(this->data->getId(), this->inicioClase->getNombre(), this->inicioClase->getFechaHora(), NULL, "ruta de video", d, 1); //el ultimo parametro es la cantidad de asistentes
+        mC->add(t);
+        a->agregarClase(t);
     }else if(tipo==PRACTICO){
-
+        Practico* p = new Practico(this->data->getId(), this->inicioClase->getNombre(), this->inicioClase->getFechaHora(), NULL, "ruta de video", d);
+        mC->add(p);
+        a->agregarClase(p);
     }else if(tipo==MONITOREO){
-
+        Monitoreo* m = new Monitoreo(this->data->getId(), this->inicioClase->getNombre(), this->inicioClase->getFechaHora(), NULL, "ruta de video", d, this->habilitados);
+        mC->add(m);
+        a->agregarClase(m);
     }
-    //agrego la clase con mC->add(c)
-    //hago un mC->find(DtIniciarClaseFull->getCodigo())
-    //implemento la funcion agregarClase(Clase*) en Asignatura.h en le paso como parametro a c
 }
 
 void CInicioClase::cancelar(){
