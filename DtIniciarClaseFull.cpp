@@ -2,7 +2,7 @@
 
 DtIniciarClaseFull::DtIniciarClaseFull(){}
 
-DtIniciarClaseFull::DtIniciarClaseFull(string codigo, string nombre, DtTimeStamp fechaHora, int id):DtIniciarClase(codigo, nombre, fechaHora){
+DtIniciarClaseFull::DtIniciarClaseFull(string codigo, string nombre, DtTimeStamp* fechaHora, int id):DtIniciarClase(codigo, nombre, fechaHora){
     this->id = id;
 }
 

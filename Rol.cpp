@@ -6,11 +6,11 @@ Rol::Rol(TipoRol tipo){
     this->tipo = tipo;
 }
 
-TipoRol Rol::getRol(){
+TipoRol Rol::getTipo(){
     return this->tipo;
 }
 
-void Rol::setRol(TipoRol tipo){
+void Rol::setTipo(TipoRol tipo){
     this->tipo = tipo;
 }
 
@@ -20,6 +20,10 @@ Asignatura* Rol::getAsignatura(){
 
 void Rol::setAsignatura(Asignatura* asignatura){
     this->asignatura = asignatura;
+}
+
+string Rol::getCodigoAsignatura(){
+    return this->asignatura->getCodigo();
 }
 
 Rol::~Rol(){}

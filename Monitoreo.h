@@ -8,7 +8,7 @@ class Monitoreo : public Clase{
         map<string, Estudiante*> estudiantes;
     public:
         Monitoreo();
-        Monitoreo(int, string, DtTimeStamp, DtTimeStamp, string, Docente*, Estudiante*);
+        Monitoreo(int, string, DtTimeStamp*, DtTimeStamp*, string, Docente*, list<string>);
         ~Monitoreo();
 };
 

@@ -40,5 +40,5 @@ bool CAltaUsuario::existeUsuario(string email){
 }
 
 void CAltaUsuario::cancelar(){
-    delete datosUsuario;//si no la gana la empata - chancla
+    delete datosUsuario;
 }
