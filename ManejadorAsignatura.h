@@ -2,6 +2,7 @@
 #define MANEJADORASIGNATURA
 #include "Asignatura.h"
 #include <map>
+#include <list>
 
 class ManejadorAsignatura{
     private:
@@ -14,8 +15,8 @@ class ManejadorAsignatura{
         static ManejadorAsignatura* getInstancia();
         bool existeAsignatura(string);
         map<string, Asignatura*> getAsignaturas();
+        list<string> listarAsignatura();
         //IControlador* getIControlador();
-
         ~ManejadorAsignatura();
 };
 

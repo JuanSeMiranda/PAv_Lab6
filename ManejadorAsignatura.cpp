@@ -15,6 +15,7 @@ Asignatura* ManejadorAsignatura::find(string codigo){
 }
 
 ManejadorAsignatura* ManejadorAsignatura::getInstancia(){
+
     if(instancia == NULL){
         instancia = new ManejadorAsignatura();
     }
@@ -36,3 +37,11 @@ map<string, Asignatura*> ManejadorAsignatura::getAsignaturas(){
 }
 
 ManejadorAsignatura::~ManejadorAsignatura(){}
+
+list<string> ManejadorAsignatura::listarAsignatura(){
+    list<string> aux;
+    for(map<string,Asignatura*>::iterator it = this->asignaturas.begin(); it != this->asignaturas.end(); it++)
+        aux.push_back(it->first);
+    return aux;
+}
+
