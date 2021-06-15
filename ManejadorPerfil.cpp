@@ -36,4 +36,8 @@ map<string, Perfil*> ManejadorPerfil::listarPerfiles(){
     return retorno;
 }
 
+bool ManejadorPerfil::estaVacio(){
+    return this->perfiles.empty();
+}
+
 ManejadorPerfil::~ManejadorPerfil(){}

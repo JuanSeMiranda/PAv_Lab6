@@ -36,8 +36,6 @@ map<string, Asignatura*> ManejadorAsignatura::getAsignaturas(){
     return retorno;
 }
 
-ManejadorAsignatura::~ManejadorAsignatura(){}
-
 list<string> ManejadorAsignatura::listarAsignatura(){
     list<string> aux;
     for(map<string,Asignatura*>::iterator it = this->asignaturas.begin(); it != this->asignaturas.end(); it++)
@@ -45,3 +43,8 @@ list<string> ManejadorAsignatura::listarAsignatura(){
     return aux;
 }
 
+bool ManejadorAsignatura::estaVacio(){
+    return this->asignaturas.empty();
+}
+
+ManejadorAsignatura::~ManejadorAsignatura(){}

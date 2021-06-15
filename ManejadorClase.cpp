@@ -26,4 +26,8 @@ bool ManejadorClase::existeClase(int id){ // cambie el argumento que era un stri
     return this->clases.find(id) != this->clases.end();
 }
 
+bool ManejadorClase::estaVacio(){
+    return this->clases.empty();
+}
+
 ManejadorClase::~ManejadorClase(){}

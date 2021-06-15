@@ -23,6 +23,11 @@ class CInicioClase : public ICInicioClase{
         DtIniciarClaseFull* datosIngresados();
         void iniciarClase(string);
         void cancelar();
+
+        bool perfilesVacio();
+        bool asignaturasVacio();
+        bool clasesVacio();
+
         ~CInicioClase();
 };
 

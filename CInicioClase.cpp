@@ -81,5 +81,20 @@ void CInicioClase::cancelar(){
     delete data;
 }
 
+bool CInicioClase::perfilesVacio(){
+    ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
+    return mP->estaVacio();
+}
+
+bool CInicioClase::asignaturasVacio(){
+    ManejadorPerfil* mA = ManejadorPerfil::getInstancia();
+    return mA->estaVacio();
+}
+
+bool CInicioClase::clasesVacio(){
+    ManejadorPerfil* mC = ManejadorPerfil::getInstancia();
+    return mC->estaVacio();
+}
+
 CInicioClase::~CInicioClase(){}
 

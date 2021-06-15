@@ -16,7 +16,8 @@ class ManejadorAsignatura{
         bool existeAsignatura(string);
         map<string, Asignatura*> getAsignaturas();
         list<string> listarAsignatura();
-        //IControlador* getIControlador();
+        bool estaVacio();
+
         ~ManejadorAsignatura();
 };
 

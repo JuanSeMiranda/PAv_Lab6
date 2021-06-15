@@ -14,7 +14,7 @@ class ManejadorClase{
         Clase* find(int);
         static ManejadorClase* getInstancia();
         bool existeClase(int);
-        //IControlador* getIControlador();
+        bool estaVacio();
 
         ~ManejadorClase();
 };
