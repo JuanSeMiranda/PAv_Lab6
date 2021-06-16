@@ -15,25 +15,14 @@ Asignatura* ManejadorAsignatura::find(string codigo){
 }
 
 ManejadorAsignatura* ManejadorAsignatura::getInstancia(){
-
-    if(instancia == NULL){
+        if(instancia == NULL){
         instancia = new ManejadorAsignatura();
     }
     return instancia;
 }
-
 bool ManejadorAsignatura::existeAsignatura(string codigo){
     map<string, Asignatura*>::iterator it;
-    return this->asignaturas.find(codigo) != this->asignaturas.end();
-}
-
-map<string, Asignatura*> ManejadorAsignatura::getAsignaturas(){
-    map<string, Asignatura*> retorno;
-    map<string, Asignatura*>::iterator it;
-    for(it = asignaturas.begin(); it != asignaturas.end(); it++){
-        retorno.insert(std::pair<string, Asignatura*>(it->first, it->second));
-    }
-    return retorno;
+    return this->asignaturas.find(codigo) != this->asignaturas.end();    
 }
 
 list<string> ManejadorAsignatura::listarAsignatura(){
@@ -43,6 +32,8 @@ list<string> ManejadorAsignatura::listarAsignatura(){
     return aux;
 }
 
+ManejadorAsignatura::~ManejadorAsignatura(){}
+
 bool ManejadorAsignatura::estaVacio(){
     return this->asignaturas.empty();
 }
@@ -50,5 +41,3 @@ bool ManejadorAsignatura::estaVacio(){
 void ManejadorAsignatura::destroy(string cod){
     asignaturas.erase(cod);
 }
-
-ManejadorAsignatura::~ManejadorAsignatura(){}

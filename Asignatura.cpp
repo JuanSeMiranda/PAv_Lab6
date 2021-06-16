@@ -24,25 +24,34 @@ string Asignatura::getNombre(){
     return this->nombre;
 }
 
+DtInstanciaClase* Asignatura::getTipoClases(){
+    return this->tipoClases;
+}
 
+
+list<int> Asignatura::getClases(){
+    map<int, Clase*> ::iterator it;
+    list<int> retorno;
+    for(it = clases.begin(); it != clases.end(); ++it){
+        retorno.push_back(it->first);   
+
+    return retorno;
+}
+  
 void Asignatura::agregarClase(Clase* clase){
     this->clases.insert(std::pair<int, Clase*>(clase->getId(), clase));
 }
 
-DtInstanciaClase* Asignatura::getTipoClases(){
-    return this->tipoClases;
-
+bool Asignatura::tieneClases(){
+    return clases.empty();
 }
 
 Asignatura::~Asignatura(){
     delete tipoClases;
-    
     ManejadorClase* mC= ManejadorClase::getInstancia();
-
     map<int, Clase*>::iterator it;
     for(it = this->clases.begin(); it != this->clases.end(); ++it){
         int id= it->first;
         this->clases.erase(id);
         mC->remove(id);
-    }
 }

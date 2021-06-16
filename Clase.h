@@ -45,6 +45,7 @@ class Clase{
         string getRutaVideo();
 
         static int getIdAutogenerado();
+        void insertarAsistenciaEnVivo(AsisteEnVivo*);
 
         virtual ~Clase();
 };
