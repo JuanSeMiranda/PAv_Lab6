@@ -24,20 +24,8 @@ string Asignatura::getNombre(){
     return this->nombre;
 }
 
-
-void Asignatura::agregarClase(Clase* clase){
-    this->clases.insert(std::pair<int, Clase*>(clase->getId(), clase));
-}
-
 DtInstanciaClase* Asignatura::getTipoClases(){
     return this->tipoClases;
-
 }
 
-Asignatura::~Asignatura(){
-    delete tipoClases;
-    map<int, Clase*>::iterator it;
-    for(it = clases.begin(); it != clases.end(); ++it){
-        (*it).second->~Clase();
-    }
-}
+Asignatura::~Asignatura(){}

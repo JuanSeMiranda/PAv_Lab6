@@ -21,9 +21,7 @@ class Asignatura{
         void setNombre(string);
         string getCodigo();
         string getNombre();
-        void agregarClase(Clase*);
         DtInstanciaClase* getTipoClases();
-
 
         ~Asignatura();
 };

@@ -3,32 +3,24 @@
 #include <string>
 #include "DtIniciarClaseFull.h"
 #include "ICInicioClase.h"
-#include "Teorico.h"
-#include "Practico.h"
-#include "Monitoreo.h"
+#include "ManejadorClase.h"
 
 using namespace std;
 
 class CInicioClase : public ICInicioClase{
     private:
         DtIniciarClase* inicioClase;
-        DtIniciarClaseFull* data;
-        list<string> habilitados;
+        string email;
     public:
         CInicioClase();
-        list<string> asignaturasAsignadas(string);
-        bool selectAsignatura(DtIniciarClase*, string);
-        list<string> inscriptosAsignaturas();
+        string* asignaturasAsignadas();
+        bool selectAsignatura(DtIniciarClase*);
+        string* inscriptosAsignaturas();
         void habilitar(string);
-        DtIniciarClaseFull* datosIngresados();
-        void iniciarClase(string);
-        void cancelar();
-
-        bool perfilesVacio();
-        bool asignaturasVacio();
-        bool clasesVacio();
-
+        DtIniciarClaseFull datosIngresados();
+        void iniciarClase();
         ~CInicioClase();
 };
+
 
 #endif

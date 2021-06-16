@@ -10,13 +10,13 @@ class DtIniciarClase{
     private:
         string codigo;
         string nombre;
-        DtTimeStamp* fechaHora;
+        DtTimeStamp fechaHora;
     public:
         DtIniciarClase();
-        DtIniciarClase(string, string, DtTimeStamp*);
+        DtIniciarClase(string, string, DtTimeStamp);
         string getCodigo();
         string getNombre();
-        DtTimeStamp* getFechaHora();
+        DtTimeStamp getFechaHora();
         virtual ~DtIniciarClase();
 };
 

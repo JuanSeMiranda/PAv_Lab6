@@ -1,30 +1,31 @@
 #define RESET   "\033[0m"
 #define GREEN   "\033[32m"      /* Green */
 #define RED     "\033[31m"      /* Red */
-
+#define ORANGE	"\033[33m"		/* orange */
+#define BLUE	"\033[34m"		/* blue */
 //Fabrica
 #include "Fabrica.h"
 
 //Interfaces
 #include "ICAltaUsuario.h"
-#include "ICInscripcionAsignatura.h"
-#include "ICInicioClase.h"
 #include "ICAltaAsignatura.h"
+#include "ICAsignarAsignaturaDocente.h" /*7777777777777*/
 
 // DT's
 #include "DtPerfil.h"
-#include "DtIniciarMonitoreo.h"
 #include "DtAsignatura.h"
 
 #include <iostream>
-
-using namespace std;
+#include <list>
 
 Fabrica* fab;
 ICAltaUsuario* icaltausuario;
-ICInscripcionAsignatura* icinscripcionasignatura;
-ICInicioClase* icinicioclase;
 ICAltaAsignatura* icalta_asignatura;
+ICAsignarAsignaturaDocente* icasig_docente; /*7777777777777*/
+
+
+
+using namespace std;
 
 void menu(){
     cout << "Seleccione una opcion:" << endl;
@@ -37,10 +38,8 @@ void menu(){
     cout << "7 ➢ Envio de mensaje" << endl;
     cout << "8 ➢ Eliminacion de asignatura" << endl;
     cout << "9 ➢ Listado de Clases" << endl;
-	cout << "10 ➢ Cargar datos de prueba" << endl;
-    cout << "11 ➢ Salir" << endl;
+    cout << "10 ➢ Salir" << endl;
 }
-
 // 1 ALTA USUARIO
 void menuAltaUsuario(){
 	bool seguirIngresandoUsuario = true;
@@ -195,161 +194,117 @@ void menuAltaAsignatura(){
 	
 }
 
-//4 INSCRIPCION A UNA ASIGNATURA
+// 3 ASIGNAR ASIGNATURA  DOCENTE
 
-void menuInscripcionAsignatura(){
-	int quiereInscribirse = 0;
-	int confirmar;
-	string asignaturaElegida;
-
-	while(quiereInscribirse == 0){
-		list<string> asignaturas = icinscripcionasignatura->asignaturasNoInscripto("email del estudiante de la sesion");
+void menuAsignarAsignaturaDocente(){
+	bool sigueasignado=true;
+	while(sigueasignado){
+		bool listavacia=false;
 		list<string>::iterator it;
-		for(it = asignaturas.begin(); it != asignaturas.end(); it++){
-			cout << *it << endl;
-		}
-		cout << "Elija una de las asignaturas listadas escribiendo su codigo" << endl;
-		cin >> asignaturaElegida;
-		icinscripcionasignatura->selectAsignatura(asignaturaElegida);
-		cout << "Quiere confirmar su eleccion?(0 para confirmar, cualquier otro numero para cancelar)" << endl;
-		cin >> confirmar;
-		if(confirmar == 0)
-			icinscripcionasignatura->inscribir("email del estudiante de la sesion");
+		list<string> listaA=icasig_docente->listarAsignaturas();
+		if(!listaA.empty()){
+			string codigo;
+			string email;
+			TipoRol rol_m;
+			int opciondeRol=false;
+			bool terminarTipoRol=true;
+			bool selecciono_rol=false;
+			int confirmar;
 
-		cout << "Desea seguir inscribiendose(0 para confirmar, cualquier otro numero para cancelar)" << endl;
-		cin >> quiereInscribirse;
+			cout << RED<< "Codigo de asignaturas:" <<RESET<< endl;
+			for(it=listaA.begin(); it!=listaA.end();++it){
+				cout << *(it) << endl;
+			}
+
+			cout<<"\nInserte codigo de Asignatura a Asignar:"<< endl;
+			cin >> codigo;
+
+			cout<< "\nDocentes sin asignacion: "<<endl;
+			list<string> listaDs=icasig_docente->docentesSinLaAsignatura(codigo);
+			if(!listaDs.empty()){//si no esta vacia
+				for(it=listaDs.begin(); it!=listaDs.end(); ++it){
+						cout<<*(it)<<endl;
+					}
+					cout<< "Ingrese uno de estos email para continuar:";
+					cin>>email;
+
+					while(terminarTipoRol){
+						cout << "Ingrese el Rol a cumplir (1 TEORICO, 2 PRACTICO, 3 MONITOREO)" << endl;
+						cin >> opciondeRol;
+						switch (opciondeRol){
+							case(1):rol_m= TEORICO;
+									selecciono_rol=true;
+									break;
+							case(2):rol_m=PRACTICO;
+									selecciono_rol=true;
+									break;
+
+							case(3):rol_m=MONITOREO;
+									selecciono_rol=true;
+									break;	
+							default:cout<< "Opcion incorrecta."<<endl;
+									break;
+						}
+						if (selecciono_rol){
+							terminarTipoRol=false;
+							icasig_docente->selectDocente(email,rol_m);
+						}else{
+							cout <<ORANGE<< "\nNo ha asignado ningun tipo de clase." <<RESET<< endl;
+						}
+
+					}
+
+					cout << "\nDesea confirmar la asigancion? (1 para si, cualquier otro numero para no)" << endl;
+					cin >> confirmar;
+
+					if(confirmar==1){
+						icasig_docente->asignarDocente();
+						cout << "\nSe asigno el Docente con exito a la asignatura." << endl;
+					} else{
+						cout << "\nSe cancelo correctamente." << endl;
+					}
+			}else{
+				cout<<RED<<"\nNo hay ningun Docente"<<RESET<<endl;
+				listavacia=true;
+				sigueasignado=false;
+			}
+		}else{
+			cout<<RED<<"\nNo hay ningun Asignatura"<<RESET<<endl;
+			listavacia=true;
+			sigueasignado=false;
+		}
+		if(!listavacia){
+			cout << "Desea seguir asignando Docentes? (0 para seguir asignando, cualquier otro numero para cancelar)" << endl;
+			int opcionSeguirAsignando;
+			cin >> opcionSeguirAsignando;
+
+			if(opcionSeguirAsignando != 0){
+				sigueasignado = false;
+			}
+		}
 	}
 }
-
-//5 INICIO CLASE
-
-void menuInicioClase(){
-	string codigo;
-	string nombre;
-	DtTimeStamp* fechaHora;
-	DtFecha* fecha;
-	int dia;
-	int mes;
-	int anio;
-	int hora;
-	int minuto;
-	int segundo;
-
-	cout << "Ingrese el codigo" << endl;
-	cin >> codigo;
-
-	cout << "Ingrese el nombre" << endl;
-	cin >> nombre;
-
-	cout << "Ingrese la fecha" << endl;
-	cout << "Dia: ";
-	cin >> dia;
-	cout << "Mes: ";
-	cin >> mes;
-	cout << "Anio: ";
-	cin >> anio; 
-	fecha = new DtFecha(dia, mes, anio);
-
-	cout << "Ingrese la hora" << endl;
-	cout << "Hora: ";
-	cin >> hora;
-	cout << "Minuto: ";
-	cin >> minuto;
-	cout << "segundo: ";
-	cin >> segundo; 
-	fechaHora = new DtTimeStamp(fecha, hora, minuto, segundo);
-
-	int idGenerado = 1;
-	DtIniciarMonitoreo* inicioClase = new DtIniciarMonitoreo(codigo, nombre, fechaHora, idGenerado); 
-
-	list<string> asignaturas = icinicioclase->asignaturasAsignadas("email del docente de la sesion");
-	list<string>::iterator it;
-	for(it = asignaturas.begin(); it != asignaturas.end(); it++){
-		cout << *it << endl;
-	}
-	bool deMonitoreo = icinicioclase->selectAsignatura(dynamic_cast<DtIniciarClase*>(inicioClase), "email del docente de la sesion");
-	if(deMonitoreo){
-		list<string> estudiantesInscriptos = icinicioclase->inscriptosAsignaturas();
-		for(it = estudiantesInscriptos.begin(); it != estudiantesInscriptos.end(); it++){
-			cout << *it << endl;
-		}
-		int quiereHabilitar = 0;
-		while(quiereHabilitar == 0){
-			string estudianteElegido;
-			cout << "Habilite un estudiante ingresando el email" << endl;
-			cin >> estudianteElegido;
-			icinicioclase->habilitar(estudianteElegido);
-			
-			cout << "Quiere seguir habilitando estudiantes?(0 para confirmar, cualqueir otro numero para cancelar" << endl;
-			cin >> quiereHabilitar;
-		}
-	}
-
-	DtIniciarClaseFull* inicioClaseFull = icinicioclase->datosIngresados();
-	cout << inicioClaseFull->getCodigo() << endl;
-	cout << inicioClaseFull->getNombre() << endl;
-	cout << inicioClaseFull->getFechaHora() << endl;
-	cout << inicioClaseFull->getId() << endl;
-
-	int opcion;
-	cout << "Desea confirmar el inicio de esta clase(0 para confirmar, cualquier otro numero para cancelar)" << endl;
-	cin >> opcion;
-	if(opcion == 0)
-		icinicioclase->iniciarClase("email del docente de la sesion");
-	else
-		icinicioclase->cancelar();
-}
-
-
-void cargarDatosDePrueba(){
-	
-	//CREACION DE PERFILES
-	
-	//Estudiante 1
-	DtPerfil* datosperfil1 = new DtPerfil("juan", "img.jpg", "juan@gmail.com", "123");
-	icaltausuario->ingresarDatosPerfil(datosperfil1);
-	icaltausuario->ingresarEstudiante("5229001-1");
-	icaltausuario->altaUsuario();
-
-	//Docente 1
-	DtPerfil* datosperfil2 = new DtPerfil("jose", "img.jpg", "jose@gmail.com", "456");
-	icaltausuario->ingresarDatosPerfil(datosperfil2);
-	icaltausuario->ingresarDocente("LATUTU");
-	icaltausuario->altaUsuario();
-
-	//CREACION DE ASIGNATURAS
-
-	//Asignatura1
-	DtInstanciaClase* instanciaClase1 = new DtInstanciaClase(true, false, false);
-	DtAsignatura* datosAsignatura1 = new DtAsignatura("Matematica", "mat", instanciaClase1);
-	icalta_asignatura->ingresar(datosAsignatura1);
-	icalta_asignatura->altaAsignatura();
-}
-
 int main(){
 
 	icaltausuario = fab->getCAltaUsuario();
-	icinscripcionasignatura = fab->getCInscripcionAsignatura();
-	icinicioclase = fab->getCInicioClase();
 	icalta_asignatura = fab->getCAltaAsignatura();
-
+	icasig_docente = fab->getCAsignarAsignaturaDocente();
+	
     int opcion;
     menu();
     cin >> opcion;
 
-    while(opcion != 11){
+    while(opcion != 10){
         switch(opcion){
             case 1: menuAltaUsuario();
                     break;
             case 2:	menuAltaAsignatura();
                     break;
-            case 3:
+            case 3: menuAsignarAsignaturaDocente();
                     break;
             case 4:
-					menuInscripcionAsignatura();
                     break;
             case 5:
-					menuInicioClase();
                     break;
             case 6:
                     break;
@@ -359,15 +314,13 @@ int main(){
                     break;
 			case 9:
 					break;
-			case 10: cargarDatosDePrueba();
-					break;
-			case 11:
-					break;
             default: cout << "Opcion invalida." << endl;
                     break;
         }
         menu();
         cin >> opcion;
     }
+
+
      return 0;
 }
