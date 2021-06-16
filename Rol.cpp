@@ -26,4 +26,10 @@ string Rol::getCodigoAsignatura(){
     return this->asignatura->getCodigo();
 }
 
-Rol::~Rol(){}
+bool Rol::esAsignatura(string cod){
+    return (cod == asignatura->getCodigo());
+}
+
+Rol::~Rol(){
+    delete asignatura;
+}

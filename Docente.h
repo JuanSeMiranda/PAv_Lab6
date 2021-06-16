@@ -19,6 +19,7 @@ class Docente : public Perfil{
         list<string> asignaturas();
         bool tieneMonitoreo(string);
         TipoRol decimeTuRol(string);
+        void eliminarAsignatura(string);
 
         ~Docente();
 };

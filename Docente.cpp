@@ -14,6 +14,16 @@ string Docente::getInstituto(){
     return this->instituto;
 }
 
+/*list<int> Docente::clasesOnlineAsistiendo(){
+    list<int> aux;
+    list<Rol*>::iterator it;
+    for(it=roles.begin(); it!=roles.end(); it++)
+        Asignatura* a = (*it)->getAsignatura();
+        //a->
+
+    return aux;
+}*/
+
 list<string> Docente::asignaturas(){
     list<Rol*>:: iterator it;
     list<string> retorno;
@@ -49,6 +59,16 @@ TipoRol Docente::decimeTuRol(string cod){
         it++;
     }
     return retorno;
+}
+
+void Docente:: eliminarAsignatura(string cod){
+    list<Rol*>::iterator it;
+    for(it = roles.begin(); it != roles.end(); ++it){
+        bool esA = (*it)->esAsignatura(cod);
+        if(esA){
+            (*it)->~Rol();
+        }
+    }
 }
 
 Docente::~Docente(){}

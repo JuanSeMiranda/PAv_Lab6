@@ -34,4 +34,10 @@ DtInstanciaClase* Asignatura::getTipoClases(){
 
 }
 
-Asignatura::~Asignatura(){}
+Asignatura::~Asignatura(){
+    delete tipoClases;
+    map<int, Clase*>::iterator it;
+    for(it = clases.begin(); it != clases.end(); ++it){
+        (*it).second->~Clase();
+    }
+}

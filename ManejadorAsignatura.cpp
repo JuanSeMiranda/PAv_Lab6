@@ -47,4 +47,8 @@ bool ManejadorAsignatura::estaVacio(){
     return this->asignaturas.empty();
 }
 
+void ManejadorAsignatura::remove(Asignatura* asignatura){
+
+}
+
 ManejadorAsignatura::~ManejadorAsignatura(){}

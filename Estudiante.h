@@ -22,6 +22,8 @@ class Estudiante : public Perfil{
         bool estaInscripto(string);
         void agregarAsignatura(Asignatura*);
 
+        void eliminarAsignatura(string);
+
         ~Estudiante();
 };
 
