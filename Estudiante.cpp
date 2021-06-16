@@ -12,6 +12,7 @@ string Estudiante:: getDocumento(){
     return this->documento;
 }
 
+
 list<string> Estudiante::asignaturaInscriptas(){
     map<string, Asignatura*>::iterator it;
     list<string> retorno;
@@ -19,6 +20,27 @@ list<string> Estudiante::asignaturaInscriptas(){
         retorno.push_back(it->first);
     }
     return retorno;
+}
+map<string, Asignatura*> Estudiante::getAsignaturas(){
+    map<string, Asignatura*>:: iterator it;
+    map<string, Asignatura*> retorno;
+    for(it= this->asignaturas.begin(); it!=this->asignaturas.end(); it++){
+        retorno.insert(std::pair<string, Asignatura*>(it->first, it->second));
+    }
+    return retorno;
+}
+
+bool Estudiante::estaInscripto(string codigo){
+    map<string, Asignatura*>::iterator it;
+    return this->asignaturas.find(codigo) != this->asignaturas.end();
+}
+
+void Estudiante::agregarAsignatura(Asignatura* asignatura){
+    this->asignaturas.insert(std::pair<string, Asignatura*>(asignatura->getCodigo(), asignatura));
+}
+
+void Estudiante :: eliminarAsignatura(string cod){
+    asignaturas.erase(cod);
 }
 
 Estudiante::~Estudiante(){}

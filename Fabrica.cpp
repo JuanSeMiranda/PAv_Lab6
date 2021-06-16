@@ -20,3 +20,8 @@ ICAsignarAsignaturaDocente* Fabrica::getCAsignarAsignaturaDocente(){
     return caad;
 }
 
+ICEliminarAsignatura* Fabrica::getCEliminarAsignatura(){
+    CEliminarAsignatura* cea = new CEliminarAsignatura();
+    return cea;
+}
+

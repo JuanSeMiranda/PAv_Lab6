@@ -26,4 +26,8 @@ bool ManejadorClase::estaVacio(){
     return clases.empty();
 }
 
+void ManejadorClase::remove(int id){
+    this->clases.erase(id);
+}
+
 ManejadorClase::~ManejadorClase(){}

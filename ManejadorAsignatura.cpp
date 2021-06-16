@@ -25,11 +25,6 @@ bool ManejadorAsignatura::existeAsignatura(string codigo){
     return this->asignaturas.find(codigo) != this->asignaturas.end();    
 }
 
-bool ManejadorAsignatura::estaVacio(){
-    return asignaturas.empty();
-}
-
-
 list<string> ManejadorAsignatura::listarAsignatura(){
     list<string> aux;
     for(map<string,Asignatura*>::iterator it = this->asignaturas.begin(); it != this->asignaturas.end(); it++)
@@ -38,3 +33,11 @@ list<string> ManejadorAsignatura::listarAsignatura(){
 }
 
 ManejadorAsignatura::~ManejadorAsignatura(){}
+
+bool ManejadorAsignatura::estaVacio(){
+    return this->asignaturas.empty();
+}
+
+void ManejadorAsignatura::destroy(string cod){
+    asignaturas.erase(cod);
+}

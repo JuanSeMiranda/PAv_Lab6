@@ -27,8 +27,19 @@ bool Docente::noDictaAsignatura(string cod){
     return aux;
 }
 
+
 void Docente::agregarAsignatura(Rol* rol){
     this->roles.push_back(rol);
+}
+
+void Docente:: eliminarAsignatura(string cod){
+    list<Rol*>::iterator it;
+    for(it = roles.begin(); it != roles.end(); ++it){
+        bool esA = (*it)->esAsignatura(cod);
+        if(esA){
+            delete *it;
+        }
+    }
 }
 
 Docente::~Docente(){}
