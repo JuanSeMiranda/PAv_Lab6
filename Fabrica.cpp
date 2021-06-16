@@ -5,19 +5,12 @@ ICAltaUsuario* Fabrica::getCAltaUsuario(){
     return cau;
 }
 
-
-ICInscripcionAsignatura* Fabrica::getCInscripcionAsignatura(){
-    CInscripcionAsignatura* cia = new CInscripcionAsignatura();
-    return cia;
-}
-
-ICInicioClase* Fabrica::getCInicioClase(){
-    CInicioClase* cic = new CInicioClase();
-    return cic;
-}
-
 ICAltaAsignatura* Fabrica::getCAltaAsignatura(){
     CAltaAsignatura* caa = new CAltaAsignatura();
     return caa;
 }
 
+ICAsignarAsignaturaDocente* Fabrica::getCAsignarAsignaturaDocente(){
+    CAsignarAsignaturaDocente* caad = new CAsignarAsignaturaDocente();
+    return caad;
+}

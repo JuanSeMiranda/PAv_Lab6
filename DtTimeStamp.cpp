@@ -2,8 +2,8 @@
 
 
 DtTimeStamp::DtTimeStamp(){}
-DtTimeStamp::DtTimeStamp(DtFecha*, int, int, int){}
-DtFecha* DtTimeStamp::getFecha(){
+DtTimeStamp::DtTimeStamp(DtFecha, int, int, int){}
+DtFecha DtTimeStamp::getFecha(){
     return this->fecha;
 }
 int DtTimeStamp::getHora(){
