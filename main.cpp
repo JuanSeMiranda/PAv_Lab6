@@ -1,5 +1,8 @@
 #define RESET   "\033[0m"
 #define GREEN   "\033[32m"      /* Green */
+#define RED     "\033[31m"      /* Red */
+#define ORANGE	"\033[33m"		/* orange */
+#define BLUE	"\033[34m"		/* blue */
 
 //Fabrica
 #include "Fabrica.h"
@@ -8,6 +11,7 @@
 #include "ICAltaUsuario.h"
 #include "ICAltaAsignatura.h"
 #include "ICAsistenciaAClaseEnVivo.h"
+#include "ICAsignarAsignaturaDocente.h"
 
 // DT's
 #include "DtPerfil.h"
@@ -16,18 +20,21 @@
 
 #include <iostream>
 
+#include <list>
+
+
 Fabrica* fab;
 ICAltaUsuario* icaltausuario;
 ICAltaAsignatura* icalta_asignatura;
 ICAsistenciaAClaseEnVivo* icasistenciaaclaseenvivo;
-
+ICAsignarAsignaturaDocente* icasig_docente;
 
 using namespace std;
 
 void menu(){
     cout << "Seleccione una opcion:" << endl;
     cout <<GREEN<<"1. Alta de usuario" <<RESET<< endl;
-	cout <<GREEN<< "2. Alta de asignatura"<<RESET << endl;
+    cout <<GREEN<< "2. Alta de asignatura"<<RESET << endl;
     cout << "3 ➢ Asignacion de docentes a una asignatura:" << endl;
     cout << "4 ➢ Inscripcion a las asignaturas" << endl;
     cout << "5 ➢Inicio de clase" << endl;
@@ -268,17 +275,107 @@ void menuAsistenciaAClaseEnVivo(){
 	
 }
 
+// 3 ASIGNAR ASIGNATURA  DOCENTE
+
+void menuAsignarAsignaturaDocente(){
+	bool sigueasignado=true;
+	while(sigueasignado){
+		bool listavacia=false;
+		list<string>::iterator it;
+		list<string> listaA=icasig_docente->listarAsignaturas();
+		if(!listaA.empty()){
+			string codigo;
+			string email;
+			TipoRol rol_m;
+			int opciondeRol=false;
+			bool terminarTipoRol=true;
+			bool selecciono_rol=false;
+			int confirmar;
+
+			cout << RED<< "Codigo de asignaturas:" <<RESET<< endl;
+			for(it=listaA.begin(); it!=listaA.end();++it){
+				cout << *(it) << endl;
+			}
+
+			cout<<"\nInserte codigo de Asignatura a Asignar:"<< endl;
+			cin >> codigo;
+
+			cout<< "\nDocentes sin asignacion: "<<endl;
+			list<string> listaDs=icasig_docente->docentesSinLaAsignatura(codigo);
+			if(!listaDs.empty()){//si no esta vacia
+				for(it=listaDs.begin(); it!=listaDs.end(); ++it){
+						cout<<*(it)<<endl;
+					}
+					cout<< "Ingrese uno de estos email para continuar:";
+					cin>>email;
+
+					while(terminarTipoRol){
+						cout << "Ingrese el Rol a cumplir (1 TEORICO, 2 PRACTICO, 3 MONITOREO)" << endl;
+						cin >> opciondeRol;
+						switch (opciondeRol){
+							case(1):rol_m= TEORICO;
+									selecciono_rol=true;
+									break;
+							case(2):rol_m=PRACTICO;
+									selecciono_rol=true;
+									break;
+
+							case(3):rol_m=MONITOREO;
+									selecciono_rol=true;
+									break;	
+							default:cout<< "Opcion incorrecta."<<endl;
+									break;
+						}
+						if (selecciono_rol){
+							terminarTipoRol=false;
+							icasig_docente->selectDocente(email,rol_m);
+						}else{
+							cout <<ORANGE<< "\nNo ha asignado ningun tipo de clase." <<RESET<< endl;
+						}
+
+					}
+
+					cout << "\nDesea confirmar la asigancion? (1 para si, cualquier otro numero para no)" << endl;
+					cin >> confirmar;
+
+					if(confirmar==1){
+						icasig_docente->asignarDocente();
+						cout << "\nSe asigno el Docente con exito a la asignatura." << endl;
+					} else{
+						cout << "\nSe cancelo correctamente." << endl;
+					}
+			}else{
+				cout<<RED<<"\nNo hay ningun Docente"<<RESET<<endl;
+				listavacia=true;
+				sigueasignado=false;
+			}
+		}else{
+			cout<<RED<<"\nNo hay ningun Asignatura"<<RESET<<endl;
+			listavacia=true;
+			sigueasignado=false;
+		}
+		if(!listavacia){
+			cout << "Desea seguir asignando Docentes? (0 para seguir asignando, cualquier otro numero para cancelar)" << endl;
+			int opcionSeguirAsignando;
+			cin >> opcionSeguirAsignando;
+
+			if(opcionSeguirAsignando != 0){
+				sigueasignado = false;
+			}
+		}
+	}
+}
+
 int main(){
 
 	icaltausuario = fab->getCAltaUsuario();
 	icalta_asignatura = fab->getCAltaAsignatura();
 	icasistenciaaclaseenvivo = fab->getCAsistenciaAClaseEnVivo();
+	icasig_docente = fab->getCAsignarAsignaturaDocente();
 
     int opcion;
     menu();
     cin >> opcion;
-
-	
 
     while(opcion != 10){
         switch(opcion){
@@ -286,7 +383,7 @@ int main(){
                     break;
             case 2:	menuAltaAsignatura();
                     break;
-            case 3:
+            case 3: menuAsignarAsignaturaDocente();
                     break;
             case 4:
                     break;

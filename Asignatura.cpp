@@ -28,6 +28,7 @@ DtInstanciaClase* Asignatura::getTipoClases(){
     return this->tipoClases;
 }
 
+
 list<int> Asignatura::getClases(){
     map<int, Clase*> ::iterator it;
     list<int> retorno;

@@ -10,4 +10,3 @@ void CInicioClase::habilitar(string algo){}
 DtIniciarClaseFull CInicioClase::datosIngresados(){}
 void CInicioClase::iniciarClase(){}
 CInicioClase::~CInicioClase(){}
-

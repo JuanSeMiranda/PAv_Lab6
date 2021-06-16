@@ -30,6 +30,11 @@ bool ManejadorAsignatura::estaVacio(){
 }
 
 
-
+list<string> ManejadorAsignatura::listarAsignatura(){
+    list<string> aux;
+    for(map<string,Asignatura*>::iterator it = this->asignaturas.begin(); it != this->asignaturas.end(); it++)
+        aux.push_back(it->first);
+    return aux;
+}
 
 ManejadorAsignatura::~ManejadorAsignatura(){}

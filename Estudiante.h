@@ -16,7 +16,6 @@ class Estudiante : public Perfil{
         Estudiante(string,string,string,string,string);
         void setDocumento(string);
         string getDocumento();
-
         list<string> asignaturaInscriptas();
 
         ~Estudiante();

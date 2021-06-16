@@ -14,4 +14,21 @@ string Docente::getInstituto(){
     return this->instituto;
 }
 
+bool Docente::noDictaAsignatura(string cod){
+   // Rol* r =Rol::getAsignatura();
+    list<Rol*>::iterator it;
+    bool aux=true;
+
+    for(it= this->roles.begin(); it != this->roles.end();++it){
+       if((*it)->getCodigoAsignatura()==cod){
+           aux=false;
+       }
+    }
+    return aux;
+}
+
+void Docente::agregarAsignatura(Rol* rol){
+    this->roles.push_back(rol);
+}
+
 Docente::~Docente(){}

@@ -11,12 +11,12 @@ class Rol{
         Asignatura* asignatura;
     public:
         Rol();
-        Rol(TipoRol);
+        Rol(TipoRol,Asignatura*);
         TipoRol getRol();
         void setRol(TipoRol);
         Asignatura* getAsignatura();
         void setAsignatura(Asignatura* asignatura);
-
+        string getCodigoAsignatura();
         ~Rol();
 };
 

@@ -15,6 +15,8 @@ class Docente : public Perfil{
         Docente(string,string,string,string,string);
         void setInstituto(string);
         string getInstituto();
+        bool noDictaAsignatura(string);
+        void agregarAsignatura(Rol*); 
 
         ~Docente();
 };

@@ -23,11 +23,8 @@ class Asignatura{
         string getCodigo();
         string getNombre();
         DtInstanciaClase* getTipoClases();
-
         list<int> getClases();
-
         bool tieneClases();
-
         ~Asignatura();
 };
 

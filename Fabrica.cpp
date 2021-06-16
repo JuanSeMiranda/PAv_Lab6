@@ -15,3 +15,8 @@ ICAsistenciaAClaseEnVivo* Fabrica::getCAsistenciaAClaseEnVivo(){
     return caacen;
 }
 
+ICAsignarAsignaturaDocente* Fabrica::getCAsignarAsignaturaDocente(){
+    CAsignarAsignaturaDocente* caad = new CAsignarAsignaturaDocente();
+    return caad;
+}
+
