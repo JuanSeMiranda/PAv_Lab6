@@ -47,8 +47,8 @@ bool ManejadorAsignatura::estaVacio(){
     return this->asignaturas.empty();
 }
 
-void ManejadorAsignatura::remove(Asignatura* asignatura){
-
+void ManejadorAsignatura::destroy(string cod){
+    asignaturas.erase(cod);
 }
 
 ManejadorAsignatura::~ManejadorAsignatura(){}

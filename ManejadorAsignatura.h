@@ -17,7 +17,7 @@ class ManejadorAsignatura{
         map<string, Asignatura*> getAsignaturas();
         list<string> listarAsignatura();
         bool estaVacio();
-        void remove(Asignatura*);
+        void destroy(string);
 
         ~ManejadorAsignatura();
 };

@@ -36,8 +36,13 @@ DtInstanciaClase* Asignatura::getTipoClases(){
 
 Asignatura::~Asignatura(){
     delete tipoClases;
+    
+    ManejadorClase* mC= ManejadorClase::getInstancia();
+
     map<int, Clase*>::iterator it;
-    for(it = clases.begin(); it != clases.end(); ++it){
-        (*it).second->~Clase();
+    for(it = this->clases.begin(); it != this->clases.end(); ++it){
+        int id= it->first;
+        this->clases.erase(id);
+        mC->remove(id);
     }
 }

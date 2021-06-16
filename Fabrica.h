@@ -4,6 +4,7 @@
 #include "CInscripcionAsignatura.h"
 #include "CInicioClase.h"
 #include "CAltaAsignatura.h"
+#include "CEliminarAsignatura.h"
 
 class Fabrica{
     public:
@@ -11,7 +12,7 @@ class Fabrica{
         ICInscripcionAsignatura* getCInscripcionAsignatura();
         ICInicioClase* getCInicioClase();
         ICAltaAsignatura* getCAltaAsignatura();
-
+        ICEliminarAsignatura* getCEliminarAsignatura();
 };
 
 #endif

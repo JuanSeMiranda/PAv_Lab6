@@ -4,6 +4,7 @@
 #include <map>
 #include "Clase.h"
 #include "DtInstanciaClase.h"
+#include "ManejadorClase.h"
 using namespace std;
 
 class Clase;

@@ -15,7 +15,7 @@ Clase::Clase(int id, string nombre, DtTimeStamp* inicio, DtTimeStamp* fin, strin
     this-> inicio = inicio;
     this->fin = fin;
     this->rutaVideo = rutaVideo;
-    docentes.insert(std::pair<string, Docente*>(docente->getEmail(), docente));
+    this->docente = docente;
 }
 
 void Clase::setId(int id){
@@ -58,4 +58,9 @@ string Clase::getRutaVideo(){
     return this->rutaVideo;
 }
 
-Clase::~Clase(){}
+Clase::~Clase(){
+    this->participaciones.clear();
+    this->asistentesEnVivo.clear(); 
+    this->asistentesDiferido.clear();
+    
+}

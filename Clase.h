@@ -22,7 +22,7 @@ class Clase{
         DtTimeStamp* fin;
         string rutaVideo;
         static int idAutogenerado;
-        map<string, Docente*> docentes;
+        Docente* docente;
         map<int, Participacion*> participaciones;
         list<AsisteEnVivo*> asistentesEnVivo; 
         list<AsisteDiferido*> asistentesDiferido;

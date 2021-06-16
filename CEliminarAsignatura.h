@@ -17,6 +17,7 @@ class CEliminarAsignatura : public ICEliminarAsignatura{
         void selectAsignatura(string);
         void eliminarAsignatura();
         void cancelar();
+        bool existeAsignatura(string);
 
         ~CEliminarAsignatura();
 

@@ -66,7 +66,7 @@ void Docente:: eliminarAsignatura(string cod){
     for(it = roles.begin(); it != roles.end(); ++it){
         bool esA = (*it)->esAsignatura(cod);
         if(esA){
-            (*it)->~Rol();
+            delete *it;
         }
     }
 }

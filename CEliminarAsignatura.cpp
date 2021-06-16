@@ -26,11 +26,16 @@ void CEliminarAsignatura::eliminarAsignatura(){
             d->eliminarAsignatura(this->cod);
         }
     }
-    mA->remove(a);
+    mA->destroy(a->getCodigo());
 }
 
 void CEliminarAsignatura::cancelar(){
 
+}
+
+bool CEliminarAsignatura::existeAsignatura(string cod){
+    ManejadorAsignatura* mA = ManejadorAsignatura::getInstancia();
+    return mA->existeAsignatura(cod);
 }
 
 CEliminarAsignatura::~CEliminarAsignatura(){}

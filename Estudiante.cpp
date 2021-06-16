@@ -32,13 +32,8 @@ void Estudiante::agregarAsignatura(Asignatura* asignatura){
 }
 
 void Estudiante :: eliminarAsignatura(string cod){
-    /*
-    map<string, Asignatura*>::iterator it;
-    for(it = asignaturas.begin(); it != asignaturas.end(); ++it){
-        
-    }
-    */
-    asignaturas.erase(cod); //preguntar en clase si asi esta bien, porque en la solucion pide recorrer la lista de asignaturas del estudiante
+
+    asignaturas.erase(cod);
 }
 
 Estudiante::~Estudiante(){}

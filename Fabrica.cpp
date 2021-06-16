@@ -21,3 +21,8 @@ ICAltaAsignatura* Fabrica::getCAltaAsignatura(){
     return caa;
 }
 
+ICEliminarAsignatura* Fabrica::getCEliminarAsignatura(){
+    CEliminarAsignatura* cea = new CEliminarAsignatura();
+    return cea;
+}
+

@@ -11,6 +11,7 @@ class ICEliminarAsignatura{
         virtual void selectAsignatura(string)=0;
         virtual void eliminarAsignatura()=0;
         virtual void cancelar()=0;
+        virtual bool existeAsignatura(string)=0;
 };
 
 #endif

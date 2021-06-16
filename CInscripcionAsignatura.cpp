@@ -5,25 +5,27 @@ CInscripcionAsignatura::CInscripcionAsignatura(){}
 list<string> CInscripcionAsignatura::asignaturasNoInscripto(string email){
     ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
     Perfil* p = mP->find(email);
-    Estudiante* e = dynamic_cast<Estudiante*>(p);
-
-    map<string, Asignatura*> asignaturasEstudiante = e->getAsignaturas();
-
-    ManejadorAsignatura* mA = ManejadorAsignatura::getInstancia();
-    map<string, Asignatura*> asignaturas = mA->getAsignaturas();
-
     list<string> retorno;
-    map<string, Asignatura*>::iterator it1;
-    map<string, Asignatura*>::iterator it2;
-    for(it1 = asignaturas.begin(); it1 != asignaturas.end(); it1++){
-        bool repetido = false;
-        for(it2 = asignaturasEstudiante.begin(); it2 != asignaturasEstudiante.end(); it2++){
-            if(it1->first == it2->first){
-                repetido == true;
+    if(Estudiante* e = dynamic_cast<Estudiante*>(p)){
+
+        map<string, Asignatura*> asignaturasEstudiante = e->getAsignaturas();
+
+        ManejadorAsignatura* mA = ManejadorAsignatura::getInstancia();
+        map<string, Asignatura*> asignaturas = mA->getAsignaturas();
+
+        
+        map<string, Asignatura*>::iterator it1;
+        map<string, Asignatura*>::iterator it2;
+        for(it1 = asignaturas.begin(); it1 != asignaturas.end(); it1++){
+            bool repetido = false;
+            for(it2 = asignaturasEstudiante.begin(); it2 != asignaturasEstudiante.end(); it2++){
+                if(it1->first == it2->first){
+                    repetido == true;
+                }
             }
-        }
-        if(!repetido){
-            retorno.push_back(it1->first);
+            if(!repetido){
+                retorno.push_back(it1->first);
+            }
         }
     }
     return retorno;

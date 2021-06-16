@@ -5,6 +5,7 @@
         "*.tcc": "cpp",
         "type_traits": "cpp",
         "iosfwd": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "list": "cpp"
     }
 }

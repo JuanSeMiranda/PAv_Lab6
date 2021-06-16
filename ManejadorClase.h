@@ -4,6 +4,8 @@
 #include <list>
 #include <map>
 
+class Clase;
+
 class ManejadorClase{
     private:
         static ManejadorClase* instancia;
@@ -15,6 +17,8 @@ class ManejadorClase{
         static ManejadorClase* getInstancia();
         bool existeClase(int);
         bool estaVacio();
+
+        void remove(int);
 
         ~ManejadorClase();
 };
