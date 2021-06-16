@@ -4,9 +4,8 @@ OBJS = main.o Perfil.o Estudiante.o Docente.o DtTimeStamp.o DtFecha.o DtLog.o \
 	   AsisteEnVivo.o AsisteDiferido.o CAltaUsuario.o CInicioClase.o \
 	   DtPerfil.o ManejadorPerfil.o Fabrica.o DtIniciarClase.o DtIniciarClaseFull.o \
 	   DtAsignatura.o DtInstanciaClase.o ManejadorAsignatura.o CAltaAsignatura.o DtAsistir.o\
-	   CAsistenciaAClaseEnVivo.o ManejadorClase.o \
-	   DtAsignatura.o DtInstanciaClase.o ManejadorAsignatura.o CAltaAsignatura.o \
-	   CAsignarAsignaturaDocente.o
+	   CAsistenciaAClaseEnVivo.o ManejadorClase.o CAsignarAsignaturaDocente.o\
+	   DtIniciarMonitoreo.o CEliminarAsignatura.o CInscripcionAsignatura.o\
 
 
 main: $(OBJS)

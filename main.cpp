@@ -13,11 +13,16 @@
 #include "ICAsistenciaAClaseEnVivo.h"
 #include "ICAsignarAsignaturaDocente.h"
 #include "ICEliminarAsignatura.h"
+#include "ICInscripcionAsignatura.h"
+#include "ICInicioClase.h"
 
 // DT's
 #include "DtPerfil.h"
 #include "DtAsignatura.h"
 #include "DtAsistir.h"
+#include "DtTimeStamp.h"
+#include "DtIniciarClase.h"
+#include "DtIniciarMonitoreo.h"
 
 #include <iostream>
 
@@ -27,9 +32,11 @@
 Fabrica* fab;
 ICAltaUsuario* icaltausuario;
 ICAltaAsignatura* icalta_asignatura;
-ICAsistenciaAClaseEnVivo* icasistenciaaclaseenvivo;
 ICAsignarAsignaturaDocente* icasig_docente;
+ICInicioClase* icinicioclase;//aca estoy tocando
+ICAsistenciaAClaseEnVivo* icasistenciaaclaseenvivo;
 ICEliminarAsignatura * iceliminar_asignatura;
+ICInscripcionAsignatura* icinscripcionasignatura;
 
 using namespace std;
 
@@ -558,6 +565,8 @@ int main(){
 	icasistenciaaclaseenvivo = fab->getCAsistenciaAClaseEnVivo();
 	icasig_docente = fab->getCAsignarAsignaturaDocente();
 	iceliminar_asignatura = fab->getCEliminarAsignatura();
+	icinscripcionasignatura = fab->getCInscripcionAsignatura();
+	icinicioclase = fab->getCInicioClase();
 
 	bool datosCargados = false;
 

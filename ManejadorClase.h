@@ -9,10 +9,10 @@ class ManejadorClase{
     private:
         static ManejadorClase* instancia;
         ManejadorClase();
-        list <Clase*> clases;
+        map<int, Clase*> clases;
     public:
         void add(Clase*);
-        Clase* find(string);
+        Clase* find(int);
         static ManejadorClase* getInstancia();
         bool existeClase(int);
         bool estaVacio();

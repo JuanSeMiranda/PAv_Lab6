@@ -4,9 +4,7 @@ CAsignarAsignaturaDocente::CAsignarAsignaturaDocente(){};
 
 list<string> CAsignarAsignaturaDocente::listarAsignaturas(){
     ManejadorAsignatura* mA = ManejadorAsignatura::getInstancia();
-    map <string, Asignatura*>::iterator it;
-    list <string> listaA =mA->listarAsignatura();
-    return listaA;
+    return mA->listarAsignatura();
 }
 
 list<string> CAsignarAsignaturaDocente::docentesSinLaAsignatura(string cod){//preguntar si el mail es para recorre cada uno de los perfiles

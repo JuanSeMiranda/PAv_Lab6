@@ -5,6 +5,8 @@
 #include "CAsistenciaAClaseEnVivo.h"
 #include "CAsignarAsignaturaDocente.h"
 #include "CEliminarAsignatura.h"
+#include "CInicioClase.h"
+#include "CInscripcionAsignatura.h"
 
 class Fabrica{
     public:
@@ -13,6 +15,8 @@ class Fabrica{
         ICAsistenciaAClaseEnVivo* getCAsistenciaAClaseEnVivo();
         ICAsignarAsignaturaDocente* getCAsignarAsignaturaDocente();
         ICEliminarAsignatura* getCEliminarAsignatura();
+        ICInicioClase* getCInicioClase();
+        ICInscripcionAsignatura* getCInscripcionAsignatura();
 };
 
 #endif

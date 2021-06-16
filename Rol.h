@@ -14,9 +14,11 @@ class Rol{
         Rol(TipoRol,Asignatura*);
         TipoRol getRol();
         void setRol(TipoRol);
+        TipoRol getTipo();
         Asignatura* getAsignatura();
         void setAsignatura(Asignatura* asignatura);
         string getCodigoAsignatura();
+        bool esAsignatura(string);
         ~Rol();
 };
 

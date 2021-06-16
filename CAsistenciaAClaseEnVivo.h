@@ -25,10 +25,10 @@ class CAsistenciaAClaseEnVivo: public ICAsistenciaAClaseEnVivo{
         bool existeAsignatura(string);
         bool existeClase(int);
 
-        bool perfilesVacio()=0;
-        bool asignaturasVacio()=0;
-        bool clasesVacio()=0;
-        bool asignaturaTieneClases(string)=0;
+        bool perfilesVacio();
+        bool asignaturasVacio();
+        bool clasesVacio();
+        bool asignaturaTieneClases(string);
 
         ~CAsistenciaAClaseEnVivo();
 };

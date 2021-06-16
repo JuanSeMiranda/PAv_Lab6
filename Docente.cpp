@@ -14,6 +14,16 @@ string Docente::getInstituto(){
     return this->instituto;
 }
 
+list<string> Docente::asignaturas(){
+    list<Rol*>:: iterator it;
+    list<string> retorno;
+    for(it= this->roles.begin(); it!=this->roles.end(); it++){
+        string cod = (*it)->getCodigoAsignatura();
+        retorno.push_back(cod);
+    }
+    return retorno;
+}
+
 bool Docente::noDictaAsignatura(string cod){
    // Rol* r =Rol::getAsignatura();
     list<Rol*>::iterator it;
@@ -27,9 +37,36 @@ bool Docente::noDictaAsignatura(string cod){
     return aux;
 }
 
+bool Docente::tieneMonitoreo(string codigo){
+    bool retorno = false;
+    list<Rol*>:: iterator it;
+    for(it= this->roles.begin(); it!=this->roles.end(); it++){
+        string cod = (*it)->getCodigoAsignatura();
+        if(cod == codigo){
+            if((*it)->getTipo() == MONITOREO)
+                retorno = true;
+        }
+    }
+    return retorno;
+}
+
 
 void Docente::agregarAsignatura(Rol* rol){
     this->roles.push_back(rol);
+}
+
+TipoRol Docente::decimeTuRol(string cod){
+    list<Rol*>::iterator it=roles.begin();
+    bool encontre=false;
+    TipoRol retorno;
+    while(it!=roles.end() && !encontre){
+        if((*it)->getCodigoAsignatura()==cod){
+            retorno=(*it)->getTipo();
+            encontre=true;
+        }
+        it++;
+    }
+    return retorno;
 }
 
 void Docente:: eliminarAsignatura(string cod){

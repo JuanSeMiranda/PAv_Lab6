@@ -29,9 +29,7 @@ void CEliminarAsignatura::eliminarAsignatura(){
     mA->destroy(a->getCodigo());
 }
 
-void CEliminarAsignatura::cancelar(){
-
-}
+void CEliminarAsignatura::cancelar(){}
 
 bool CEliminarAsignatura::existeAsignatura(string cod){
     ManejadorAsignatura* mA = ManejadorAsignatura::getInstancia();

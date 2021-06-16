@@ -25,3 +25,12 @@ ICEliminarAsignatura* Fabrica::getCEliminarAsignatura(){
     return cea;
 }
 
+ICInicioClase* Fabrica::getCInicioClase(){
+    CInicioClase* cic= new CInicioClase();
+    return cic;
+}
+
+ICInscripcionAsignatura* Fabrica::getCInscripcionAsignatura(){
+    CInscripcionAsignatura* cia= new CInscripcionAsignatura();
+    return cia;
+}

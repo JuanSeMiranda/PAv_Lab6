@@ -32,6 +32,15 @@ list<string> ManejadorAsignatura::listarAsignatura(){
     return aux;
 }
 
+map<string, Asignatura*> ManejadorAsignatura::getAsignaturas(){
+    map<string, Asignatura*> retorno;
+    map<string, Asignatura*>::iterator it;
+    for(it = asignaturas.begin(); it != asignaturas.end(); it++){
+        retorno.insert(std::pair<string, Asignatura*>(it->first, it->second));
+    }
+    return retorno;
+}
+
 ManejadorAsignatura::~ManejadorAsignatura(){}
 
 bool ManejadorAsignatura::estaVacio(){
@@ -41,3 +50,4 @@ bool ManejadorAsignatura::estaVacio(){
 void ManejadorAsignatura::destroy(string cod){
     asignaturas.erase(cod);
 }
+

@@ -2,7 +2,7 @@
 
 Teorico::Teorico(){}
 
-Teorico::Teorico(int cantAsistentes, int id, string nombre, DtTimeStamp inicio, DtTimeStamp fin, string rutaVideo, Docente* docente) : Clase(id, nombre, inicio, fin, rutaVideo, docente){
+Teorico::Teorico(int cantAsistentes, int id, string nombre, DtTimeStamp* inicio, DtTimeStamp* fin, string rutaVideo, Docente* docente) : Clase(id, nombre, inicio, fin, rutaVideo, docente){
     this->cantAsistentes = cantAsistentes;
 }
 

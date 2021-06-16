@@ -24,6 +24,7 @@ class Asignatura{
         string getCodigo();
         string getNombre();
         DtInstanciaClase* getTipoClases();
+        void agregarClase(Clase*);
         list<int> getClases();
         bool tieneClases();
         ~Asignatura();

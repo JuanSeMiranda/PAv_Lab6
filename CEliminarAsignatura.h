@@ -11,8 +11,7 @@ class CEliminarAsignatura : public ICEliminarAsignatura{
     private:
         string cod;
     public:
-        CEliminarAsignatura();
-        
+        CEliminarAsignatura();        
         list<string> listarAsignaturas();
         void selectAsignatura(string);
         void eliminarAsignatura();

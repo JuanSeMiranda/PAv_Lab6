@@ -17,6 +17,9 @@ class ManejadorAsignatura{
         static ManejadorAsignatura* getInstancia();
         bool estaVacio();
         void destroy(string);
+        map<string, Asignatura*> getAsignaturas();
+
+        
   
         ~ManejadorAsignatura();
 };

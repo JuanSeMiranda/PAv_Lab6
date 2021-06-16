@@ -34,7 +34,7 @@ list<int> Asignatura::getClases(){
     list<int> retorno;
     for(it = clases.begin(); it != clases.end(); ++it){
         retorno.push_back(it->first);   
-
+    }
     return retorno;
 }
   
@@ -54,4 +54,5 @@ Asignatura::~Asignatura(){
         int id= it->first;
         this->clases.erase(id);
         mC->remove(id);
+    }
 }

@@ -24,7 +24,7 @@ class Clase{
         static int idAutogenerado;
         Docente* docente;
         map<int, Participacion*> participaciones;
-        list<AsisteEnVivo*> asistentesEnVivo; 
+        list<AsisteEnVivo*> asistentesEnVivo;
         list<AsisteDiferido*> asistentesDiferido;
     public:
         Clase();
