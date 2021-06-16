@@ -16,6 +16,8 @@ class ManejadorAsignatura{
         list<string> listarAsignatura();
         static ManejadorAsignatura* getInstancia();
         ~ManejadorAsignatura();
+
+        bool estaVacio();
 };
 
 #endif

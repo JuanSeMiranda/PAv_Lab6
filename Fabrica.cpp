@@ -10,7 +10,13 @@ ICAltaAsignatura* Fabrica::getCAltaAsignatura(){
     return caa;
 }
 
+ICAsistenciaAClaseEnVivo* Fabrica::getCAsistenciaAClaseEnVivo(){
+    CAsistenciaAClaseEnVivo* caacen = new CAsistenciaAClaseEnVivo();
+    return caacen;
+}
+
 ICAsignarAsignaturaDocente* Fabrica::getCAsignarAsignaturaDocente(){
     CAsignarAsignaturaDocente* caad = new CAsignarAsignaturaDocente();
     return caad;
 }
+

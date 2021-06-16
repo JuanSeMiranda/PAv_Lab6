@@ -43,6 +43,8 @@ class Clase{
         void setRutaVideo(string);
         string getRutaVideo();
 
+        void insertarAsistenciaEnVivo(AsisteEnVivo*);
+
         virtual ~Clase();
 };
 

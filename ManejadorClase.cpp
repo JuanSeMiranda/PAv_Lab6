@@ -5,13 +5,12 @@ ManejadorClase* ManejadorClase::instancia = NULL;
 ManejadorClase::ManejadorClase(){}
 
 void ManejadorClase::add(Clase* clase){
-    // ITERAR CON LISTAS
+  
 }
 
 Clase* ManejadorClase::find(string clase){
 
-}//PODER: CHANCLETAZO
-//Nivel: 9999999
+}
 
 ManejadorClase* ManejadorClase::getInstancia(){
     if(instancia == NULL){
@@ -22,6 +21,9 @@ ManejadorClase* ManejadorClase::getInstancia(){
 
 bool ManejadorClase::existeClase(string clase){
 
+
+bool ManejadorClase::estaVacio(){
+    return clases.empty();
 }
 
 ManejadorClase::~ManejadorClase(){}

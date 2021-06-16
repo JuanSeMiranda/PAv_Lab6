@@ -50,4 +50,8 @@ string Clase::getRutaVideo(){
     return this->rutaVideo;
 }
 
+void Clase::insertarAsistenciaEnVivo(AsisteEnVivo* aev){
+    asistentesEnVivo.push_back(aev);
+}
+
 Clase::~Clase(){}

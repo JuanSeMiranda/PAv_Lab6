@@ -26,6 +26,11 @@ bool ManejadorPerfil :: existePerfil(string email){
     return this->perfiles.find(email) != this->perfiles.end();
 }
 
+
+bool ManejadorPerfil :: estaVacio(){
+    return perfiles.empty();
+}
+
 map<string, Perfil*> ManejadorPerfil::listarPerfiles(){
     map<string, Perfil*>:: iterator it;
     map<string, Perfil*> retorno;

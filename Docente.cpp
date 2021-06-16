@@ -14,7 +14,7 @@ string Docente::getInstituto(){
     return this->instituto;
 }
 
-bool Docente::noDictaAsignatura(string cod){/*77777777777777777777777*/
+bool Docente::noDictaAsignatura(string cod){
    // Rol* r =Rol::getAsignatura();
     list<Rol*>::iterator it;
     bool aux=true;
@@ -28,7 +28,7 @@ bool Docente::noDictaAsignatura(string cod){/*77777777777777777777777*/
 }
 
 void Docente::agregarAsignatura(Rol* rol){
-    this->roles.push_back(rol);//desconfio
+    this->roles.push_back(rol);
 }
 
 Docente::~Docente(){}

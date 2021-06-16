@@ -3,37 +3,41 @@
 #define RED     "\033[31m"      /* Red */
 #define ORANGE	"\033[33m"		/* orange */
 #define BLUE	"\033[34m"		/* blue */
+
 //Fabrica
 #include "Fabrica.h"
 
 //Interfaces
 #include "ICAltaUsuario.h"
 #include "ICAltaAsignatura.h"
-#include "ICAsignarAsignaturaDocente.h" /*7777777777777*/
+#include "ICAsistenciaAClaseEnVivo.h"
+#include "ICAsignarAsignaturaDocente.h"
 
 // DT's
 #include "DtPerfil.h"
 #include "DtAsignatura.h"
+#include "DtAsistir.h"
 
 #include <iostream>
+
 #include <list>
+
 
 Fabrica* fab;
 ICAltaUsuario* icaltausuario;
 ICAltaAsignatura* icalta_asignatura;
-ICAsignarAsignaturaDocente* icasig_docente; /*7777777777777*/
-
-
+ICAsistenciaAClaseEnVivo* icasistenciaaclaseenvivo;
+ICAsignarAsignaturaDocente* icasig_docente;
 
 using namespace std;
 
 void menu(){
     cout << "Seleccione una opcion:" << endl;
-    cout <<GREEN<<"1 ➢ Alta de usuario" <<RESET<< endl;
-	cout <<GREEN<< "2 ➢ Alta de asignatura"<<RESET << endl;
+    cout <<GREEN<<"1. Alta de usuario" <<RESET<< endl;
+    cout <<GREEN<< "2. Alta de asignatura"<<RESET << endl;
     cout << "3 ➢ Asignacion de docentes a una asignatura:" << endl;
     cout << "4 ➢ Inscripcion a las asignaturas" << endl;
-    cout << "5 ➢ Inicio de clase" << endl;
+    cout << "5 ➢Inicio de clase" << endl;
     cout << "6 ➢ Asistencia a clase en vivo" << endl;
     cout << "7 ➢ Envio de mensaje" << endl;
     cout << "8 ➢ Eliminacion de asignatura" << endl;
@@ -194,6 +198,83 @@ void menuAltaAsignatura(){
 	
 }
 
+// 6 ASISTENCIA A CLASE EN VIVO
+void menuAsistenciaAClaseEnVivo(){
+	int id;
+	string cod;
+	string email;
+	bool ingresaMail = true;
+
+	if(icasistenciaaclaseenvivo->perfilesVacio()){
+		if(icasistenciaaclaseenvivo->asignaturasVacio()){
+			if(icasistenciaaclaseenvivo->clasesVacio()){
+				cout << "Ingrese su Email: ";
+				cin >> email;
+
+				while(ingresaMail){
+					if(!icasistenciaaclaseenvivo->existeUsuario(email)){
+						cout << "No existe el usuario ingresado, ingrese otro email" << endl;
+						cin >> email;
+					}
+
+					if(!icasistenciaaclaseenvivo->esEstudiante(email)){
+						cout << "El email ingresado no es de un estudiante, ingrese otro email" << endl;
+						cin >> email;
+					}
+
+					if(icasistenciaaclaseenvivo->existeUsuario(email) && icasistenciaaclaseenvivo->esEstudiante(email)){
+						cout << "Se ha encontrado al perfil y es de un estudiante" << endl;
+						ingresaMail = false;
+					}
+				}
+
+				icasistenciaaclaseenvivo->asignaturasInscripto(email);
+
+				cout << "Ingrese el codigo de la asignatura: ";
+				cin >> cod;
+
+				if(icasistenciaaclaseenvivo->asignaturaTieneClases(cod)){
+					while(!icasistenciaaclaseenvivo->existeAsignatura(cod)){
+						cout << "El codigo ingresado no existe, ingrese otro codigo." << endl;
+						cin >> cod;
+					}
+
+					icasistenciaaclaseenvivo->clasesOnlineDisponibles(cod);
+
+					cout << "Ingrese la ID de la clase: ";
+					cin >> id;
+
+					while(!icasistenciaaclaseenvivo->existeClase(id)){
+						cout << "El codigo ingresado no existe, ingrese otro codigo." << endl;
+						cin >> cod;
+					}
+
+					icasistenciaaclaseenvivo->selectClase(id);
+
+					cout << icasistenciaaclaseenvivo->selectClase(id) << endl;
+
+					cout << "Desea confirmar? (1 para si, cualquier otro numero para no)" << endl;
+					int opcionFinal;
+					cin >> opcionFinal;
+					
+					if(opcionFinal==1)
+						icasistenciaaclaseenvivo->asistirClaseEnVivo();
+
+				}else
+					cout << "La Asignatura no tiene Clases registradas." << endl;
+				
+			}else
+				cout << "No hay ninguna Clase registrada." << endl;
+		}else
+			cout << "No hay ninguna Asignatura registrada." << endl;
+
+	}else{
+		cout << "No hay ningun Perfil registrado." << endl;
+	}
+	
+	
+}
+
 // 3 ASIGNAR ASIGNATURA  DOCENTE
 
 void menuAsignarAsignaturaDocente(){
@@ -284,12 +365,14 @@ void menuAsignarAsignaturaDocente(){
 		}
 	}
 }
+
 int main(){
 
 	icaltausuario = fab->getCAltaUsuario();
 	icalta_asignatura = fab->getCAltaAsignatura();
+	icasistenciaaclaseenvivo = fab->getCAsistenciaAClaseEnVivo();
 	icasig_docente = fab->getCAsignarAsignaturaDocente();
-	
+
     int opcion;
     menu();
     cin >> opcion;
@@ -306,7 +389,7 @@ int main(){
                     break;
             case 5:
                     break;
-            case 6:
+            case 6: menuAsistenciaAClaseEnVivo();
                     break;
             case 7:
                     break;

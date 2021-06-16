@@ -19,11 +19,13 @@ DtInstanciaClase* DtAsignatura:: getTipoClases(){
     return this->tipoClases;
 }
 
+
 ostream& operator<<(ostream& salida, DtAsignatura& asignatura){
     DtInstanciaClase* dti = asignatura.tipoClases; 
     salida <<"Nombre de la Asignatura: " << asignatura.getNombre()<< endl;
     salida << "Codigo de la Asignatura: " << asignatura.getCodigo() << endl;
     salida << *dti << endl;
+
     return salida;
 }
 

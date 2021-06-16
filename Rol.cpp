@@ -4,7 +4,7 @@ Rol::Rol(){}
 
 Rol::Rol(TipoRol tipo, Asignatura* asignatura){
     this->tipo = tipo;
-    this->asignatura=asignatura; /*77777777777777777*/
+    this->asignatura=asignatura;
 }
 
 TipoRol Rol::getRol(){
@@ -26,6 +26,5 @@ void Rol::setAsignatura(Asignatura* asignatura){
 string Rol::getCodigoAsignatura(){//creo que ya lo tiene dalto pero con getcodigo asignara
     return this->asignatura->getCodigo();
 }
-
 
 Rol::~Rol(){}
