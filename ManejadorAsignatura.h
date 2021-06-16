@@ -8,18 +8,16 @@ class ManejadorAsignatura{
     private:
         static ManejadorAsignatura* instancia;
         ManejadorAsignatura();
-        map<string, Asignatura*> asignaturas;
+        map <string, Asignatura*> asignaturas;
     public:
         void add(Asignatura*);
         Asignatura* find(string);
-        static ManejadorAsignatura* getInstancia();
         bool existeAsignatura(string);
-        map<string, Asignatura*> getAsignaturas();
         list<string> listarAsignatura();
-        bool estaVacio();
-        void remove(Asignatura*);
-
+        static ManejadorAsignatura* getInstancia();
         ~ManejadorAsignatura();
+
+        bool estaVacio();
 };
 
 #endif

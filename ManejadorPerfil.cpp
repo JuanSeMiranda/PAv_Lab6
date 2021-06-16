@@ -21,23 +21,13 @@ ManejadorPerfil* ManejadorPerfil::getInstancia(){
     return instancia;
 }
 
-bool ManejadorPerfil::existePerfil(string email){
+bool ManejadorPerfil :: existePerfil(string email){
     map<string, Perfil*>::iterator it;
     return this->perfiles.find(email) != this->perfiles.end();
 }
 
-map<string, Perfil*> ManejadorPerfil::listarPerfiles(){
-    map<string, Perfil*>:: iterator it;
-    map<string, Perfil*> retorno;
-
-    for(it= this->perfiles.begin(); it!=this->perfiles.end(); it++){
-        retorno.insert(std::pair<string, Perfil*>(it->first, it->second));
-    }
-    return retorno;
-}
-
-bool ManejadorPerfil::estaVacio(){
-    return this->perfiles.empty();
+bool ManejadorPerfil :: estaVacio(){
+    return perfiles.empty();
 }
 
 ManejadorPerfil::~ManejadorPerfil(){}
