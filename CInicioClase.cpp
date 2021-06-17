@@ -5,8 +5,10 @@ CInicioClase::CInicioClase(){}
 list<string> CInicioClase::asignaturasAsignadas(string email){
     ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
     Perfil* p = mP->find(email);
-    Docente* d = dynamic_cast<Docente*>(p);
-    list<string> asign = d->asignaturas();
+    list<string> asign;
+    if(Docente* d = dynamic_cast<Docente*>(p)){
+       asign = d->asignaturas();
+    }
     return asign;
 }
 
@@ -59,8 +61,10 @@ void CInicioClase::iniciarClase(string email){
     ManejadorAsignatura* mA = ManejadorAsignatura::getInstancia();
     Asignatura* a = mA->find(inicioClase->getCodigo());
     string rutaVideo;
-    cout << "Ingrse una ruta de video para la clase" << endl;
+    cout << "Ingrse una ruta de video para la clase creada: ";
     cin >> rutaVideo;
+    cin.ignore();
+    
 
     if(tipo==TEORICO){
         Teorico* t = new Teorico(0, this->data->getId(), this->inicioClase->getNombre(), this->inicioClase->getFechaHora(), NULL, rutaVideo, d);

@@ -27,7 +27,7 @@ void Rol::setAsignatura(Asignatura* asignatura){
     this->asignatura = asignatura;
 }
 
-string Rol::getCodigoAsignatura(){//creo que ya lo tiene dalto pero con getcodigo asignara
+string Rol::getCodigoAsignatura(){
     return this->asignatura->getCodigo();
 }
 

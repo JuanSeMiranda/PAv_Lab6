@@ -1,8 +1,11 @@
 #ifndef DTTIMESTAMP
 #define DTTIMESTAMP
 #include "DtFecha.h"
+#include <iostream>
 
-class DtTimeStamp{
+using namespace std;
+
+class DtTimeStamp: public DtFecha{
     private:
         DtFecha* fecha;
         int hora;
@@ -17,6 +20,7 @@ class DtTimeStamp{
         int getSegundo();
 
         ~DtTimeStamp();
+        friend ostream& operator <<(ostream& ,const DtTimeStamp&);
 }; 
 
 #endif

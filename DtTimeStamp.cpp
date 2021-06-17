@@ -24,3 +24,12 @@ int DtTimeStamp::getSegundo(){
 }
 
 DtTimeStamp::~DtTimeStamp(){}
+
+ostream& operator << (ostream& salida, const DtTimeStamp& timestamp){
+    salida << *(timestamp.fecha) << endl;
+    salida << "Hora: " << timestamp.hora;
+    salida << ":" << timestamp.minuto;
+    salida << ":" << timestamp.segundo;
+
+    return salida;
+}

@@ -15,9 +15,10 @@ list<string> CAsignarAsignaturaDocente::docentesSinLaAsignatura(string cod){//pr
     this->cod=cod;
 
     for(it = listP.begin(); it != listP.end(); ++it){
-        Docente* d=dynamic_cast<Docente*>(it->second);
-        if(d->noDictaAsignatura(cod)){
-            aux.push_back(d->getEmail());
+        if(Docente* d=dynamic_cast<Docente*>(it->second)){
+            if(d->noDictaAsignatura(cod)){
+                aux.push_back(d->getEmail());
+            }
         }
     }
     
@@ -35,8 +36,14 @@ void CAsignarAsignaturaDocente::asignarDocente(){
     Docente* d= dynamic_cast<Docente*>(p);
 
     ManejadorAsignatura* mA = ManejadorAsignatura::getInstancia();
-    Asignatura* a=mA->find(cod);
+    Asignatura* a;
+    if(!(a=mA->find(this->cod))){//super revisar
+        Rol* r= new Rol(rol, a);//super desconfio
+        d->agregarAsignatura(r); 
+    }
+    else{
+        cout << "No existe esa asignatura" << endl;
+    }
 
-    Rol* r= new Rol(rol, a);//super desconfio
-    d->agregarAsignatura(r);
+    
 }

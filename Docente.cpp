@@ -29,10 +29,12 @@ bool Docente::noDictaAsignatura(string cod){
     list<Rol*>::iterator it;
     bool aux=true;
 
-    for(it= this->roles.begin(); it != this->roles.end();++it){
-       if((*it)->getCodigoAsignatura()==cod){
-           aux=false;
-       }
+    for(it= this->roles.begin(); it != this->roles.end();it++){//++
+       // if(!(*it)->getAsignatura()){// usurio inicil no tine rol ni asignatura por ende vos no le asignas ni una asignatura o rol
+            if((*it)->getCodigoAsignatura()==cod){
+                aux=false;
+            }
+       // }
     }
     return aux;
 }
@@ -72,9 +74,10 @@ TipoRol Docente::decimeTuRol(string cod){
 void Docente:: eliminarAsignatura(string cod){
     list<Rol*>::iterator it;
     for(it = roles.begin(); it != roles.end(); ++it){
-        bool esA = (*it)->esAsignatura(cod);
-        if(esA){
+        bool esA = (*it)->esAsignatura(cod); // buscamos pav
+        if(esA){// resivimos qque justo este rol coiside con la asignatura
             delete *it;
+            //roles.remove(*it);
         }
     }
 }
