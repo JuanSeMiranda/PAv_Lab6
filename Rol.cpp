@@ -31,4 +31,8 @@ string Rol::getCodigoAsignatura(){
     return this->asignatura->getCodigo();
 }
 
+void Rol::eliminarAsignatura(){
+    this->asignatura = NULL;
+}
+
 Rol::~Rol(){}

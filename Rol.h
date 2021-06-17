@@ -19,6 +19,7 @@ class Rol{
         void setAsignatura(Asignatura* asignatura);
         string getCodigoAsignatura();
         bool esAsignatura(string);
+        void eliminarAsignatura();//exel en te 
         ~Rol();
 };
 

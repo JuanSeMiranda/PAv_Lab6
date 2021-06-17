@@ -36,9 +36,9 @@ void CAsignarAsignaturaDocente::asignarDocente(){
     Docente* d= dynamic_cast<Docente*>(p);
 
     ManejadorAsignatura* mA = ManejadorAsignatura::getInstancia();
-    Asignatura* a;
-    if(!(a=mA->find(this->cod))){//super revisar
-        Rol* r= new Rol(rol, a);//super desconfio
+    
+    if(mA->existeAsignatura(this->cod)){//super revisar
+        Rol* r= new Rol(rol, mA->find(cod));//super desconfio
         d->agregarAsignatura(r); 
     }
     else{

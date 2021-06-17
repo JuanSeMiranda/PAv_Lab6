@@ -25,16 +25,15 @@ list<string> Docente::asignaturas(){
 }
 
 bool Docente::noDictaAsignatura(string cod){
-   // Rol* r =Rol::getAsignatura();
     list<Rol*>::iterator it;
     bool aux=true;
 
-    for(it= this->roles.begin(); it != this->roles.end();it++){//++
-       // if(!(*it)->getAsignatura()){// usurio inicil no tine rol ni asignatura por ende vos no le asignas ni una asignatura o rol
+    for(it= this->roles.begin(); it != this->roles.end();++it){// al parecer los roles estan vacios y por eso no entra al for
+        if((*it)->getAsignatura() != NULL){//si no controlamos esto cuando se aga el get y lo compare con el cod al ser NULL peta
             if((*it)->getCodigoAsignatura()==cod){
                 aux=false;
             }
-       // }
+        }
     }
     return aux;
 }
@@ -71,13 +70,17 @@ TipoRol Docente::decimeTuRol(string cod){
     return retorno;
 }
 
-void Docente:: eliminarAsignatura(string cod){
+void Docente::eliminarAsignatura(string cod){
+    //roles.remove();
     list<Rol*>::iterator it;
-    for(it = roles.begin(); it != roles.end(); ++it){
-        bool esA = (*it)->esAsignatura(cod); // buscamos pav
-        if(esA){// resivimos qque justo este rol coiside con la asignatura
-            delete *it;
-            //roles.remove(*it);
+    for(it = roles.begin(); it != roles.end(); ++it){// no entra al for
+        if((*it)->getAsignatura() != NULL){ //NULL->getAsignatura() no existe, chausito segmentation fault :)
+            bool esA = (*it)->esAsignatura(cod);
+            if(esA){
+                // delete *it; //borro el puntero pero nunca elimino el elemento de la lista
+                (*it)->eliminarAsignatura();
+                //roles.remove(*it);// al hacer la seguna vuelta muere
+            }
         }
     }
 }

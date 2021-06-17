@@ -271,7 +271,7 @@ void menuAsignarAsignaturaDocente(){
 
 					}
 
-					cout << "\nDesea confirmar la asigancion? (1 para si, cualquier otro numero para no)" << endl;
+					cout << "\nDesea confirmar la asignacion? (1 para si, cualquier otro numero para no)" << endl;
 					cin >> confirmar;
 
 					if(confirmar==1){
@@ -310,7 +310,7 @@ void menuInscripcionAsignatura(){
 
     while(quiereInscribirse == 0){
         string email;
-        cout << "Ingrese su email" << endl;
+        cout << "Ingrese el email del estudiante" << endl;
         cin >> email;
         while(!icaltausuario->existeUsuario(email)){
             cout << "El email no existe, coloque otro email: ";
@@ -354,7 +354,7 @@ void menuInicioClase(){
     int segundo;
 
     string email;
-    cout << "Ingrese su email: ";
+    cout << "Ingrese el email del docente: ";
     cin >> email;
 
     while(!icaltausuario->existeUsuario(email)){
@@ -426,7 +426,7 @@ void menuInicioClase(){
 		cin >> opcion;
 		if(opcion == 0){
 			icinicioclase->iniciarClase(email);
-			cout << "Clase iniciada con exito" << endl;
+			cout << "Clase iniciada con exito\nPresione enter para continuar..." << endl;
 		}else
 			icinicioclase->cancelar();
 	}
@@ -631,7 +631,7 @@ int main(){
             case 5: if(!icinicioclase->perfilesVacio() && !icinscripcionasignatura->asignaturasVacio()){
                         menuInicioClase();
                     }else{
-                        cout << "Faltan perfiles asignaturas en el sistema para ejecutar esta funcion" << endl;
+                        cout << "Faltan perfiles o asignaturas en el sistema para ejecutar esta funcion" << endl;
                     }
                     break;
             case 6: menuAsistenciaAClaseEnVivo();
@@ -643,22 +643,20 @@ int main(){
             case 9: 
                 break;
             case 10: if(!datosCargados){
-                  cargarDatosDePrueba();
-                  datosCargados = true;
-                  cout << "Datos de prueba cargados con exito." << endl;
-                }else
-                  cout << "Los datos de prueba ya fueron cargados." << endl;
+                  		cargarDatosDePrueba();
+                  		datosCargados = true;
+                  		cout << "Datos de prueba cargados con exito." << endl;
+                	}else
+                  	cout << "Los datos de prueba ya fueron cargados." << endl;
                 break;
             case 11:
                 break;
             default: cout << "Opcion invalida." << endl;
                  break;
-              }
-          cin.ignore(); //
-              menu();
-              cin >> opcion;//limpiar bufer
-          }
-
-
-     return 0;
+        }
+		cin.ignore(); //
+		menu();
+		cin >> opcion;//limpiar bufer
+    }
+    return 0;
 }

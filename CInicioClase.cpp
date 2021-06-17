@@ -61,7 +61,7 @@ void CInicioClase::iniciarClase(string email){
     ManejadorAsignatura* mA = ManejadorAsignatura::getInstancia();
     Asignatura* a = mA->find(inicioClase->getCodigo());
     string rutaVideo;
-    cout << "Ingrse una ruta de video para la clase creada: ";
+    cout << "Ingrese una ruta de video para la clase creada: ";
     cin >> rutaVideo;
     cin.ignore();
     

@@ -19,9 +19,9 @@ int DtFecha::getAnio(){
 DtFecha::~DtFecha(){}
 
 ostream& operator << (ostream& salida, const DtFecha& fecha){
-    salida << "Dia: " << fecha.dia << endl;
-    salida << "Mes: " << fecha.mes << endl;
-    salida << "Anio: " << fecha.anio;
+    salida << "Fecha: " << fecha.dia;
+    salida << "/" << fecha.mes ;
+    salida << "/" << fecha.anio;
 
     return salida;
 }
