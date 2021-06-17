@@ -22,9 +22,9 @@ class Clase{
         DtTimeStamp* fin;
         string rutaVideo;
         static int idAutogenerado;
-        Docente* docente;
+        map<string, Docente*> docentes;
         map<int, Participacion*> participaciones;
-        list<AsisteEnVivo*> asistentesEnVivo;
+        list<AsisteEnVivo*> asistentesEnVivo; 
         list<AsisteDiferido*> asistentesDiferido;
     public:
         Clase();
@@ -45,7 +45,7 @@ class Clase{
         string getRutaVideo();
 
         static int getIdAutogenerado();
-        void insertarAsistenciaEnVivo(AsisteEnVivo*);
+
 
         virtual ~Clase();
 };

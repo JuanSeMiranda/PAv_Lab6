@@ -14,10 +14,6 @@ class CInscripcionAsignatura : public ICInscripcionAsignatura{
         list<string> asignaturasNoInscripto(string);
         void selectAsignatura(string);
         void inscribir(string);
-        
-        bool perfilesVacio();
-        bool asignaturasVacio();
-        bool clasesVacio();
 
         ~CInscripcionAsignatura();
 };

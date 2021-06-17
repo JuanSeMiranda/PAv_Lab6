@@ -18,7 +18,7 @@ class DtInstanciaClase{
         bool getMonitoreo();
         ~DtInstanciaClase();
 
-        friend ostream& operator << (ostream&, const DtInstanciaClase&);
+        friend ostream& operator << (ostream&, DtInstanciaClase&);
 
 };
 

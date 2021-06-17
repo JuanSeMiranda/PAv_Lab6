@@ -11,5 +11,4 @@ class DtIniciarClaseFull : public DtIniciarClase{
         int getId();
         virtual ~DtIniciarClaseFull();
 };
-
 #endif

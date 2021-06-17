@@ -13,8 +13,9 @@ class ManejadorPerfil{
         Perfil* find(string);
         static ManejadorPerfil* getInstancia();
         bool existePerfil(string);
-        bool estaVacio();
-        map<string, Perfil*> listarPerfiles(); 
+        map<string, Perfil*> listarPerfiles();
+        //IControlador* getIControlador();
+
         ~ManejadorPerfil();
 };
 

@@ -1,4 +1,3 @@
-
 #ifndef ICINICIOCLASE
 #define ICINICIOCLASE
 #include "DtPerfil.h" // lo necesita?
@@ -13,9 +12,6 @@ class ICInicioClase{
         virtual DtIniciarClaseFull* datosIngresados()=0;
         virtual void iniciarClase(string)=0;
         virtual void cancelar()=0;
-        virtual bool perfilesVacio()=0;
-        virtual bool asignaturasVacio()=0;
-        virtual bool clasesVacio()=0;
 };
 
 #endif

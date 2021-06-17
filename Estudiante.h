@@ -1,4 +1,3 @@
-
 #ifndef ESTUDIANTE_H
 #define ESTUDIANTE_H
 #include"Perfil.h"
@@ -22,8 +21,6 @@ class Estudiante : public Perfil{
         map<string, Asignatura*> getAsignaturas();
         bool estaInscripto(string);
         void agregarAsignatura(Asignatura*);
-        list<string> asignaturaInscriptas();
-        void eliminarAsignatura(string);
 
         ~Estudiante();
 };

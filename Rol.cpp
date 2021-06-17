@@ -2,25 +2,20 @@
 
 Rol::Rol(){}
 
-Rol::Rol(TipoRol tipo, Asignatura* asignatura){
+Rol::Rol(TipoRol tipo){
     this->tipo = tipo;
-    this->asignatura=asignatura;
 }
 
 TipoRol Rol::getTipo(){
     return this->tipo;
 }
 
-void Rol::setRol(TipoRol tipo){
+void Rol::setTipo(TipoRol tipo){
     this->tipo = tipo;
 }
 
 Asignatura* Rol::getAsignatura(){
     return this->asignatura;
-}
-
-bool Rol::esAsignatura(string cod){
-    return (cod == asignatura->getCodigo());
 }
 
 void Rol::setAsignatura(Asignatura* asignatura){
@@ -29,10 +24,6 @@ void Rol::setAsignatura(Asignatura* asignatura){
 
 string Rol::getCodigoAsignatura(){
     return this->asignatura->getCodigo();
-}
-
-void Rol::eliminarAsignatura(){
-    this->asignatura = NULL;
 }
 
 Rol::~Rol(){}

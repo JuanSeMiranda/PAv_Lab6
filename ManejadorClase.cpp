@@ -25,12 +25,5 @@ bool ManejadorClase::existeClase(int id){ // cambie el argumento que era un stri
     map<int, Clase*>::iterator it;
     return this->clases.find(id) != this->clases.end();
 }
-bool ManejadorClase::estaVacio(){
-    return clases.empty();
-}
-
-void ManejadorClase::remove(int id){
-    this->clases.erase(id);
-}
 
 ManejadorClase::~ManejadorClase(){}

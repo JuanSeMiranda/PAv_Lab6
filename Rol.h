@@ -11,15 +11,14 @@ class Rol{
         Asignatura* asignatura;
     public:
         Rol();
-        Rol(TipoRol,Asignatura*);
-        TipoRol getRol();
-        void setRol(TipoRol);
+        Rol(TipoRol);
         TipoRol getTipo();
+        void setTipo(TipoRol);
         Asignatura* getAsignatura();
         void setAsignatura(Asignatura* asignatura);
+
         string getCodigoAsignatura();
-        bool esAsignatura(string);
-        void eliminarAsignatura();//exel en te 
+
         ~Rol();
 };
 

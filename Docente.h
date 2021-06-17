@@ -3,6 +3,7 @@
 #include <list>
 #include "Perfil.h"
 #include "Rol.h"
+#include "DtIniciarClase.h"
 
 class Rol;
 
@@ -16,11 +17,9 @@ class Docente : public Perfil{
         void setInstituto(string);
         string getInstituto();
         list<string> asignaturas();
-        bool noDictaAsignatura(string); 
-        void agregarAsignatura(Rol*);
         bool tieneMonitoreo(string);
         TipoRol decimeTuRol(string);
-        void eliminarAsignatura(string);
+
         ~Docente();
 };
 

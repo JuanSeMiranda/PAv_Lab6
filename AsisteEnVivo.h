@@ -8,18 +8,18 @@ class Estudiante;
 
 class AsisteEnVivo{
     private:
-        DtTimeStamp* inicio;
-        DtTimeStamp* fin;
+        DtTimeStamp inicio;
+        DtTimeStamp fin;
         Estudiante* estudiante;
     public:
         AsisteEnVivo();
-        AsisteEnVivo(DtTimeStamp*, DtTimeStamp*, Estudiante*);
+        AsisteEnVivo(DtTimeStamp, DtTimeStamp, Estudiante*);
 
-        void setInicio(DtTimeStamp*);
-        DtTimeStamp* getInicio();
+        void setInicio(DtTimeStamp);
+        DtTimeStamp getInicio();
 
-        void setFin(DtTimeStamp*);
-        DtTimeStamp* getFin();
+        void setFin(DtTimeStamp);
+        DtTimeStamp getFin();
 
         void setEstudiante(Estudiante*);
         Estudiante* getEstudiante();

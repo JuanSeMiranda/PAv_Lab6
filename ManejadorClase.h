@@ -2,8 +2,7 @@
 #define MANEJADORCLASE
 #include "Clase.h"
 #include <list>
-
-class Clase;
+#include <map>
 
 class ManejadorClase{
     private:
@@ -15,8 +14,7 @@ class ManejadorClase{
         Clase* find(int);
         static ManejadorClase* getInstancia();
         bool existeClase(int);
-        bool estaVacio();
-        void remove(int);
+        //IControlador* getIControlador();
 
         ~ManejadorClase();
 };

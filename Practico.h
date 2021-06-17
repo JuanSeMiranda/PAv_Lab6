@@ -6,6 +6,7 @@ class Practico : public Clase{
     public:
         Practico();
         Practico(int, string, DtTimeStamp*, DtTimeStamp*, string, Docente*);
+		DtInfoClase* getDtInfoPractico();
         ~Practico();
 };
 

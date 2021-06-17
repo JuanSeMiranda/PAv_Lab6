@@ -1,4 +1,3 @@
-
 #include "Estudiante.h"
 #include "ManejadorAsignatura.h"
 
@@ -30,20 +29,6 @@ bool Estudiante::estaInscripto(string codigo){
 
 void Estudiante::agregarAsignatura(Asignatura* asignatura){
     this->asignaturas.insert(std::pair<string, Asignatura*>(asignatura->getCodigo(), asignatura));
-}
-
-void Estudiante :: eliminarAsignatura(string cod){
-
-    asignaturas.erase(cod);
-}
-
-list<string> Estudiante::asignaturaInscriptas(){
-    map<string, Asignatura*>::iterator it;
-    list<string> retorno;
-    for(it = asignaturas.begin(); it != asignaturas.end(); ++it){
-        retorno.push_back(it->first);
-    }
-    return retorno;
 }
 
 Estudiante::~Estudiante(){}

@@ -7,10 +7,10 @@ class Teorico : public Clase{
         int cantAsistentes; //atributo calculado
     public:
         Teorico();
-        Teorico(int, int, string, DtTimeStamp*, DtTimeStamp*, string, Docente*);
+        Teorico(int, string, DtTimeStamp*, DtTimeStamp*, string, Docente*, int);
         void setCantAsistentes(int);
         int getCantAsistentes();
-
+        DtInfoTeorico* getDtInfoTeorico();
         ~Teorico();
 };
 

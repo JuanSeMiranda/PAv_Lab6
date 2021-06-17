@@ -20,7 +20,7 @@ bool DtInstanciaClase:: getMonitoreo(){
 
 DtInstanciaClase::~DtInstanciaClase(){}
 
-ostream& operator << (ostream& salida, const DtInstanciaClase& instanciaClase){
+ostream& operator << (ostream& salida, DtInstanciaClase& instanciaClase){
     if(instanciaClase.teorico){
         cout << "Teorico: Habilitado" << endl;
     } else{

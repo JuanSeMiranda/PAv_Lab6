@@ -19,7 +19,7 @@ class DtAsignatura{
         DtInstanciaClase* getTipoClases();
         ~DtAsignatura();
 
-        friend ostream& operator << (ostream&, const DtAsignatura&);
+        friend ostream& operator<<(ostream&, DtAsignatura&);
 
 };
 #endif
