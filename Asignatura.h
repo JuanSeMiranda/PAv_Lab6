@@ -2,8 +2,11 @@
 #define ASIGNATURA
 #include <string>
 #include <map>
+#include <list>
 #include "Clase.h"
 #include "DtInstanciaClase.h"
+#include "ManejadorClase.h"
+#include "DtInfoClase.h"
 using namespace std;
 
 class Clase;
@@ -22,6 +25,11 @@ class Asignatura{
         string getCodigo();
         string getNombre();
         DtInstanciaClase* getTipoClases();
+        void agregarClase(Clase*);
+        list<int> getClases();
+        bool tieneClases();
+        
+        map<int,DtInfoClase*> getDtInfoClase();
 
         ~Asignatura();
 };

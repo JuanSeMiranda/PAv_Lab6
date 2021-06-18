@@ -15,6 +15,12 @@ class ManejadorAsignatura{
         bool existeAsignatura(string);
         list<string> listarAsignatura();
         static ManejadorAsignatura* getInstancia();
+        bool estaVacio();
+        void destroy(string);
+        map<string, Asignatura*> getAsignaturas();
+
+        
+  
         ~ManejadorAsignatura();
 };
 

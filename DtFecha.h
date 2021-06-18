@@ -1,5 +1,8 @@
 #ifndef DTFECHA
 #define DTFECHA
+#include <iostream>
+
+using namespace std;
 
 class DtFecha{
     private:
@@ -14,5 +17,6 @@ class DtFecha{
         int getAnio();
         ~DtFecha();
         
+        friend ostream& operator <<(ostream&, const DtFecha&);
 };
 #endif

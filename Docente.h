@@ -15,10 +15,12 @@ class Docente : public Perfil{
         Docente(string,string,string,string,string);
         void setInstituto(string);
         string getInstituto();
-
-        bool noDictaAsignatura(string);//string cod //no creada /*77777777777777777777777*/
-        void agregarAsignatura(Rol*);    /*77777777777777777777777*/
-
+        list<string> asignaturas();
+        bool noDictaAsignatura(string); 
+        void agregarAsignatura(Rol*);
+        bool tieneMonitoreo(string);
+        TipoRol decimeTuRol(string);
+        void eliminarAsignatura(string);
         ~Docente();
 };
 
