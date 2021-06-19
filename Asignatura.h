@@ -7,6 +7,10 @@
 #include "DtInstanciaClase.h"
 #include "ManejadorClase.h"
 #include "DtInfoClase.h"
+#include "Teorico.h"
+#include "Practico.h"
+#include "Monitoreo.h"
+
 using namespace std;
 
 class Clase;

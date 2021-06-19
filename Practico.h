@@ -3,7 +3,6 @@
 #include "Clase.h"
 
 
-
 class Practico : public Clase{
     public:
         Practico();

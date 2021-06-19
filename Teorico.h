@@ -2,16 +2,15 @@
 #define TEORICO_H
 #include "Clase.h"
 
-
 class Teorico : public Clase{
-    protected:
+    private:
         int cantAsistentes; //atributo calculado
     public:
         Teorico();
-        Teorico(int, int, string, DtTimeStamp*, DtTimeStamp*, string, Docente*);
+        Teorico(int, string, DtTimeStamp*, DtTimeStamp*, string, Docente*, int);
         void setCantAsistentes(int);
         int getCantAsistentes();
-        DtInfoClase* getDtInfoTeorico();
+        DtInfoTeorico* getDtInfoTeorico();
         void agregarAsistente();
 
         ~Teorico();

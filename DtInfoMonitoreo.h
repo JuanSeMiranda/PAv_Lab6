@@ -1,5 +1,5 @@
-#ifndef DTINFOTEORICO //que carajos pasa aca que se pone como opaco?
-#define DTINFOTEORICO
+#ifndef DTINFOMONITOREO
+#define DTINFOMONITOREO
 #include "DtInfoClase.h"
 #include <string>
 #include <list>

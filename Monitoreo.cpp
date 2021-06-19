@@ -11,13 +11,12 @@ Monitoreo::Monitoreo(int id, string nombre, DtTimeStamp* inicio,  DtTimeStamp* f
     }
 }
 
-DtInfoClase* Monitoreo:: getDtInfoMonitoreo(){
-	//la funcion esta bien, solo que pasa algo raro en DtInfoMonitoreo.h
-	map<string, Estudiante*>::iterator it2;
-	DtInfoClase* retorno = new DtInfoMonitoreo(this->getId(), this->getNombre(), this->getDocente());
+DtInfoMonitoreo* Monitoreo:: getDtInfoMonitoreo(){
+	map<string, Estudiante*>::iterator it1;
+	DtInfoMonitoreo* retorno = new DtInfoMonitoreo(this->getId(), this->getNombre(), this->getDocente());
 
-	for (it2 = this->estudiantes.begin(); it2 != this->estudiantes.end(); it2++){
-		retorno->agregarEstudiante((*it2)->getEmail());
+	for (it1 = this->estudiantes.begin(); it1 != this->estudiantes.end(); it1++){
+		retorno->agregarEstudiante((*it1).second->getEmail());
 	}
 	return retorno;
 }

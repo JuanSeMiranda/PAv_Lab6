@@ -52,13 +52,13 @@ map<int, DtInfoClase*> Asignatura:: getDtInfoClase(){
     map<int, DtInfoClase*> retorno;
 
 	for (it = this->clases.begin(); it != this->clases.end(); ++it){
-        if(Teorico* t = dynamic_cast<Teorico*>((*it)->second)){
+        if(Teorico* t = dynamic_cast<Teorico*>((*it).second)){
             DtInfoTeorico* dtit = t->getDtInfoTeorico();
             retorno.insert(std::pair<int, DtInfoClase*>(dtit->getId(), dtit));
 
-        }else if(Monitoreo* m = dynamic_cast<Monitoreo*>((*it)->second))){
-                DtInfoMonitoreo* dtim = m->getDtInfoMonitoreo();
-                retorno.insert(std::pair<int, DtInfoClase*>(dtim->getId(), dtim));
+        }else if(Monitoreo* m = dynamic_cast<Monitoreo*>((*it).second)){
+            DtInfoMonitoreo* dtim = m->getDtInfoMonitoreo();
+            retorno.insert(std::pair<int, DtInfoClase*>(dtim->getId(), dtim));
                 
         }else{
             DtInfoClase* dtic = (*it).second->getDtInfoClase();

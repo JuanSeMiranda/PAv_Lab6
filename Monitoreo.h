@@ -10,7 +10,7 @@ class Monitoreo : public Clase{
     public:
         Monitoreo();
         Monitoreo(int, string, DtTimeStamp*, DtTimeStamp*, string, Docente*, list<string>);
-        DtInfoClase* getDtInfoMonitoreo();
+        DtInfoMonitoreo* getDtInfoMonitoreo();
 
         ~Monitoreo();
 };
