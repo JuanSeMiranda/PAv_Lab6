@@ -11,15 +11,14 @@ class DtInfoClase{
     private:
         int id;
         string nombre;
-        Docente* docentes;
-
+        Docente* docente;
     public:
         DtInfoClase();
         DtInfoClase(int, string, Docente*);
         int getId();
         string getNombre();
 
-        void agregarDocente(Docente*);//talves no va
+        //void agregarDocente(Docente*);//talves no va; efectivamente no va
         ~DtInfoClase();
 
 };

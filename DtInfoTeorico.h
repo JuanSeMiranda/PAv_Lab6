@@ -10,10 +10,9 @@ class DtInfoTeorico: public DtInfoClase{
 
     private:
         int cantAsistentes;
-
     public:
         DtInfoTeorico();
-        DtInfoTeorico(int, string, int);
+        DtInfoTeorico(int, string, Docente*, int);
         int getCantAsistentes();
         ~DtInfoTeorico();
 

@@ -11,6 +11,7 @@ class Monitoreo : public Clase{
         Monitoreo();
         Monitoreo(int, string, DtTimeStamp*, DtTimeStamp*, string, Docente*, list<string>);
         DtInfoClase* getDtInfoMonitoreo();
+
         ~Monitoreo();
 };
 

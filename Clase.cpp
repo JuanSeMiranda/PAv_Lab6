@@ -81,8 +81,12 @@ bool Clase::participaEstudiante(Estudiante* est){
 DtInfoClase* Clase::getDtInfoClase(){
     list<string> docentes;
     docentes.push_back(this->docente->getEmail());
-    DtInfoClase* dtif = new DtInfoClase(this->id, this->nombre, docentes);
+    DtInfoClase* dtif = new DtInfoClase(this->id, this->nombre, this->docente);
     return dtif;
+}
+
+list<AsisteEnVivo*> Clase:: getAsistentesEnVivo(){
+    return this->asistentesEnVivo;
 }
 
 Clase::~Clase(){

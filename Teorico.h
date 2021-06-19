@@ -3,8 +3,6 @@
 #include "Clase.h"
 
 
-
-
 class Teorico : public Clase{
     protected:
         int cantAsistentes; //atributo calculado
@@ -13,7 +11,7 @@ class Teorico : public Clase{
         Teorico(int, int, string, DtTimeStamp*, DtTimeStamp*, string, Docente*);
         void setCantAsistentes(int);
         int getCantAsistentes();
-        DtInfoTeorico* getDtInfoTeorico();
+        DtInfoClase* getDtInfoTeorico();
         void agregarAsistente();
 
         ~Teorico();

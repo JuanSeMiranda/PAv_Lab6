@@ -3,7 +3,7 @@
 
 DtInfoTeorico::DtInfoTeorico(){}
 
-DtInfoTeorico::DtInfoTeorico(int id, string nombre, int cantAsistentes):DtInfoClase(id, nombre){
+DtInfoTeorico::DtInfoTeorico(int id, string nombre, Docente* docente, int cantAsistentes):DtInfoClase(id, nombre, docente){
     this->cantAsistentes=cantAsistentes;
 }
 

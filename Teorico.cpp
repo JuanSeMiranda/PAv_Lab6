@@ -11,26 +11,20 @@ void Teorico::setCantAsistentes(int cantAsistentes){
 }
 
 int Teorico::getCantAsistentes(){
-    int cantAsistentes = this->asistentesEnVivo.size();//es mas facil que iterar por toda la lista y contar
-    return cantAsistentes;
+    int cAsistentes = this->getAsistentesEnVivo().size();//es mas facil que iterar por toda la lista y contar
+    return cAsistentes;
 }
 
-DtInfoTeorico* Teorico :: getDtInfoTeorico(){
-
+DtInfoClase* Teorico :: getDtInfoTeorico(){
 	int cantidadA=0;
-	map<string, Docente*>:: iterator it1;
-	list<string>::iterator it2;
+	list<AsisteEnVivo*>::iterator it2;
 		
-	for (it2 = this->asistentesEnVivo.begin(); it1 != this->asistentesEnVivo.end(); it2++){
+	for (it2 = this->getAsistentesEnVivo().begin(); it2 != this->getAsistentesEnVivo().end(); it2++){
 		cantidadA++;
 	}
-	DtInfoClase* retorno= new DtInfoTeorico(this->getId(), this->getNombre(),cantidadA);
-
-	for (it1 = this->docentes.begin(); i != this->docentes.end(); it1++){
-		retorno->agregarDocente((*it1)->getEmail());
-	}
+	DtInfoTeorico* retorno= new DtInfoTeorico(this->getId(), this->getNombre(), this->getDocente(), cantidadA);
+	
 	return retorno;
-
 }
 
 void Teorico::agregarAsistente(){

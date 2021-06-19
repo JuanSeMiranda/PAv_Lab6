@@ -54,6 +54,8 @@ class Clase{
         bool participaEstudiante(Estudiante*);
 
         DtInfoClase* getDtInfoClase();
+        
+        list<AsisteEnVivo*> getAsistentesEnVivo();
 
         virtual ~Clase();
 };
