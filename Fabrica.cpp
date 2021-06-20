@@ -35,11 +35,6 @@ ICInscripcionAsignatura* Fabrica::getCInscripcionAsignatura(){
     return cia;
 }
 
-ICEnvioDeMensaje* Fabrica::getCEnvioDeMensaje(){
-    CEnvioDeMensaje* cem = new CEnvioDeMensaje();
-    return cem;
-}
-
 ICListadoClases* Fabrica::getCListadoClases(){
     CListadoClases* clc = new CListadoClases();
     return clc;

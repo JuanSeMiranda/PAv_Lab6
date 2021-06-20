@@ -25,16 +25,6 @@ bool ManejadorClase::existeClase(int id){ // cambie el argumento que era un stri
     map<int, Clase*>::iterator it;
     return this->clases.find(id) != this->clases.end();
 }
-map<int, Clase*> ManejadorClase::listarClases(){
-    map<int, Clase*>:: iterator it;
-    map<int, Clase*> retorno;
-
-    for(it= this->clases.begin(); it!=this->clases.end(); it++){
-        retorno.insert(std::pair<int, Clase*>(it->first, it->second));
-    }
-    return retorno;
-}
-
 bool ManejadorClase::estaVacio(){
     return clases.empty();
 }

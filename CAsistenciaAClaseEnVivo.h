@@ -2,7 +2,6 @@
 #define CASISTENCIAACLASEENVIVO
 #include "DtAsistir.h"
 #include "ICAsistenciaAClaseEnVivo.h"
-#include "Teorico.h"
 #include <string>
 #include <iostream>
 #include <list>
@@ -29,7 +28,7 @@ class CAsistenciaAClaseEnVivo: public ICAsistenciaAClaseEnVivo{
         bool perfilesVacio();
         bool asignaturasVacio();
         bool clasesVacio();
-        bool asignaturaTieneClases(string);
+        bool asignaturaNoTieneClases(string);
 
         ~CAsistenciaAClaseEnVivo();
 };

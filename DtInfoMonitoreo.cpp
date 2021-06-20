@@ -8,4 +8,13 @@ void DtInfoMonitoreo:: agregarEstudiante(string email){
 	this->estudiantes.push_back(email);
 }
 
+ostream& operator << (ostream& salida, DtInfoMonitoreo& dtim){
+    list<string>::iterator it;
+    salida << "Estudiantes habilitados:" << endl;
+    for(it = dtim.estudiantes.begin(); it != dtim.estudiantes.end(); it++){
+		salida << *it << endl;
+    }
+    return salida;
+}
+
 DtInfoMonitoreo::~DtInfoMonitoreo(){}

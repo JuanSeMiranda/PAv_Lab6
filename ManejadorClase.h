@@ -14,7 +14,6 @@ class ManejadorClase{
         void add(Clase*);
         Clase* find(int);
         static ManejadorClase* getInstancia();
-        map<int, Clase*> listarClases();
         bool existeClase(int);
         bool estaVacio();
         void remove(int);

@@ -2,7 +2,7 @@
 
 Teorico::Teorico(){}
 
-Teorico::Teorico(int id, string nombre, DtTimeStamp* inicio, DtTimeStamp* fin, string rutaVideo, Docente* docente, int cantAsistentes) : Clase(id, nombre, inicio, fin, rutaVideo, docente){
+Teorico::Teorico(int cantAsistentes, int id, string nombre, DtTimeStamp* inicio, DtTimeStamp* fin, string rutaVideo, Docente* docente) : Clase(id, nombre, inicio, fin, rutaVideo, docente){
     this->cantAsistentes = cantAsistentes;
 }
 
@@ -11,11 +11,10 @@ void Teorico::setCantAsistentes(int cantAsistentes){
 }
 
 int Teorico::getCantAsistentes(){
-    int cAsistentes = this->getAsistentesEnVivo().size();//es mas facil que iterar por toda la lista y contar
-    return cAsistentes;
+    return this->cantAsistentes;
 }
 
-DtInfoTeorico* Teorico::getDtInfoTeorico(){
+DtInfoTeorico* Teorico::getDtInfoClase(){
 	int cantidadA=0;
 	list<AsisteEnVivo*>::iterator it2;
 		
@@ -25,10 +24,6 @@ DtInfoTeorico* Teorico::getDtInfoTeorico(){
 	DtInfoTeorico* retorno= new DtInfoTeorico(this->getId(), this->getNombre(), this->getDocente(), cantidadA);
 	
 	return retorno;
-}
-
-void Teorico::agregarAsistente(){
-    this->cantAsistentes++;
 }
 
 Teorico::~Teorico(){}

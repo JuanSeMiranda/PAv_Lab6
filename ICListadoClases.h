@@ -8,7 +8,7 @@ using namespace std;
 
 class ICListadoClases{
     public:
-        virtual list<string> asignaturasAsignadas()=0;
+        virtual list<string> asignaturasAsignadas(string)=0;
         virtual map<int, DtInfoClase*> selectAsignatura(string)=0;
 };
 

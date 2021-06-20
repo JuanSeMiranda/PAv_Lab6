@@ -6,6 +6,8 @@
 
 using namespace std;
 
+class Docente;
+
 class DtInfoTeorico: public DtInfoClase{
 
     private:
@@ -15,6 +17,8 @@ class DtInfoTeorico: public DtInfoClase{
         DtInfoTeorico(int, string, Docente*, int);
         int getCantAsistentes();
         ~DtInfoTeorico();
+
+        friend ostream& operator << (ostream&, const DtInfoTeorico&);
 
 };
 

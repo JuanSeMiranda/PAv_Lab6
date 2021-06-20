@@ -71,11 +71,8 @@ void CAsistenciaAClaseEnVivo::asistirClaseEnVivo(){
     ManejadorClase* mC = ManejadorClase::getInstancia();
     Clase* c = mC->find(id);
 
-    if(Teorico* t = dynamic_cast<Teorico*>(c)){ //si es teorico le agrego un asistente
-        t->agregarAsistente();
-    }
-
     c->insertarAsistenciaEnVivo(aev);
+    
 }
 
 void CAsistenciaAClaseEnVivo::cancelar(){
@@ -127,10 +124,14 @@ bool CAsistenciaAClaseEnVivo::clasesVacio(){
     return mC->estaVacio();
 }
 
-bool CAsistenciaAClaseEnVivo::asignaturaTieneClases(string cod){
+bool CAsistenciaAClaseEnVivo::asignaturaNoTieneClases(string cod){
     ManejadorAsignatura* mA = ManejadorAsignatura::getInstancia();
-    Asignatura* a = mA->find(cod);
-    return a->tieneClases();
+    if(Asignatura* a = mA->find(cod)){
+        return a->noTieneClases();
+    }
+    else{
+        return false;
+    }
 }
 
 CAsistenciaAClaseEnVivo::~CAsistenciaAClaseEnVivo(){}

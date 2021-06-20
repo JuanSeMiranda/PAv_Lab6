@@ -6,6 +6,7 @@
 
 class Rol;
 
+
 class Docente : public Perfil{
     private:
         string instituto;

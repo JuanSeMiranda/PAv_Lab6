@@ -3,9 +3,10 @@
 #include "Docente.h"
 #include <string>
 
-using namespace std;
-
 class Docente;
+class Clase;
+
+using namespace std;
 
 class DtInfoClase{
     private:
@@ -17,9 +18,11 @@ class DtInfoClase{
         DtInfoClase(int, string, Docente*);
         int getId();
         string getNombre();
+        Docente* getDocente();
 
-        //void agregarDocente(Docente*);//talves no va; efectivamente no va
-        ~DtInfoClase();
+        friend ostream& operator << (ostream&, const DtInfoClase&);
+
+        virtual ~DtInfoClase();
 
 };
 

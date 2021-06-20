@@ -2,9 +2,9 @@
 #define CLISTADOCLASES
 #include "DtInfoClase.h"
 #include "ManejadorAsignatura.h"
+#include "ManejadorPerfil.h"
 #include "Asignatura.h"
 #include "ICListadoClases.h"
-#include "ManejadorPerfil.h"
 #include <string>
 #include <iostream>
 #include <list>

@@ -58,31 +58,16 @@ string Clase::getRutaVideo(){
     return this->rutaVideo;
 }
 
-void Clase::insertarAsistenciaEnVivo(AsisteEnVivo* aev){
-    asistentesEnVivo.push_back(aev);
+void Clase::setDocente(Docente* docente){
+    this->docente = docente;
 }
 
 Docente* Clase::getDocente(){
     return this->docente;
 }
 
-bool Clase::participaEstudiante(Estudiante* est){
-    bool retorno = false;
-    list<AsisteEnVivo*>::iterator it = asistentesEnVivo.begin();
-
-    while(!retorno && (it != asistentesEnVivo.end())){
-        it++;
-        if((*it)->getEstudiante() == est)
-            retorno = true;
-    }
-    return retorno;
-}
-
-DtInfoClase* Clase::getDtInfoClase(){
-    list<string> docentes;
-    docentes.push_back(this->docente->getEmail());
-    DtInfoClase* dtif = new DtInfoClase(this->id, this->nombre, this->docente);
-    return dtif;
+void Clase::insertarAsistenciaEnVivo(AsisteEnVivo* aev){
+    asistentesEnVivo.push_back(aev);
 }
 
 list<AsisteEnVivo*> Clase:: getAsistentesEnVivo(){

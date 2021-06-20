@@ -5,7 +5,7 @@ CListadoClases::CListadoClases(){}
 list<string> CListadoClases::asignaturasAsignadas(string email){
     ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
     Perfil* p = mP->find(email);
-    list<string> retorno = NULL;
+    list<string> retorno;
 
     if(Docente* d = dynamic_cast<Docente*>(p)){
         retorno = d->asignaturas();

@@ -7,13 +7,18 @@
 #include "DtInstanciaClase.h"
 #include "ManejadorClase.h"
 #include "DtInfoClase.h"
-#include "Teorico.h"
-#include "Practico.h"
-#include "Monitoreo.h"
+
+//#include "Teorico.h"
+//#include "Practico.h"
+//#include "Monitoreo.h"
+
+//#include "DtInfoTeorico.h"
+//#include "DtInfoMonitoreo.h"
 
 using namespace std;
 
 class Clase;
+class DtInfoClase;
 
 class Asignatura{
     private:
@@ -31,10 +36,9 @@ class Asignatura{
         DtInstanciaClase* getTipoClases();
         void agregarClase(Clase*);
         list<int> getClases();
-        bool tieneClases();
-        
+        bool noTieneClases();
         map<int,DtInfoClase*> getDtInfoClase();
-
+        
         ~Asignatura();
 };
 

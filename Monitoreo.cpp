@@ -11,7 +11,7 @@ Monitoreo::Monitoreo(int id, string nombre, DtTimeStamp* inicio,  DtTimeStamp* f
     }
 }
 
-DtInfoMonitoreo* Monitoreo:: getDtInfoMonitoreo(){
+DtInfoMonitoreo* Monitoreo:: getDtInfoClase(){
 	map<string, Estudiante*>::iterator it1;
 	DtInfoMonitoreo* retorno = new DtInfoMonitoreo(this->getId(), this->getNombre(), this->getDocente());
 

@@ -7,9 +7,7 @@
 #include "Participacion.h"
 #include "AsisteEnVivo.h"
 #include "AsisteDiferido.h"
-#include "DtInfoTeorico.h"
 #include "DtInfoClase.h"
-#include "DtInfoMonitoreo.h"
 
 using namespace std;
 
@@ -47,14 +45,12 @@ class Clase{
         void setRutaVideo(string);
         string getRutaVideo();
 
+        void setDocente(Docente*);
+        Docente* getDocente();
+
         static int getIdAutogenerado();
         void insertarAsistenciaEnVivo(AsisteEnVivo*);
 
-        Docente* getDocente();
-        bool participaEstudiante(Estudiante*);
-
-        DtInfoClase* getDtInfoClase();
-        
         list<AsisteEnVivo*> getAsistentesEnVivo();
 
         virtual ~Clase();

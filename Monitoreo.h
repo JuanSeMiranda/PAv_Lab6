@@ -3,6 +3,10 @@
 #include "Clase.h"
 #include "Estudiante.h"
 #include "ManejadorPerfil.h"
+#include "DtInfoMonitoreo.h"
+
+class Asignatura;
+
 
 class Monitoreo : public Clase{
     private:
@@ -10,9 +14,9 @@ class Monitoreo : public Clase{
     public:
         Monitoreo();
         Monitoreo(int, string, DtTimeStamp*, DtTimeStamp*, string, Docente*, list<string>);
-        DtInfoMonitoreo* getDtInfoMonitoreo();
-
         ~Monitoreo();
+
+        DtInfoMonitoreo* getDtInfoClase();
 };
 
 #endif
