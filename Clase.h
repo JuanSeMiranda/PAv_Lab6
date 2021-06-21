@@ -7,6 +7,7 @@
 #include "Participacion.h"
 #include "AsisteEnVivo.h"
 #include "AsisteDiferido.h"
+#include "DtParticipacion.h"
 #include "DtInfoClase.h"
 
 using namespace std;
@@ -32,26 +33,23 @@ class Clase{
         Clase(int, string, DtTimeStamp*, DtTimeStamp*, string, Docente*);
         void setId(int);
         int getId();
-
         void setNombre(string);
         string getNombre();
-
         void setInicio(DtTimeStamp*);
         DtTimeStamp* getInicio();
-
         void setFin(DtTimeStamp*);
         DtTimeStamp* getFin();
-
         void setRutaVideo(string);
         string getRutaVideo();
-
         void setDocente(Docente*);
         Docente* getDocente();
-
         static int getIdAutogenerado();
         void insertarAsistenciaEnVivo(AsisteEnVivo*);
-
+        bool participaEstudiante(Estudiante*);
+        list<DtParticipacion*> getParticipaciones();
+        void addParticipacion(Participacion*);
         list<AsisteEnVivo*> getAsistentesEnVivo();
+        Participacion* findParticipacion(int);
 
         virtual ~Clase();
 };

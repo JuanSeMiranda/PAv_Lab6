@@ -17,6 +17,7 @@ class ManejadorClase{
         bool existeClase(int);
         bool estaVacio();
         void remove(int);
+        map<int, Clase*>obtenerClases();
 
         ~ManejadorClase();
 };

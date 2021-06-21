@@ -41,7 +41,9 @@ list<string> Estudiante::asignaturaInscriptas(){
     map<string, Asignatura*>::iterator it;
     list<string> retorno;
     for(it = asignaturas.begin(); it != asignaturas.end(); ++it){
-        retorno.push_back(it->first);
+        if((*it).second != NULL){
+            retorno.push_back(it->first);
+        }
     }
     return retorno;
 }

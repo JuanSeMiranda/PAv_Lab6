@@ -48,6 +48,9 @@ bool ManejadorAsignatura::estaVacio(){
 }
 
 void ManejadorAsignatura::destroy(string cod){
+    //habria que destruir la clase y las participaciones, y los asiste en vivo y diferido
+    Asignatura* a = asignaturas.find(cod)->second;
+    a->~Asignatura();// solucion al error
     asignaturas.erase(cod);
 }
 

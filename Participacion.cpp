@@ -1,8 +1,16 @@
 #include "Participacion.h"
 
+int Participacion:: idAutogenerado = 1;
+
+int Participacion:: getIdAutogenerado(){
+    return idAutogenerado;
+}
+
 Participacion::Participacion(){}
-Participacion::Participacion(int id, DtTimeStamp fecha, string mensaje, Participacion* enRespuestaA, Perfil* perfil){
-    this->id = id;
+
+Participacion::Participacion(int id, DtTimeStamp* fecha, string mensaje, Participacion* enRespuestaA, Perfil* perfil){
+    this->id = idAutogenerado;
+    idAutogenerado ++;
     this->fecha = fecha;
     this->mensaje = mensaje;
     this->enRespuestaA = enRespuestaA;
@@ -17,10 +25,10 @@ int Participacion::getId(){
     return this->id;
 }
 
-void Participacion::setFecha(DtTimeStamp fecha){
+void Participacion::setFecha(DtTimeStamp* fecha){
     this->fecha = fecha;
 }
-DtTimeStamp Participacion::getFecha(){
+DtTimeStamp* Participacion::getFecha(){
     return this->fecha;
 }
 
@@ -44,6 +52,14 @@ void Participacion::setPerfil(Perfil* perfil){
 
 Perfil* Participacion::getPerfil(){
     return this->perfil;
+}
+
+DtParticipacion* Participacion:: getDtRespuesta(){
+        DtParticipacion* dtp = new DtParticipacion (enRespuestaA->getId(),
+                                                    enRespuestaA->getFecha(), 
+                                                    enRespuestaA->getMensaje(),
+                                                    NULL);
+        return dtp;
 }
 
 Participacion::~Participacion(){}

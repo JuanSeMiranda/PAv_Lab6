@@ -6,7 +6,7 @@ OBJS = main.o Perfil.o Estudiante.o Docente.o DtTimeStamp.o DtFecha.o DtLog.o \
 	   DtAsignatura.o DtInstanciaClase.o ManejadorAsignatura.o CAltaAsignatura.o DtAsistir.o\
 	   CAsistenciaAClaseEnVivo.o ManejadorClase.o CAsignarAsignaturaDocente.o\
 	   DtIniciarMonitoreo.o CEliminarAsignatura.o CInscripcionAsignatura.o DtInfoClase.o DtInfoTeorico.o\
-	   DtInfoMonitoreo.o CListadoClases.o
+	   DtInfoMonitoreo.o CListadoClases.o CEnvioDeMensaje.o DtParticipacion.o
 
 
 main: $(OBJS)

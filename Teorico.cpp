@@ -17,9 +17,12 @@ int Teorico::getCantAsistentes(){
 DtInfoTeorico* Teorico::getDtInfoClase(){
 	int cantidadA=0;
 	list<AsisteEnVivo*>::iterator it2;
+	list<AsisteEnVivo*> aux = this->getAsistentesEnVivo(); // chancla para el Dalto
 		
-	for (it2 = this->getAsistentesEnVivo().begin(); it2 != this->getAsistentesEnVivo().end(); it2++){
-		cantidadA++;
+	for (it2 = aux.begin(); it2 != aux.end(); it2++){
+		if((*it2) != NULL){
+			cantidadA++;
+		}
 	}
 	DtInfoTeorico* retorno= new DtInfoTeorico(this->getId(), this->getNombre(), this->getDocente(), cantidadA);
 	

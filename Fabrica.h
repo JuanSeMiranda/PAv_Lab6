@@ -7,6 +7,7 @@
 #include "CEliminarAsignatura.h"
 #include "CInicioClase.h"
 #include "CInscripcionAsignatura.h"
+#include "CEnvioDeMensaje.h"
 #include "CListadoClases.h"
 
 class Fabrica{
@@ -18,6 +19,7 @@ class Fabrica{
         ICEliminarAsignatura* getCEliminarAsignatura();
         ICInicioClase* getCInicioClase();
         ICInscripcionAsignatura* getCInscripcionAsignatura();
+        ICEnvioDeMensaje* getCEnvioDeMensaje();
         ICListadoClases* getCListadoClases();
 };
 

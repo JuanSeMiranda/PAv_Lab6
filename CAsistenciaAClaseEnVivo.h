@@ -11,6 +11,7 @@ using namespace std;
 class CAsistenciaAClaseEnVivo: public ICAsistenciaAClaseEnVivo{
     private:
         string cod;
+        string email;
         int id;
     public:
         CAsistenciaAClaseEnVivo();
@@ -29,6 +30,7 @@ class CAsistenciaAClaseEnVivo: public ICAsistenciaAClaseEnVivo{
         bool asignaturasVacio();
         bool clasesVacio();
         bool asignaturaNoTieneClases(string);
+        bool estaInscripto(string, string);
 
         ~CAsistenciaAClaseEnVivo();
 };

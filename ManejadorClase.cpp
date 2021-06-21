@@ -29,8 +29,13 @@ bool ManejadorClase::estaVacio(){
     return clases.empty();
 }
 
+map<int, Clase*> ManejadorClase::obtenerClases(){
+    return clases;
+}
+
 void ManejadorClase::remove(int id){
-    this->clases.erase(id);
+    map<int, Clase*>::iterator it = clases.find(id);
+    this->clases.erase(it);//tercer parte solucion
 }
 
 ManejadorClase::~ManejadorClase(){}

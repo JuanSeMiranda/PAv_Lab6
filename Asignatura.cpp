@@ -36,7 +36,9 @@ list<int> Asignatura::getClases(){
     map<int, Clase*> ::iterator it;
     list<int> retorno;
     for(it = clases.begin(); it != clases.end(); ++it){
-        retorno.push_back(it->first);   
+        if((*it).second != NULL){
+            retorno.push_back(it->first); 
+        }
     }
     return retorno;
 }
@@ -55,19 +57,21 @@ map<int, DtInfoClase*> Asignatura:: getDtInfoClase(){
     map<int, DtInfoClase*> retorno;
 
 	for (it = this->clases.begin(); it != this->clases.end(); ++it){
-        if(Teorico* t = dynamic_cast<Teorico*>((*it).second)){
+        if((*it).second != NULL){
+            if(Teorico* t = dynamic_cast<Teorico*>((*it).second)){
             DtInfoTeorico* dtit = t->getDtInfoClase();
             retorno.insert(std::pair<int, DtInfoClase*>(dtit->getId(), dtit));
 
-        }else if(Monitoreo* m = dynamic_cast<Monitoreo*>((*it).second)){
-            DtInfoMonitoreo* dtim = m->getDtInfoClase();
-            retorno.insert(std::pair<int, DtInfoClase*>(dtim->getId(), dtim));
-                
-        }else if(Practico* p = dynamic_cast<Practico*>((*it).second)){
-            DtInfoClase* dtic = p->getDtInfoClase();
-            retorno.insert(std::pair<int, DtInfoClase*>(dtic->getId(), dtic));
-
+            }else if(Monitoreo* m = dynamic_cast<Monitoreo*>((*it).second)){
+                DtInfoMonitoreo* dtim = m->getDtInfoClase();
+                retorno.insert(std::pair<int, DtInfoClase*>(dtim->getId(), dtim));
+                    
+            }else if(Practico* p = dynamic_cast<Practico*>((*it).second)){
+                DtInfoClase* dtic = p->getDtInfoClase();
+                retorno.insert(std::pair<int, DtInfoClase*>(dtic->getId(), dtic));
+            }
         }
+        
 	}
 
     return retorno;
@@ -78,8 +82,9 @@ Asignatura::~Asignatura(){
     ManejadorClase* mC= ManejadorClase::getInstancia();
     map<int, Clase*>::iterator it;
     for(it = this->clases.begin(); it != this->clases.end(); ++it){
-        int id= it->first;
-        this->clases.erase(id);
+        delete it->second;// segunda parte solucion error
+        int id= it->first;// tambien
         mC->remove(id);
     }
+    clases.clear();//tambien
 }

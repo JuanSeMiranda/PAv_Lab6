@@ -10,6 +10,7 @@
 CAsistenciaAClaseEnVivo::CAsistenciaAClaseEnVivo(){}
 
 list<string> CAsistenciaAClaseEnVivo::asignaturasInscripto(string email){
+    this->email = email;
     ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
     Perfil* p = mP->find(email);
     Estudiante* e = dynamic_cast<Estudiante*>(p);
@@ -31,7 +32,7 @@ DtAsistir* CAsistenciaAClaseEnVivo::selectClase(int id){
 
 void CAsistenciaAClaseEnVivo::asistirClaseEnVivo(){
     ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
-    Perfil* p = mP->find(cod);
+    Perfil* p = mP->find(email);//chancletaZo para Ramos@aguas
     Estudiante* e = dynamic_cast<Estudiante*>(p);
 
     time_t tiempo = time(NULL);//variables donde guardo el valor de la funcion time. 
@@ -132,6 +133,24 @@ bool CAsistenciaAClaseEnVivo::asignaturaNoTieneClases(string cod){
     else{
         return false;
     }
+}
+
+bool CAsistenciaAClaseEnVivo::estaInscripto(string email, string codAsig){
+    ManejadorPerfil* mP = ManejadorPerfil::getInstancia();
+    Perfil* p = mP->find(email);
+    Estudiante* e = dynamic_cast<Estudiante*>(p);
+
+    bool encontrado = false;
+    list<string> aux = e->asignaturaInscriptas();
+    list<string>::iterator it = aux.begin();
+    
+    while(it != aux.end() && !encontrado){
+        if((*it) == codAsig){
+            encontrado = true;
+        }
+        ++it;
+    }
+    return encontrado;
 }
 
 CAsistenciaAClaseEnVivo::~CAsistenciaAClaseEnVivo(){}

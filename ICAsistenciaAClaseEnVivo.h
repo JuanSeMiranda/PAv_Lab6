@@ -20,6 +20,7 @@ class ICAsistenciaAClaseEnVivo{
         virtual bool asignaturasVacio()=0;
         virtual bool clasesVacio()=0;
         virtual bool asignaturaNoTieneClases(string)=0;
+        virtual bool estaInscripto(string, string)=0;
 
 };
 
