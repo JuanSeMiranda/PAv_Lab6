@@ -408,6 +408,7 @@ void menuInicioClase(){
 		bool deMonitoreo = icinicioclase->selectAsignatura(dtic, email);
 		if(deMonitoreo){
 			list<string> estudiantesInscriptos = icinicioclase->inscriptosAsignaturas();
+			cout << "\nEstudiantes inscriptos: " << endl;
 			for(it = estudiantesInscriptos.begin(); it != estudiantesInscriptos.end(); it++){
 				cout << *it << endl;
 			}
@@ -489,7 +490,7 @@ void menuAsistenciaAClaseEnVivo(){
 						cin >> id;
 
 						while(!icasistenciaaclaseenvivo->existeClase(id)){
-							cout << "El codigo ingresado no existe, ingrese otro codigo." << endl;
+							cout << "La ID ingresada no existe, ingrese otra ID." << endl;
 							cin >> cod;
 						}
 

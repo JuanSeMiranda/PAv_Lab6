@@ -25,7 +25,14 @@ map<string, Asignatura*> Estudiante::getAsignaturas(){
 
 bool Estudiante::estaInscripto(string codigo){
     map<string, Asignatura*>::iterator it;
-    return this->asignaturas.find(codigo) != this->asignaturas.end();
+    bool inscripto = false;
+    //return this->asignaturas.find(codigo) != this->asignaturas.end();
+    for(it = this->asignaturas.begin(); it != this->asignaturas.end(); ++it){
+        if(it->first == codigo){
+            inscripto = true;
+        }
+    }
+    return inscripto;
 }
 
 void Estudiante::agregarAsignatura(Asignatura* asignatura){
